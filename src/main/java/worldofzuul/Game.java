@@ -97,13 +97,18 @@ public class Game
 
         }
         else if (commandWord == CommandWord.SORT){
-
+            if(!currentRoom.getShortDescription().equals("at the recycling plant")){
+                System.out.println("You are not at the recycling plant, so you can't sort items.");
+            }
         }
         else if (commandWord == CommandWord.INVENTORY){
 
         }
         else if (commandWord == CommandWord.PLACE){
 
+        }
+        else if (commandWord == CommandWord.SCORE){
+            player.CheckKlimaindsats();
         }
         return wantToQuit;
     }
