@@ -1,42 +1,53 @@
 package worldofzuul;
 
-public class Game 
+import dk.sdu.mmmi.t3.g1.Player;
+
+public class Game
 {
     private Parser parser;
     private Room currentRoom;
-        
+    private Player player;
 
     public Game() 
     {
         createRooms();
         parser = new Parser();
+        player = new Player();
     }
 
 
     private void createRooms()
     {
-        Room outside, theatre, pub, lab, office;
+        Room house, park, shop, road, parking, beach, recycling;
       
-        outside = new Room("outside the main entrance of the university");
-        theatre = new Room("in a lecture theatre");
-        pub = new Room("in the campus pub");
-        lab = new Room("in a computing lab");
-        office = new Room("in the computing admin office");
+        house = new Room("at your home");
+        park = new Room("in a park");
+        shop = new Room("in Neto");
+        road = new Room("on the road");
+        parking = new Room("at the parking lot");
+        beach = new Room("at the beach");
+        recycling = new Room("at the recycling plant");
         
-        outside.setExit("east", theatre);
-        outside.setExit("south", lab);
-        outside.setExit("west", pub);
+        house.setExit("north", parking);
 
-        theatre.setExit("west", outside);
+        park.setExit("south", parking);
 
-        pub.setExit("east", outside);
+        shop.setExit("south", road);
 
-        lab.setExit("north", outside);
-        lab.setExit("east", office);
+        road.setExit("north", shop);
+        road.setExit("east", parking);
+        road.setExit("west", recycling);
 
-        office.setExit("west", lab);
+        parking.setExit("west", road);
+        parking.setExit("south", house);
+        parking.setExit("north", park);
+        parking.setExit("east", beach);
 
-        currentRoom = outside;
+        beach.setExit("west", parking);
+
+        recycling.setExit("east", road);
+
+        currentRoom = house;
     }
 
     public void play() 

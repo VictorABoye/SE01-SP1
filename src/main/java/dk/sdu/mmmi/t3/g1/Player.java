@@ -5,7 +5,7 @@ public class Player {
     private int Klimaindsats;
     private Inventory inventory;
 
-    Player(){
+    public Player(){
         this.Klimaindsats = 50;
     }
 
