@@ -35,13 +35,7 @@ public class Player {
         System.out.println(getKlimaindsats());
     }
 
-    public void sort(String[] args){
-        String item = args[0];
-        String type = args[1];
-
-        if(args.length<3){
-            System.out.println("Command takes 2 arguments: sort 'Item' 'Type'");
-        }
+    public void sort(String item, String type){
         //Sorting based on items from player inventory and type.
         //Needs to check if player is in recycling.
         //Also needs to check if player has any items in inventory that correspond to player request

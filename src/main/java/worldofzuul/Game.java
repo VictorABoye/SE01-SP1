@@ -94,18 +94,21 @@ public class Game
             wantToQuit = quit(command);
         }
         else if (commandWord == CommandWord.PICKUP){
-
+            //Pick up method from player instance
         }
         else if (commandWord == CommandWord.SORT){
             if(!currentRoom.getShortDescription().equals("at the recycling plant")){
                 System.out.println("You are not at the recycling plant, so you can't sort items.");
             }
+            else{
+                player.sort(command.getSecondWord(), command.getThirdWord());
+            }
         }
         else if (commandWord == CommandWord.INVENTORY){
-
+            //Show inventory method from player instance
         }
         else if (commandWord == CommandWord.PLACE){
-
+            //Place item method from player instance
         }
         else if (commandWord == CommandWord.SCORE){
             player.CheckKlimaindsats();
