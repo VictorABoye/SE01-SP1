@@ -3,7 +3,7 @@ package dk.sdu.mmmi.t3.g1;
 public class Player {
     private int Klimaindsats;
 
-    Player(){
+    public Player(){
         this.Klimaindsats = 50;
     }
 
