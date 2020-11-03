@@ -22,7 +22,7 @@ public class Game
       
         house = new Room("at your home");
         park = new Room("in a park");
-        shop = new Room("in Neto");
+        shop = new Room("in Netto");
         road = new Room("on the road");
         parking = new Room("at the parking lot");
         beach = new Room("at the beach");
