@@ -35,10 +35,6 @@ public class Player {
         Klimaindsats += x;
     }
 
-    public void decKlimaindsats(int x){
-        Klimaindsats -= x;
-    }
-
     public int getKlimaindsats() {
         return Klimaindsats;
     }
@@ -62,7 +58,7 @@ public class Player {
                         incKlimaindsats(5);
                     } else {
                         System.out.println(" You sorted " + item + " as " + type);
-                        decKlimaindsats(5);
+                        incKlimaindsats(-5);
                     }
                 } else {
                     System.out.println("You dont have " + item + " in your inventory");

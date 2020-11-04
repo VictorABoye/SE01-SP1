@@ -1,12 +1,17 @@
 package worldofzuul;
 
 import dk.sdu.mmmi.t3.g1.Player;
+import dk.sdu.mmmi.t3.g1.Quests;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Game
 {
     private Parser parser;
     private Room currentRoom;
     private Player player;
+    private Quests currentQuest;
 
     public Game() 
     {
@@ -50,6 +55,19 @@ public class Game
         currentRoom = house;
     }
 
+    private void createQuests(){
+        Quests breakfast;
+
+        breakfast = new Quests(new ArrayList<>(), new HashMap<>());
+
+        breakfast.addChoice("Pizza");
+        breakfast.addChoice("Netto");
+        breakfast.setChoiceWeight("Netto", 0);
+        breakfast.setChoiceWeight("Pizza", -10);
+
+        currentQuest = breakfast;
+    }
+
     public void play() 
     {            
         printWelcome();
@@ -66,8 +84,8 @@ public class Game
     private void printWelcome()
     {
         System.out.println();
-        System.out.println("Welcome to the World of Zuul!");
-        System.out.println("World of Zuul is a new, incredibly boring adventure game.");
+        System.out.println("Welcome to the World of Cool!");
+        System.out.println("World of Cool is a new, incredibly boring adventure game.");
         System.out.println("Type '" + CommandWord.HELP + "' if you need help.");
         System.out.println();
         System.out.println(currentRoom.getLongDescription());
@@ -110,6 +128,10 @@ public class Game
         else if (commandWord == CommandWord.PLACE){
             //Place item method from player instance
         }
+        else if (commandWord == CommandWord.CHOOSE){
+            player.incKlimaindsats(currentQuest.checkChoice(Integer.parseInt(command.getSecondWord())));
+
+        }
         else if (commandWord == CommandWord.SCORE){
             player.CheckKlimaindsats();
         }
@@ -138,6 +160,10 @@ public class Game
 
         if (nextRoom == null) {
             System.out.println("There is no door!");
+        }
+        else if(currentRoom.getShortDescription().equals("at your home")){
+            currentRoom = nextRoom;
+            System.out.println("You can choose between your car, bicycle and walking");
         }
         else {
             currentRoom = nextRoom;
