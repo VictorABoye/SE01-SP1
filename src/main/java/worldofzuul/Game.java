@@ -66,7 +66,7 @@ public class Game
     }
 
     private void createQuests(){
-        Quests breakfast, transport;
+        Quests breakfast, transport, road;
 
         breakfast = new Quests(new ArrayList<>(), new HashMap<>());
 
@@ -76,28 +76,30 @@ public class Game
         breakfast.setChoiceWeight("Pizza", -10);
 
 
-
-
         // Creating new quest, "Transport", currentRoom is parking
-            transport = new Quests(new ArrayList<>(), new HashMap<>());
-            transport.addChoice("Car");
-            transport.addChoice("Bike");
-            transport.addChoice("Walk");
-            transport.addChoice("City bus");
-            transport.addChoice("Metro/Tram/Train");
-                transport.setChoiceWeight("Car", 1);
-                transport.setChoiceWeight("Bike",1 );
-                transport.setChoiceWeight("Walk", 1);
-                transport.setChoiceWeight("City Bus", 1);
-                transport.setChoiceWeight("Metro/tram/Train",1 );
+        transport = new Quests(new ArrayList<>(), new HashMap<>());
+        transport.addChoice("Car");
+        transport.addChoice("Bike");
+        transport.addChoice("Walk");
+        transport.addChoice("City bus");
+        transport.addChoice("Metro/Tram/Train");
+        transport.setChoiceWeight("Car", 1);
+        transport.setChoiceWeight("Bike",1 );
+        transport.setChoiceWeight("Walk", 1);
+        transport.setChoiceWeight("City Bus", 1);
+        transport.setChoiceWeight("Metro/tram/Train",1 );
 
         // Creating a new quest, "Route to Netto", currentRoom is road
 
-
+        road = new Quests(new ArrayList<>(), new HashMap<>());
+        road.addChoice("Do you want to stop and pick it up?");
+        road.addChoice("Continue your route without stopping");
+        road.setChoiceWeight("Do you want to stop and pick it up?", 10);
+        road.setChoiceWeight("Continue your route without stopping", -10);
 
 
         breakfast.setNextQuest(transport);
-
+        transport.setNextQuest(road);
         currentQuest = breakfast;
     }
 
