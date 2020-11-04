@@ -105,7 +105,7 @@ public class Game
             }
         }
         else if (commandWord == CommandWord.INVENTORY){
-            //Show inventory method from player instance
+            player.showInventory();
         }
         else if (commandWord == CommandWord.PLACE){
             //Place item method from player instance
