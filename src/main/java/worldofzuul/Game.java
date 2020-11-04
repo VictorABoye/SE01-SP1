@@ -208,6 +208,16 @@ public class Game
 
         String itemName = command.getSecondWord();
 
+        if (itemName.equals("all")){
+            int size = currentRoom.getRoomInventorySize();
+            for (int i = size-1; i >= 0; i--){
+                Item movingItem = currentRoom.getItem(i);
+                player.pickUp(movingItem);
+                currentRoom.removeItemFromRoom(movingItem);
+            }
+            return;
+        }
+
         Item movingItem = currentRoom.getItem(itemName);
 
         if (movingItem == null){
@@ -226,6 +236,16 @@ public class Game
         }
 
         String itemName = command.getSecondWord();
+
+        if (itemName.equals("all")){
+            int size = player.getPlayerInventorySize();
+            for (int i = size-1; i >= 0; i--){
+                Item movingItem = player.getItem(i);
+                player.place(movingItem);
+                currentRoom.addItemToRoom(movingItem);
+            }
+            return;
+        }
 
         Item movingItem = player.getItem(itemName);
 
