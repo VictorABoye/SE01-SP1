@@ -7,20 +7,27 @@ public class Player {
 
     public Player(){
         this.Klimaindsats = 50;
+        inventory = new Inventory();
     }
 
-    public void pickUp(String item){
+    public Item getItem(String itemName){
+        return inventory.getItem(itemName);
+    }
+
+    public void pickUp(Item item){
         // Needs to get item from room and add to inventory inventory.addItem();
         // Needs a method for removing the item from the room when picking up.
+        inventory.addItem(item);
     }
 
     public void useItem(){
         //Use an item
     }
 
-    public void place(String item){
+    public void place(Item item){
         //Needs to place item into room inventory and remove from player inventory inventory.removeItem(item);
         //Needs a method to add the item to the room when placing
+        inventory.removeItem(item);
     }
 
     public void showInventory(){

@@ -1,5 +1,6 @@
 package worldofzuul;
 
+import dk.sdu.mmmi.t3.g1.Item;
 import dk.sdu.mmmi.t3.g1.Player;
 import dk.sdu.mmmi.t3.g1.Quests;
 
@@ -25,6 +26,7 @@ public class Game
     private void createRooms()
     {
         Room house, park, shop, road, parking, beach, recycling;
+        Item can, cup, paperbag;
       
         house = new Room("at your home");
         park = new Room("in a park");
@@ -33,10 +35,17 @@ public class Game
         parking = new Room("at the parking lot");
         beach = new Room("at the beach");
         recycling = new Room("at the recycling plant");
-        
+
+        can = new Item("can", "metal");
+        cup = new Item("cup", "plasitc");
+        paperbag = new Item("paperbag", "paper");
+
         house.setExit("north", parking);
+        house.addItemToRoom(can);
+        house.addItemToRoom(cup);
 
         park.setExit("south", parking);
+        park.addItemToRoom(paperbag);
 
         shop.setExit("south", road);
 
@@ -114,6 +123,7 @@ public class Game
         }
         else if (commandWord == CommandWord.PICKUP){
             //Pick up method from player instance
+            itemRoomToPlayer(command);
         }
         else if (commandWord == CommandWord.SORT){
             if(!currentRoom.getShortDescription().equals("at the recycling plant")){
@@ -128,6 +138,7 @@ public class Game
         }
         else if (commandWord == CommandWord.PLACE){
             //Place item method from player instance
+            itemPlayerToRoom(command);
         }
         else if (commandWord == CommandWord.CHOOSE){
             try{
@@ -141,6 +152,9 @@ public class Game
         else if (commandWord == CommandWord.SCORE){
             player.CheckKlimaindsats();
         }
+        else if (commandWord == commandWord.ROOMINVENTORY){
+            currentRoom.showInventory();
+        }
         return wantToQuit;
     }
 
@@ -151,6 +165,44 @@ public class Game
         System.out.println();
         System.out.println("Your command words are:");
         parser.showCommands();
+    }
+
+    private void itemRoomToPlayer(Command command){
+        if (!command.hasSecondWord()){
+            System.out.println("What item?");
+            return;
+        }
+
+        String itemName = command.getSecondWord();
+
+        Item movingItem = currentRoom.getItem(itemName);
+
+        if (movingItem == null){
+            System.out.println("There is no " + itemName);
+        }
+        else {
+            player.pickUp(movingItem);
+            currentRoom.removeItemFromRoom(movingItem);
+        }
+    }
+
+    private void itemPlayerToRoom(Command command){
+        if (!command.hasSecondWord()){
+            System.out.println("What item?");
+            return;
+        }
+
+        String itemName = command.getSecondWord();
+
+        Item movingItem = player.getItem(itemName);
+
+        if (movingItem == null){
+            System.out.println("You cannot drop " + itemName);
+        }
+        else {
+            player.place(movingItem);
+            currentRoom.addItemToRoom(movingItem);
+        }
     }
 
     private void goRoom(Command command) 
