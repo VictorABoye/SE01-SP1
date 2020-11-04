@@ -58,6 +58,9 @@ public class Player {
             System.out.println("You need to choose how you want to sort the item");
         }
         else {
+            if(inventory.items.size()==0){
+                System.out.println("You don't have any items");
+            }
             for (Item invItem : inventory.items) {
                 if (invItem.getName().toUpperCase().equals(item.toUpperCase())) {
                     if (invItem.getType().toUpperCase().equals(type.toUpperCase())) {
