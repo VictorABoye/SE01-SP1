@@ -44,9 +44,6 @@ public class Player {
     }
 
     public void sort(String item, String type){
-        //Sorting based on items from player inventory and type.
-        //Needs to check if player is in recycling.
-        //Also needs to check if player has any items in inventory that correspond to player request
         for(Item invItem: inventory.items){
             if(invItem.getName().toUpperCase().equals(item.toUpperCase())){
                 if(invItem.getType().toUpperCase().equals(type.toUpperCase())){
