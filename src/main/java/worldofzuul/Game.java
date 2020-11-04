@@ -66,7 +66,7 @@ public class Game
     }
 
     private void createQuests(){
-        Quests breakfast;
+        Quests breakfast, transport;
 
         breakfast = new Quests(new ArrayList<>(), new HashMap<>());
 
@@ -75,25 +75,30 @@ public class Game
         breakfast.setChoiceWeight("Netto", 0);
         breakfast.setChoiceWeight("Pizza", -10);
 
-        currentQuest = breakfast;
+
+
 
         // Creating new quest, "Transport", currentRoom is parking
-        Quests transport;
             transport = new Quests(new ArrayList<>(), new HashMap<>());
             transport.addChoice("Car");
             transport.addChoice("Bike");
             transport.addChoice("Walk");
             transport.addChoice("City bus");
             transport.addChoice("Metro/Tram/Train");
-                transport.setChoiceWeight("Car", );
-                transport.setChoiceWeight("Bike", );
-                transport.setChoiceWeight("Walk", );
-                transport.setChoiceWeight("City Bus", );
-                transport.setChoiceWeight("Metro/tram/Train", );
+                transport.setChoiceWeight("Car", 1);
+                transport.setChoiceWeight("Bike",1 );
+                transport.setChoiceWeight("Walk", 1);
+                transport.setChoiceWeight("City Bus", 1);
+                transport.setChoiceWeight("Metro/tram/Train",1 );
 
         // Creating a new quest, "Route to Netto", currentRoom is road
-        Quests
 
+
+
+
+        breakfast.setNextQuest(transport);
+
+        currentQuest = breakfast;
     }
 
     public void play() 
@@ -160,7 +165,15 @@ public class Game
         }
         else if (commandWord == CommandWord.CHOOSE){
             try{
-                player.incKlimaindsats(currentQuest.checkChoice(Integer.parseInt(command.getSecondWord())));
+                try {
+                    int value = currentQuest.checkChoice(Integer.parseInt(command.getSecondWord()));
+                    player.incKlimaindsats(value);
+                    if(value!=0) {
+                        currentQuest = currentQuest.getNextQuest();
+                    }
+                }catch (NullPointerException e){
+                    System.out.println("You have completed all the quests!");
+                }
             }catch (NumberFormatException e){
                 System.out.println("Choose the number corresponding to the option");
             }
