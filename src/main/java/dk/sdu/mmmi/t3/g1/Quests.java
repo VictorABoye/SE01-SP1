@@ -13,10 +13,18 @@ public class Quests {
     }
 
     public int checkChoice(int x){
-        if(choiceWeight.containsKey(choices.get(x))){
-            return choiceWeight.get(choices.get(x));
+        while (true){
+            try {
+                if (choiceWeight.containsKey(choices.get(x - 1))) {
+                    System.out.println("You chose " + choices.get(x - 1));
+                    return choiceWeight.get(choices.get(x - 1));
+                }
+                return 0;
+            } catch (IndexOutOfBoundsException e) {
+                System.out.println("You don't have that many choices");
+            }
+            return 0;
         }
-        return 0;
     }
 
     public void addChoice(String choice){

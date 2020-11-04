@@ -16,6 +16,7 @@ public class Game
     public Game() 
     {
         createRooms();
+        createQuests();
         parser = new Parser();
         player = new Player();
     }
@@ -129,7 +130,12 @@ public class Game
             //Place item method from player instance
         }
         else if (commandWord == CommandWord.CHOOSE){
-            player.incKlimaindsats(currentQuest.checkChoice(Integer.parseInt(command.getSecondWord())));
+            try{
+                player.incKlimaindsats(currentQuest.checkChoice(Integer.parseInt(command.getSecondWord())));
+            }catch (NumberFormatException e){
+                System.out.println("Choose the number corresponding to the option");
+            }
+
 
         }
         else if (commandWord == CommandWord.SCORE){
