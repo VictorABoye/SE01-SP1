@@ -24,7 +24,11 @@ public class Player {
     }
 
     public void showInventory(){
-        inventory.showInventory();
+        try{
+            inventory.showInventory();
+        }catch (NullPointerException e){
+            System.out.println("You don't have any items");
+        }
     }
 
     public void incKlimaindsats(int x){
@@ -44,20 +48,26 @@ public class Player {
     }
 
     public void sort(String item, String type){
-        for(Item invItem: inventory.items){
-            if(invItem.getName().toUpperCase().equals(item.toUpperCase())){
-                if(invItem.getType().toUpperCase().equals(type.toUpperCase())){
-                    System.out.println("You sorted " + item + " as " + type);
-                    incKlimaindsats(5);
+        if(item == null){
+            System.out.println("You need to choose an item to sort");
+        }
+        else if(type == null){
+            System.out.println("You need to choose how you want to sort the item");
+        }
+        else {
+            for (Item invItem : inventory.items) {
+                if (invItem.getName().toUpperCase().equals(item.toUpperCase())) {
+                    if (invItem.getType().toUpperCase().equals(type.toUpperCase())) {
+                        System.out.println("You sorted " + item + " as " + type);
+                        incKlimaindsats(5);
+                    } else {
+                        System.out.println(" You sorted " + item + " as " + type);
+                        decKlimaindsats(5);
+                    }
+                } else {
+                    System.out.println("You dont have " + item + " in your inventory");
+                    System.out.println("You can use 'bag' to check your inventory");
                 }
-                else{
-                    System.out.println(" You sorted " + item + " as " + type);
-                    decKlimaindsats(5);
-                }
-            }
-            else{
-                System.out.println("You dont have " + item + " in your inventory");
-                System.out.println("You can use 'bag' to check your inventory");
             }
         }
     }
