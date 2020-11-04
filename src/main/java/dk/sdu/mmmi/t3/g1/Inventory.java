@@ -3,7 +3,7 @@ package dk.sdu.mmmi.t3.g1;
 import java.util.ArrayList;
 
 public class Inventory {
-    private ArrayList<Item> items;
+    protected ArrayList<Item> items;
 
     public void addItem(Item item){
         items.add(item);

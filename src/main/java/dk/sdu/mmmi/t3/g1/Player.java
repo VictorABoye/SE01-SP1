@@ -11,7 +11,7 @@ public class Player {
 
     public void pickUp(String item){
         // Needs to get item from room and add to inventory inventory.addItem();
-        //Needs a method for removing the item from the room when picking up.
+        // Needs a method for removing the item from the room when picking up.
     }
 
     public void useItem(){
@@ -47,5 +47,21 @@ public class Player {
         //Sorting based on items from player inventory and type.
         //Needs to check if player is in recycling.
         //Also needs to check if player has any items in inventory that correspond to player request
+        for(Item invItem: inventory.items){
+            if(invItem.getName().toUpperCase().equals(item.toUpperCase())){
+                if(invItem.getType().toUpperCase().equals(type.toUpperCase())){
+                    System.out.println("You sorted " + item + " as " + type);
+                    incKlimaindsats(5);
+                }
+                else{
+                    System.out.println(" You sorted " + item + " as " + type);
+                    decKlimaindsats(5);
+                }
+            }
+            else{
+                System.out.println("You dont have " + item + " in your inventory");
+                System.out.println("You can use 'bag' to check your inventory");
+            }
+        }
     }
 }
