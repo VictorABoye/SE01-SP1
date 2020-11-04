@@ -76,6 +76,24 @@ public class Game
         breakfast.setChoiceWeight("Pizza", -10);
 
         currentQuest = breakfast;
+
+        // Creating new quest, "Transport", currentRoom is parking
+        Quests transport;
+            transport = new Quests(new ArrayList<>(), new HashMap<>());
+            transport.addChoice("Car");
+            transport.addChoice("Bike");
+            transport.addChoice("Walk");
+            transport.addChoice("City bus");
+            transport.addChoice("Metro/Tram/Train");
+                transport.setChoiceWeight("Car", );
+                transport.setChoiceWeight("Bike", );
+                transport.setChoiceWeight("Walk", );
+                transport.setChoiceWeight("City Bus", );
+                transport.setChoiceWeight("Metro/tram/Train", );
+
+        // Creating a new quest, "Route to Netto", currentRoom is road
+        Quests
+
     }
 
     public void play() 
