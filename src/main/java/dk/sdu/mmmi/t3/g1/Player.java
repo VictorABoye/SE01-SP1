@@ -27,6 +27,14 @@ public class Player {
         inventory.showInventory();
     }
 
+    public void incKlimaindsats(int x){
+        Klimaindsats += x;
+    }
+
+    public void decKlimaindsats(int x){
+        Klimaindsats -= x;
+    }
+
     public int getKlimaindsats() {
         return Klimaindsats;
     }
