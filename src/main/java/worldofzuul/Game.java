@@ -269,8 +269,8 @@ public class Game
         else {
             player.pickUp(movingItem);
             currentRoom.removeItemFromRoom(movingItem);
+            System.out.println("You picked up " + movingItem.getName());
         }
-        System.out.println("You picked up " + movingItem.getName());
     }
 
     private void itemPlayerToRoom(Command command){
@@ -300,8 +300,8 @@ public class Game
         else {
             player.place(movingItem);
             currentRoom.addItemToRoom(movingItem);
+            System.out.println("You dropped " + movingItem.getName());
         }
-        System.out.println("You dropped " + movingItem.getName());
     }
 
     private void goRoom(Command command) 
