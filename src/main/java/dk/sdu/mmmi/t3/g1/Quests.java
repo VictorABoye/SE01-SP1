@@ -6,6 +6,8 @@ import java.util.HashMap;
 public class Quests {
     protected ArrayList<String> choices;
     private HashMap<String, Integer> choiceWeight;
+    private Quests nextQuest;
+    private String description;
 
     public Quests(ArrayList choices, HashMap correctChoices){
         this.choices = choices;
@@ -22,8 +24,8 @@ public class Quests {
                 return 0;
             } catch (IndexOutOfBoundsException e) {
                 System.out.println("You don't have that many choices");
+                return 0;
             }
-            return 0;
         }
     }
 
@@ -33,5 +35,28 @@ public class Quests {
 
     public void setChoiceWeight(String choice, Integer amount) {
         choiceWeight.put(choice, amount);
+    }
+
+    public void showChoices(){
+        System.out.println("Your quest choices are: ");
+        for(String choice: choices){
+            System.out.println(choice);
+        }
+    }
+
+    public Quests getNextQuest() {
+        return nextQuest;
+    }
+
+    public void setNextQuest(Quests nextQuest) {
+        this.nextQuest = nextQuest;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
