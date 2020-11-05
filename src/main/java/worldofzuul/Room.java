@@ -67,5 +67,13 @@ public class Room
     {
         return exits.get(direction);
     }
+
+    public int getRoomInventorySize() {
+        return inventory.getSize();
+    }
+
+    public Item getItem(int index){
+        return inventory.getItem(index);
+    }
 }
 

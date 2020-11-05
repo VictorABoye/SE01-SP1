@@ -14,6 +14,10 @@ public class Player {
         return inventory.getItem(itemName);
     }
 
+    public Item getItem(int index){
+        return inventory.getItem(index);
+    }
+
     public void pickUp(Item item){
         // Needs to get item from room and add to inventory inventory.addItem();
         // Needs a method for removing the item from the room when picking up.
@@ -76,5 +80,9 @@ public class Player {
                 }
             }
         }
+    }
+
+    public int getPlayerInventorySize() {
+        return inventory.getSize();
     }
 }

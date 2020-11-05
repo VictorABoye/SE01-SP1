@@ -35,17 +35,18 @@ public class Game
         parking = new Room("at the parking lot");
         beach = new Room("at the beach");
         recycling = new Room("at the recycling plant");
-
+        /*
         can = new Item("can", "metal");
         cup = new Item("cup", "plasitc");
         paperbag = new Item("paperbag", "paper");
-
+*/
         house.setExit("north", parking);
+        /*
         house.addItemToRoom(can);
         house.addItemToRoom(cup);
-
+*/
         park.setExit("south", parking);
-        park.addItemToRoom(paperbag);
+        // park.addItemToRoom(paperbag);
 
         shop.setExit("south", road);
 
@@ -66,7 +67,7 @@ public class Game
     }
 
     private void createQuests(){
-        Quests breakfast;
+        Quests breakfast, transport, road;
 
         breakfast = new Quests(new ArrayList<>(), new HashMap<>());
 
@@ -75,6 +76,31 @@ public class Game
         breakfast.setChoiceWeight("Netto", 0);
         breakfast.setChoiceWeight("Pizza", -10);
 
+
+        // Creating new quest, "Transport", currentRoom is parking
+        transport = new Quests(new ArrayList<>(), new HashMap<>());
+        transport.addChoice("Car");
+        transport.addChoice("Bike");
+        transport.addChoice("Walk");
+        transport.addChoice("City bus");
+        transport.addChoice("Metro/Tram/Train");
+        transport.setChoiceWeight("Car", 1);
+        transport.setChoiceWeight("Bike",1 );
+        transport.setChoiceWeight("Walk", 1);
+        transport.setChoiceWeight("City Bus", 1);
+        transport.setChoiceWeight("Metro/tram/Train",1 );
+
+        // Creating a new quest, "Route to Netto", currentRoom is road
+
+        road = new Quests(new ArrayList<>(), new HashMap<>());
+        road.addChoice("Do you want to stop and pick it up?");
+        road.addChoice("Continue your route without stopping");
+        road.setChoiceWeight("Do you want to stop and pick it up?", 10);
+        road.setChoiceWeight("Continue your route without stopping", -10);
+
+
+        breakfast.setNextQuest(transport);
+        transport.setNextQuest(road);
         currentQuest = breakfast;
     }
 
@@ -142,7 +168,15 @@ public class Game
         }
         else if (commandWord == CommandWord.CHOOSE){
             try{
-                player.incKlimaindsats(currentQuest.checkChoice(Integer.parseInt(command.getSecondWord())));
+                try {
+                    int value = currentQuest.checkChoice(Integer.parseInt(command.getSecondWord()));
+                    player.incKlimaindsats(value);
+                    if(value!=0) {
+                        currentQuest = currentQuest.getNextQuest();
+                    }
+                }catch (NullPointerException e){
+                    System.out.println("You have completed all the quests!");
+                }
             }catch (NumberFormatException e){
                 System.out.println("Choose the number corresponding to the option");
             }
@@ -175,6 +209,16 @@ public class Game
 
         String itemName = command.getSecondWord();
 
+        if (itemName.equals("all")){
+            int size = currentRoom.getRoomInventorySize();
+            for (int i = size-1; i >= 0; i--){
+                Item movingItem = currentRoom.getItem(i);
+                player.pickUp(movingItem);
+                currentRoom.removeItemFromRoom(movingItem);
+            }
+            return;
+        }
+
         Item movingItem = currentRoom.getItem(itemName);
 
         if (movingItem == null){
@@ -193,6 +237,16 @@ public class Game
         }
 
         String itemName = command.getSecondWord();
+
+        if (itemName.equals("all")){
+            int size = player.getPlayerInventorySize();
+            for (int i = size-1; i >= 0; i--){
+                Item movingItem = player.getItem(i);
+                player.place(movingItem);
+                currentRoom.addItemToRoom(movingItem);
+            }
+            return;
+        }
 
         Item movingItem = player.getItem(itemName);
 

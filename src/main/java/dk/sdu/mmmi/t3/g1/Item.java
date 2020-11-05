@@ -1,6 +1,6 @@
 package dk.sdu.mmmi.t3.g1;
 
-public class Item {
+public abstract class Item extends Inventory implements isExpired{
     private String name;
     private String type;
 
