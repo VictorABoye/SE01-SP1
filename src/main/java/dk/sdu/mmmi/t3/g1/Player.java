@@ -1,5 +1,7 @@
 package dk.sdu.mmmi.t3.g1;
 
+import java.util.Iterator;
+
 public class Player {
 
     private int Klimaindsats;
@@ -71,13 +73,17 @@ public class Player {
             if(inventory.items.size()==0){
                 System.out.println("You don't have any items");
             }
-            for (Item invItem : inventory.items) {
+            Iterator<Item> itemIterator = inventory.items.iterator();
+            while(itemIterator.hasNext()) {
+                Item invItem = itemIterator.next();
                 if (invItem.getName().toUpperCase().equals(item.toUpperCase())) {
                     if (invItem.getType().toUpperCase().equals(type.toUpperCase())) {
                         System.out.println("You sorted " + item + " as " + type);
+                        itemIterator.remove();
                         incKlimaindsats(5);
                     } else {
                         System.out.println(" You sorted " + item + " as " + type);
+                        itemIterator.remove();
                         incKlimaindsats(-5);
                     }
                 } else {

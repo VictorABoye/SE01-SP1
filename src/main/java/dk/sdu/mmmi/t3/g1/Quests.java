@@ -7,6 +7,7 @@ public class Quests {
     protected ArrayList<String> choices;
     private HashMap<String, Integer> choiceWeight;
     private Quests nextQuest;
+    private String description;
 
     public Quests(ArrayList choices, HashMap correctChoices){
         this.choices = choices;
@@ -36,6 +37,12 @@ public class Quests {
         choiceWeight.put(choice, amount);
     }
 
+    public void showChoices(){
+        System.out.println("Your quest choices are: ");
+        for(String choice: choices){
+            System.out.println(choice);
+        }
+    }
 
     public Quests getNextQuest() {
         return nextQuest;
@@ -43,5 +50,13 @@ public class Quests {
 
     public void setNextQuest(Quests nextQuest) {
         this.nextQuest = nextQuest;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

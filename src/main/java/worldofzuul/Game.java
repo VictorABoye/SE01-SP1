@@ -27,7 +27,7 @@ public class Game
     private void createRooms()
     {
         Room house, park, shop, road, parking, beach, recycling;
-        Item can, cup, paperbag;
+        NonFoodItem can, cup, paperbag;
       
         house = new Room("at your home");
         park = new Room("in a park");
@@ -42,7 +42,6 @@ public class Game
         paperbag = new NonFoodItem("paperbag", "paper");
 
         house.setExit("north", parking);
-
         house.addItemToRoom(can);
         house.addItemToRoom(can);
         house.addItemToRoom(cup);
