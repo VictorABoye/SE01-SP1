@@ -43,7 +43,9 @@ public class Game
 
         house.setExit("north", parking);
         house.addItemToRoom(can);
+        house.addItemToRoom(can);
         house.addItemToRoom(cup);
+
         park.setExit("south", parking);
         park.addItemToRoom(paperbag);
 
@@ -62,7 +64,7 @@ public class Game
 
         recycling.setExit("east", road);
 
-        currentRoom = house;
+        currentRoom = house; //Starting location
     }
 
     private void createQuests(){

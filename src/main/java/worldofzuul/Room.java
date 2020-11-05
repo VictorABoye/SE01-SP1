@@ -40,7 +40,17 @@ public class Room
     }
 
     public void showInventory(){
-        inventory.showInventory();
+        try{
+            if (inventory.getSize()!=0) {
+                System.out.println("You can see:");
+                inventory.showInventory();
+            }
+            else {
+                System.out.println("There are no items here");
+            }
+        }catch (NullPointerException e){
+            System.out.println("Room is empty");
+        }
     }
 
     public String getShortDescription()
