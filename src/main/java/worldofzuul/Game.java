@@ -1,6 +1,7 @@
 package worldofzuul;
 
 import dk.sdu.mmmi.t3.g1.Item;
+import dk.sdu.mmmi.t3.g1.NonFoodItem;
 import dk.sdu.mmmi.t3.g1.Player;
 import dk.sdu.mmmi.t3.g1.Quests;
 
@@ -26,7 +27,7 @@ public class Game
     private void createRooms()
     {
         Room house, park, shop, road, parking, beach, recycling;
-        Item can, cup, paperbag;
+        NonFoodItem can, cup, paperbag;
       
         house = new Room("at your home");
         park = new Room("in a park");
@@ -35,18 +36,16 @@ public class Game
         parking = new Room("at the parking lot");
         beach = new Room("at the beach");
         recycling = new Room("at the recycling plant");
-        /*
-        can = new Item("can", "metal");
-        cup = new Item("cup", "plasitc");
-        paperbag = new Item("paperbag", "paper");
-*/
+
+        can = new NonFoodItem("can", "metal");
+        cup = new NonFoodItem("cup", "plasitc");
+        paperbag = new NonFoodItem("paperbag", "paper");
+
         house.setExit("north", parking);
-        /*
         house.addItemToRoom(can);
         house.addItemToRoom(cup);
-*/
         park.setExit("south", parking);
-        // park.addItemToRoom(paperbag);
+        park.addItemToRoom(paperbag);
 
         shop.setExit("south", road);
 
