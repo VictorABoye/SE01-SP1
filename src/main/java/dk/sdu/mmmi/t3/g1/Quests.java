@@ -5,6 +5,7 @@ import java.util.HashMap;
 
 public class Quests {
     protected ArrayList<String> choices;
+    private ArrayList<String> consequence;
     private HashMap<String, Integer> choiceWeight;
     private Quests nextQuest;
     private String description;
@@ -58,5 +59,13 @@ public class Quests {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getConsequence(int i) {
+        return consequence.get(i-1);
+    }
+
+    public void setConsequence(String consequence) {
+        this.consequence.add(consequence);
     }
 }

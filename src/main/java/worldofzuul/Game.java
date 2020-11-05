@@ -74,6 +74,7 @@ public class Game
         breakfast.addChoice("Netto");
         breakfast.setChoiceWeight("Netto", 0);
         breakfast.setChoiceWeight("Pizza", -10);
+        breakfast.setDescription("Du vågner og er sulten");
 
 
         // Creating new quest, "Transport", currentRoom is parking
@@ -170,6 +171,7 @@ public class Game
                 try {
                     int value = currentQuest.checkChoice(Integer.parseInt(command.getSecondWord()));
                     player.incKlimaindsats(value);
+                    currentQuest.getConsequence(value);
                     if(value!=0) {
                         currentQuest = currentQuest.getNextQuest();
                     }
