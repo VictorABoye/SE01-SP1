@@ -5,6 +5,7 @@ import dk.sdu.mmmi.t3.g1.NonFoodItem;
 import dk.sdu.mmmi.t3.g1.Player;
 import dk.sdu.mmmi.t3.g1.Quests;
 
+import javax.sound.midi.SysexMessage;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -17,10 +18,11 @@ public class Game
 
     public Game() 
     {
-        createRooms();
-        createQuests();
         parser = new Parser();
         player = new Player();
+        createRooms();
+        createQuests();
+
     }
 
 
@@ -29,16 +31,16 @@ public class Game
         Room house, park, shop, road, parking, beach, recycling;
         NonFoodItem can, cup, paperbag;
       
-        house = new Room("at your home");
-        park = new Room("in a park");
-        shop = new Room("in Netto");
-        road = new Room("on the road");
-        parking = new Room("at the parking lot");
-        beach = new Room("at the beach");
-        recycling = new Room("at the recycling plant");
+        house = new Room("at your home","info");
+        park = new Room("in a park","info");
+        shop = new Room("in Netto","info");
+        road = new Room("on the road","info");
+        parking = new Room("at the parking lot","info");
+        beach = new Room("at the beach","info");
+        recycling = new Room("at the recycling plant","info");
 
         can = new NonFoodItem("can", "metal");
-        cup = new NonFoodItem("cup", "plasitc");
+        cup = new NonFoodItem("cup", "plastic");
         paperbag = new NonFoodItem("paperbag", "paper");
 
         house.setExit("north", parking);
@@ -63,24 +65,32 @@ public class Game
         beach.setExit("west", parking);
 
         recycling.setExit("east", road);
+        // For at teste sorting tingeling
 
-        currentRoom = house; //Starting location
+        player.pickUp(can);
+        player.pickUp(can);
+        player.pickUp(can);
+        player.pickUp(cup);
+        player.pickUp(cup);
+        player.pickUp(paperbag);
+
+
+        currentRoom = recycling; //Starting
     }
 
     private void createQuests(){
-        Quests breakfast, transport, road;
+        Quests breakfast, transport, road, groceries, recycling, factory, quiz;;
 
-        breakfast = new Quests(new ArrayList<>(), new HashMap<>());
+        breakfast = new Quests(new ArrayList<>(), new HashMap<>(), "You wake up and are feeling hungry");
 
         breakfast.addChoice("Pizza");
         breakfast.addChoice("Netto");
         breakfast.setChoiceWeight("Netto", 0);
         breakfast.setChoiceWeight("Pizza", -10);
-        breakfast.setDescription("Du vågner og er sulten");
 
 
         // Creating new quest, "Transport", currentRoom is parking
-        transport = new Quests(new ArrayList<>(), new HashMap<>());
+        transport = new Quests(new ArrayList<>(), new HashMap<>(), "Choose transport");
         transport.addChoice("Car");
         transport.addChoice("Bike");
         transport.addChoice("Walk");
@@ -92,24 +102,47 @@ public class Game
         transport.setChoiceWeight("City Bus", 1);
         transport.setChoiceWeight("Metro/tram/Train",1 );
 
-        // Creating a new quest, "Route to Netto", currentRoom is road
+        // Creating a new quest, "road", currentRoom is road
 
-        road = new Quests(new ArrayList<>(), new HashMap<>());
+        road = new Quests(new ArrayList<>(), new HashMap<>(), "You can pick up trash or keep going");
         road.addChoice("Do you want to stop and pick it up?");
         road.addChoice("Continue your route without stopping");
         road.setChoiceWeight("Do you want to stop and pick it up?", 10);
         road.setChoiceWeight("Continue your route without stopping", -10);
 
+        // Creating a new quest, "Groceries"
 
+        groceries = new Quests(new ArrayList<>(), new HashMap<>(), "Choose the groceries, which you desire");
+        //groceries.addChoice("");
+        //groceries.addChoice("");
+        //groceries.setChoiceWeight();
+        //groceries.setChoiceWeight();
+
+        // Creating a new quest, "recycling"
+        recycling = new Quests(new ArrayList<>(), new HashMap<>(), "You've collected trash throughout your journey. Time to sort it!");
+
+
+        // Creating a new quest, "factory"
+        factory = new Quests(new ArrayList<>(), new HashMap<>(), "A local factory pours nuclear waste into the sea. Time to make a choice.");
+        //factory.addChoice("");
+        //factory.setChoiceWeight("");
+
+        //Creating a last quest, quiz
+        //quiz...
+
+        //Passing on to next quest
         breakfast.setNextQuest(transport);
         transport.setNextQuest(road);
-        currentQuest = breakfast;
+        road.setNextQuest(groceries);
+        groceries.setNextQuest(recycling);
+        recycling.setNextQuest(factory);
+
+        currentQuest = recycling; //starting quest
     }
 
     public void play() 
     {            
         printWelcome();
-
                 
         boolean finished = false;
         while (! finished) {
@@ -126,6 +159,7 @@ public class Game
         System.out.println("World of Cool is a new, incredibly boring adventure game.");
         System.out.println("Type '" + CommandWord.HELP + "' if you need help.");
         System.out.println();
+        System.out.println(currentRoom.getInfoBox());
         System.out.println(currentRoom.getLongDescription());
     }
 
@@ -158,7 +192,11 @@ public class Game
                 System.out.println("You are not at the recycling plant, so you can't sort items.");
             }
             else{
-                player.sort(command.getSecondWord(), command.getThirdWord());
+                if(player.sort(command.getSecondWord(), command.getThirdWord())){
+                    if (currentQuest.getDescription().equals("You've collected trash throughout your journey. Time to sort it!")){
+                        currentQuest = currentQuest.getNextQuest();
+                    }
+                }
             }
         }
         else if (commandWord == CommandWord.INVENTORY){
@@ -187,7 +225,7 @@ public class Game
 
         }
         else if (commandWord == CommandWord.SCORE){
-            player.CheckKlimaindsats();
+            player.checkKlimaindsats();
         }
         else if (commandWord == commandWord.ROOMINVENTORY){
             currentRoom.showInventory();
@@ -219,6 +257,7 @@ public class Game
                 player.pickUp(movingItem);
                 currentRoom.removeItemFromRoom(movingItem);
             }
+            System.out.println("You took all the item");
             return;
         }
 
@@ -231,6 +270,7 @@ public class Game
             player.pickUp(movingItem);
             currentRoom.removeItemFromRoom(movingItem);
         }
+        System.out.println("You picked up " + movingItem.getName());
     }
 
     private void itemPlayerToRoom(Command command){
@@ -248,6 +288,7 @@ public class Game
                 player.place(movingItem);
                 currentRoom.addItemToRoom(movingItem);
             }
+            System.out.println("You dropped all your items");
             return;
         }
 
@@ -260,6 +301,7 @@ public class Game
             player.place(movingItem);
             currentRoom.addItemToRoom(movingItem);
         }
+        System.out.println("You dropped " + movingItem.getName());
     }
 
     private void goRoom(Command command) 
@@ -278,10 +320,18 @@ public class Game
         }
         else if(currentRoom.getShortDescription().equals("at your home")){
             currentRoom = nextRoom;
+            if(!currentRoom.getVisited()){
+                System.out.println(currentRoom.getInfoBox());
+            }
+            currentRoom.setVisited();
             System.out.println("You can choose between your car, bicycle and walking");
         }
         else {
             currentRoom = nextRoom;
+            if(!currentRoom.getVisited()){
+                System.out.println(currentRoom.getInfoBox());
+            }
+            currentRoom.setVisited();
             System.out.println(currentRoom.getLongDescription());
         }
     }

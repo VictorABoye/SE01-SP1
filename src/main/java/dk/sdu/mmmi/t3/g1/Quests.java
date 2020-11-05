@@ -10,9 +10,10 @@ public class Quests {
     private Quests nextQuest;
     private String description;
 
-    public Quests(ArrayList choices, HashMap correctChoices){
+    public Quests(ArrayList choices, HashMap correctChoices, String description){
         this.choices = choices;
         this.choiceWeight = correctChoices;
+        this.description = description;
     }
 
     public int checkChoice(int x){

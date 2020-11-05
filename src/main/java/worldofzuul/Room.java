@@ -13,13 +13,24 @@ public class Room
     private String description;
     private HashMap<String, Room> exits;
     private Inventory inventory;
+    private boolean isVisited;
+    private String infoBox;
 
-    public Room(String description) 
+    public Room(String description, String infoBox)
     {
         this.description = description;
         exits = new HashMap<String, Room>();
         inventory = new Inventory();
+        isVisited = false;
+        this.infoBox = infoBox;
+    }
 
+    public boolean getVisited(){
+        return isVisited;
+    }
+
+    public void setVisited(){
+        isVisited = true;
     }
 
     public void setExit(String direction, Room neighbor) 
@@ -84,6 +95,10 @@ public class Room
 
     public Item getItem(int index){
         return inventory.getItem(index);
+    }
+
+    public String getInfoBox() {
+        return infoBox;
     }
 }
 

@@ -1,6 +1,5 @@
 package dk.sdu.mmmi.t3.g1;
 
-import java.security.KeyPair;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -38,10 +37,8 @@ public class Inventory {
         //}
 
         // Print: amount x item
-        ArrayList<Integer> counts = new ArrayList<>();
-        ArrayList<Item> printItems = new ArrayList<>();
 
-        // hashmap to store the frequency of element
+        // Hashmap to store the frequency of element
         Map<Item, Integer> hm = new HashMap<Item, Integer>();
 
         for (Item i : items) {
@@ -49,7 +46,7 @@ public class Inventory {
             hm.put(i, (j == null) ? 1 : j + 1);
         }
 
-        // displaying the occurrence of elements in the arraylist
+        // Displaying the occurrence of elements in the arraylist
         for (Map.Entry<Item, Integer> val : hm.entrySet()) {
             System.out.println(val.getValue() + " x " + val.getKey().getName());
         }

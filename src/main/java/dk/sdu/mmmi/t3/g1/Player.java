@@ -1,14 +1,12 @@
 package dk.sdu.mmmi.t3.g1;
 
-import java.util.Iterator;
-
 public class Player {
 
-    private int Klimaindsats;
+    private int klimaIndsats;
     private Inventory inventory;
 
     public Player(){
-        this.Klimaindsats = 50;
+        this.klimaIndsats = 50;
         inventory = new Inventory();
     }
 
@@ -51,18 +49,31 @@ public class Player {
     }
 
     public void incKlimaindsats(int x){
-        Klimaindsats += x;
+        klimaIndsats += x;
+        if (klimaIndsats <= 0) {
+            System.out.println("You lost...");
+        }
+        else if (klimaIndsats <= 25) {
+            System.out.println("You can do better");
+        }
+        else if (klimaIndsats <= 75) {
+            System.out.println("You are doing well");
+        }
+        else {
+            System.out.print("Nice");
+        }
+        checkKlimaindsats();
     }
 
     public int getKlimaindsats() {
-        return Klimaindsats;
+        return klimaIndsats;
     }
 
-    public void CheckKlimaindsats(){
-        System.out.println(getKlimaindsats());
+    public void checkKlimaindsats(){
+        System.out.println("Your current score is: " + getKlimaindsats());
     }
 
-    public void sort(String item, String type){
+    public boolean sort(String item, String type){
         if(item == null){
             System.out.println("You need to choose an item to sort");
         }
@@ -73,25 +84,40 @@ public class Player {
             if(inventory.items.size()==0){
                 System.out.println("You don't have any items");
             }
-            Iterator<Item> itemIterator = inventory.items.iterator();
-            while(itemIterator.hasNext()) {
-                Item invItem = itemIterator.next();
+            boolean hasItem = false;
+            int counter = 0;
+            for(Item item1: inventory.items){
+                if(item1.getName().equals(item)){
+                    hasItem = true;
+                    break;
+                }
+                counter++;
+            }
+
+            if(!hasItem){
+                System.out.println("You dont have " + item + " in your inventory");
+                System.out.println("You can use 'bag' to check your inventory");
+            }
+            while(hasItem) {
+                Item invItem = inventory.items.get(counter);;
                 if (invItem.getName().toUpperCase().equals(item.toUpperCase())) {
                     if (invItem.getType().toUpperCase().equals(type.toUpperCase())) {
                         System.out.println("You sorted " + item + " as " + type);
-                        itemIterator.remove();
+                        inventory.items.remove(counter);
                         incKlimaindsats(5);
+                        hasItem = false;
+                        return true;
                     } else {
                         System.out.println(" You sorted " + item + " as " + type);
-                        itemIterator.remove();
+                        inventory.items.remove(counter);
                         incKlimaindsats(-5);
+                        hasItem = false;
+                        return true;
                     }
-                } else {
-                    System.out.println("You dont have " + item + " in your inventory");
-                    System.out.println("You can use 'bag' to check your inventory");
                 }
             }
         }
+        return false;
     }
 
     public int getPlayerInventorySize() {
