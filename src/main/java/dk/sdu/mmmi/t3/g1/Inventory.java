@@ -24,11 +24,19 @@ public class Inventory {
         return null;
     }
 
+    public Item getItem(int index){
+        return items.get(index);
+    }
+
     public void showInventory(){
         System.out.println("Inventory:");
         for(Item item: items){
             System.out.println(item.getName());
         }
+    }
+
+    public int getSize() {
+        return items.size();
     }
 
 }
