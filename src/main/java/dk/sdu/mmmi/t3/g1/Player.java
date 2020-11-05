@@ -36,7 +36,13 @@ public class Player {
 
     public void showInventory(){
         try{
-            inventory.showInventory();
+            if (inventory.getSize()!=0) {
+                System.out.println("Inventory:");
+                inventory.showInventory();
+            }
+            else {
+                System.out.println("Your bag is empty");
+            }
         }catch (NullPointerException e){
             System.out.println("You don't have any items");
         }
