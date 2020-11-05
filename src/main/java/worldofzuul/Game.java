@@ -35,17 +35,18 @@ public class Game
         parking = new Room("at the parking lot");
         beach = new Room("at the beach");
         recycling = new Room("at the recycling plant");
-
+        /*
         can = new Item("can", "metal");
         cup = new Item("cup", "plasitc");
         paperbag = new Item("paperbag", "paper");
-
+*/
         house.setExit("north", parking);
+        /*
         house.addItemToRoom(can);
         house.addItemToRoom(cup);
-
+*/
         park.setExit("south", parking);
-        park.addItemToRoom(paperbag);
+        // park.addItemToRoom(paperbag);
 
         shop.setExit("south", road);
 
