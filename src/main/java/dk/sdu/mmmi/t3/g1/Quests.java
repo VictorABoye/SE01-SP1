@@ -9,11 +9,13 @@ public class Quests {
     private HashMap<String, Integer> choiceWeight;
     private Quests nextQuest;
     private String description;
+    private boolean isCompleted;
 
     public Quests(ArrayList choices, HashMap correctChoices, String description){
         this.choices = choices;
         this.choiceWeight = correctChoices;
         this.description = description;
+        isCompleted = false;
     }
 
     public int checkChoice(int x){
@@ -31,6 +33,14 @@ public class Quests {
         }
     }
 
+    public boolean getCompleted(){
+        return isCompleted;
+    }
+
+    public void setCompleted(){
+        isCompleted = true;
+    }
+
     public void addChoice(String choice){
         this.choices.add(choice);
     }
@@ -41,8 +51,10 @@ public class Quests {
 
     public void showChoices(){
         System.out.println("Your quest choices are: ");
+        int i = 1;
         for(String choice: choices){
-            System.out.println(choice);
+            System.out.println(i + " " + choice);
+            i++;
         }
     }
 

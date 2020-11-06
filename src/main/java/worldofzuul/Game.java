@@ -6,6 +6,7 @@ import dk.sdu.mmmi.t3.g1.Player;
 import dk.sdu.mmmi.t3.g1.Quests;
 
 import javax.sound.midi.SysexMessage;
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -75,7 +76,7 @@ public class Game
         player.pickUp(paperbag);
 
 
-        currentRoom = recycling; //Starting
+        currentRoom = house; //Starting
     }
 
     private void createQuests(){
@@ -137,7 +138,7 @@ public class Game
         groceries.setNextQuest(recycling);
         recycling.setNextQuest(factory);
 
-        currentQuest = recycling; //starting quest
+        currentQuest = breakfast; //starting quest
     }
 
     public void play() 
@@ -229,6 +230,14 @@ public class Game
         }
         else if (commandWord == commandWord.ROOMINVENTORY){
             currentRoom.showInventory();
+        }
+        else if (commandWord == CommandWord.QUEST){
+            //Display current quest
+            System.out.println(currentQuest.getDescription());
+            System.out.println("You have the following options:");
+            // and options
+            currentQuest.showChoices();
+
         }
         return wantToQuit;
     }
