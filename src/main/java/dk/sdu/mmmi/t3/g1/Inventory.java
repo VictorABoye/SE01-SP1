@@ -56,5 +56,13 @@ public class Inventory {
         return items.size();
     }
 
+    public boolean hasItem(String itemName) {
+        for (Item i : items){
+            if (i.getName().equals(itemName)){
+                return true;
+            }
+        }
+        return false;
+    }
 }
 

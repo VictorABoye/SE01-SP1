@@ -249,15 +249,32 @@ public class Game
         }
 
         String itemName = command.getSecondWord();
+        String items = command.getThirdWord();
 
         if (itemName.equals("all")){
-            int size = currentRoom.getRoomInventorySize();
-            for (int i = size-1; i >= 0; i--){
-                Item movingItem = currentRoom.getItem(i);
-                player.pickUp(movingItem);
-                currentRoom.removeItemFromRoom(movingItem);
+            if (items == null) {
+                for (int i = currentRoom.getRoomInventorySize() - 1; i >= 0; i--) {
+                    Item movingItem = currentRoom.getItem(i);
+                    player.pickUp(movingItem);
+                    currentRoom.removeItemFromRoom(movingItem);
+                }
+                System.out.println("You took all the item");
             }
-            System.out.println("You took all the item");
+            else {
+                if (currentRoom.hasItem(items)) {
+                    for (int i = currentRoom.getRoomInventorySize() - 1; i >= 0; i--) {
+                        Item movingItem = currentRoom.getItem(i);
+                        if (movingItem.getName().equals(items)) {
+                            player.pickUp(movingItem);
+                            currentRoom.removeItemFromRoom(movingItem);
+                        }
+                    }
+                    System.out.println("You took all " + items + "s");
+                }
+                else {
+                    System.out.println("There are no " + items + "s");
+                }
+            }
             return;
         }
 
@@ -280,15 +297,32 @@ public class Game
         }
 
         String itemName = command.getSecondWord();
+        String items = command.getThirdWord();
 
         if (itemName.equals("all")){
-            int size = player.getPlayerInventorySize();
-            for (int i = size-1; i >= 0; i--){
-                Item movingItem = player.getItem(i);
-                player.place(movingItem);
-                currentRoom.addItemToRoom(movingItem);
+            if (items == null) {
+                for (int i = player.getPlayerInventorySize() - 1; i >= 0; i--) {
+                    Item movingItem = player.getItem(i);
+                    player.place(movingItem);
+                    currentRoom.addItemToRoom(movingItem);
+                }
+                System.out.println("You dropped all your items");
             }
-            System.out.println("You dropped all your items");
+            else {
+                if (player.hasItem(items)) {
+                    for (int i = player.getPlayerInventorySize() - 1; i >= 0; i--) {
+                        Item movingItem = player.getItem(i);
+                        if (movingItem.getName().equals(items)) {
+                            player.place(movingItem);
+                            currentRoom.addItemToRoom(movingItem);
+                        }
+                    }
+                    System.out.println("You dropped all your " + items + "s");
+                }
+                else {
+                    System.out.println("You do not have any " + items + "s");
+                }
+            }
             return;
         }
 
