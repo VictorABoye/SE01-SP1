@@ -50,7 +50,7 @@ public class Quests {
     }
 
     public void showChoices(){
-        System.out.println("Your quest choices are: ");
+        System.out.println("You have the following options: ");
         int i = 1;
         for(String choice: choices){
             System.out.println(i + " " + choice);

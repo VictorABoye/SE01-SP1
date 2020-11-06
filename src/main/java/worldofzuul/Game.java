@@ -229,12 +229,12 @@ public class Game
             player.checkKlimaindsats();
         }
         else if (commandWord == commandWord.ROOMINVENTORY){
+            System.out.println(currentRoom.getLongDescription());
             currentRoom.showInventory();
         }
         else if (commandWord == CommandWord.QUEST){
             //Display current quest
             System.out.println(currentQuest.getDescription());
-            System.out.println("You have the following options:");
             // and options
             currentQuest.showChoices();
 
@@ -278,7 +278,7 @@ public class Game
                             currentRoom.removeItemFromRoom(movingItem);
                         }
                     }
-                    System.out.println("You took all " + items + "s");
+                    System.out.println("You took all the " + items + "s");
                 }
                 else {
                     System.out.println("There are no " + items + "s");
