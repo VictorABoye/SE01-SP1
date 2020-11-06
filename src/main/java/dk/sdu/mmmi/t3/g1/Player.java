@@ -50,7 +50,7 @@ public class Player {
 
     public void incKlimaindsats(int x){
         klimaIndsats += x;
-        if (klimaIndsats > 0) {
+        if (klimaIndsats <= 0) {
             System.out.println("You lost...");
             // End game();
         }
