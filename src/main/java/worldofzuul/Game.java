@@ -83,15 +83,15 @@ public class Game
         Quests breakfast, transport, road, groceries, recycling, factory, quiz;;
 
         breakfast = new Quests(new ArrayList<>(), new HashMap<>(), "You wake up and are feeling hungry");
-
-        breakfast.addChoice("Pizza");
-        breakfast.addChoice("Netto");
-        breakfast.setChoiceWeight("Netto", 0);
-        breakfast.setChoiceWeight("Pizza", -10);
+        breakfast.setConsequence("");
+        breakfast.addChoice("Oatmeal with some fresh fruit on top");
+        breakfast.addChoice("Triple-Beef Cheeseburger!");
+        breakfast.setChoiceWeight("Oatmeal with some fresh fruit on top", 5);
+        breakfast.setChoiceWeight("Triple-Beef Cheeseburger!", -5);
 
 
         // Creating new quest, "Transport", currentRoom is parking
-        transport = new Quests(new ArrayList<>(), new HashMap<>(), "Choose transport");
+        transport = new Quests(new ArrayList<>(), new HashMap<>(), "Choose the most environmental-friendly transport method");
         transport.addChoice("Car");
         transport.addChoice("Bike");
         transport.addChoice("Walk");
@@ -114,6 +114,7 @@ public class Game
         // Creating a new quest, "Groceries"
 
         groceries = new Quests(new ArrayList<>(), new HashMap<>(), "Choose the groceries, which you desire");
+        groceries.setDescription("Did you know that what you eat have an affect on climate change? It does! About one-quarter of the planet-warming greenhouse gases are generated from raising and harvesting plants, animals and animal products we eat - beef, chicken, fish and so on... But, some food categories requires more ressources to make, which hurts the climate.");
         //groceries.addChoice("");
         //groceries.addChoice("");
         //groceries.setChoiceWeight();
@@ -125,8 +126,10 @@ public class Game
 
         // Creating a new quest, "factory"
         factory = new Quests(new ArrayList<>(), new HashMap<>(), "A local factory pours nuclear waste into the sea. Time to make a choice.");
-        //factory.addChoice("");
-        //factory.setChoiceWeight("");
+        factory.addChoice("Report it to the authorities");
+        factory.addChoice("Ignore it");
+        factory.setChoiceWeight("Report it to the authorities", 10);
+        factory.setChoiceWeight("Ignore it", -10);
 
         //Creating a last quest, quiz
         //quiz...
@@ -157,7 +160,7 @@ public class Game
     {
         System.out.println();
         System.out.println("Welcome to the World of Cool!");
-        System.out.println("World of Cool is a new, incredibly boring adventure game.");
+        //Could be: "World of Cool" is new a game, which can improve the general knowledge of the climate issues and the actions a person, as an individual, can do about the climate change.         System.out.println("World of Cool is a new, incredibly boring adventure game.");
         System.out.println("Type '" + CommandWord.HELP + "' if you need help.");
         System.out.println();
         System.out.println(currentRoom.getInfoBox());
