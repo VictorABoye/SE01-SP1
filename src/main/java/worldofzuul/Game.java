@@ -225,8 +225,23 @@ public class Game
             }catch (NumberFormatException e){
                 System.out.println("Choose the number corresponding to the option");
             }
+            //Input from user. When the user starts next quest, the new "answer" will be entered. Scanner is needed.
+            String tempAnswer = "Car";
+            //
 
+            if (currentQuest.hasChoiceWeight() ){
 
+                if (currentQuest.isBestAnswer(tempAnswer)){
+                    System.out.println("Yes. You've taken the right choice!");
+                }
+                else if (currentQuest.getChoiceWeight(tempAnswer) == 2) {
+                    System.out.println("Not bad but there's a better choice");
+                }
+                else {
+                    System.out.println("Worst choice....");
+                }
+            }
+            
         }
         else if (commandWord == CommandWord.SCORE){
             player.checkKlimaindsats();

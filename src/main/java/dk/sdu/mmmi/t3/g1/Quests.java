@@ -49,6 +49,23 @@ public class Quests {
         choiceWeight.put(choice, amount);
     }
 
+    // Checks if the quest has a choice Weight, in case it does it will return true otherwise false. (Can be used before function getChoiceWeight to be sure the quest has ChoiceWeight)
+    public boolean hasChoiceWeight() {
+        return !choiceWeight.isEmpty();
+    }
+
+    //Returns Choice Weight based on the choice entered.
+    public int getChoiceWeight(String choice){
+        return choiceWeight.get(choice);
+    }
+
+    //Return True if the answer has Weight of 1 (the best answer)
+    public boolean isBestAnswer(String answer){
+        if (choiceWeight.get(answer) == 1)
+            return true;
+        return false;
+    }
+
     public void showChoices(){
         System.out.println("You have the following options: ");
         int i = 1;
