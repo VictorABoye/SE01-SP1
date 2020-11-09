@@ -76,7 +76,6 @@ public class Game
         parkQuest = new Quests(new ArrayList<>(), new HashMap<>(), "s");
 
         //Breakfast quest
-        breakfast.setConsequence("");
         breakfast.addChoice(parser.parseString((String) questStrings.get(0).get(1)),5,parser.parseString((String) questStrings.get(0).get(3)));
         breakfast.addChoice(parser.parseString((String) questStrings.get(0).get(2)),-5,parser.parseString((String) questStrings.get(0).get(4)));
 

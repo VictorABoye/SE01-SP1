@@ -22,7 +22,7 @@ public class Quests {
         try {
             if (choiceWeight.containsKey(choices.get(x - 1))) {
                 System.out.println("You chose " + choices.get(x - 1));
-                System.out.println(consequence.get(x));
+                System.out.println(getConsequence(x));
                 return choiceWeight.get(choices.get(x - 1));
             }
             return 0;
