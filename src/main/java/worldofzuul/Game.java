@@ -77,8 +77,8 @@ public class Game
 
         //Breakfast quest
         breakfast.setConsequence("");
-        breakfast.addChoice("Oatmeal with some fresh fruit on top");
-        breakfast.addChoice("Triple-Beef Cheeseburger");
+        breakfast.addChoice(parser.parseString((String) questStrings.get(0).get(1)));
+        breakfast.addChoice(parser.parseString((String) questStrings.get(0).get(2)));
         breakfast.setChoiceWeight("Oatmeal with some fresh fruit on top", 5);
         breakfast.setChoiceWeight("Triple-Beef Cheeseburger", -5);
 

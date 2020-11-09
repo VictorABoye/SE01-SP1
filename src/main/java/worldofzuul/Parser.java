@@ -53,7 +53,8 @@ public class Parser
         }
         String str = new String();
         for(String st: temp){
-            str += "\n"+ st;
+            //str += "\n"+ st;
+            str += st + "\n";
         }
         return str;
     }

@@ -68,7 +68,7 @@ public class Quests {
         System.out.println("You have the following options: ");
         int i = 1;
         for(String choice: choices){
-            System.out.println(i + " " + choice);
+            System.out.print(i + " " + choice);
             i++;
         }
         System.out.println("Write 'choose' and a number to choose an option");
