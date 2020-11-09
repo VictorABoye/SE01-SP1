@@ -4,20 +4,16 @@ import dk.sdu.mmmi.t3.g1.Item;
 import dk.sdu.mmmi.t3.g1.NonFoodItem;
 import dk.sdu.mmmi.t3.g1.Player;
 import dk.sdu.mmmi.t3.g1.Quests;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.Map;
-
-
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.*;
 
 public class Game
 {
@@ -42,7 +38,6 @@ public class Game
         ArrayList<String> arr = new ArrayList<>();
         //Strings are saved under each quest, creating a new JSON object for the quest
         JSONObject object = (JSONObject) Strings.get(string);
-        System.out.println((String) object.get("description"));
         arr.add((String) object.get("description"));
         //Choices are saved as JSON arrays, creating iterator to add whole array to temp array
         JSONArray choices = (JSONArray) object.get("choices");
@@ -72,8 +67,9 @@ public class Game
         loadString("factory");
         loadString("parkQuest");
 
+        System.out.println(parser.parseString((String)questStrings.get(0).get(0)));
 
-        breakfast = new Quests(new ArrayList<>(), new HashMap<>(), "You wake up and are feeling hungry");
+        breakfast = new Quests(new ArrayList<>(), new HashMap<>(), parser.parseString((String)questStrings.get(0).get(0)));
         transport = new Quests(new ArrayList<>(), new HashMap<>(), "Choose the most environmental-friendly transport method");
         roadQuest = new Quests(new ArrayList<>(), new HashMap<>(), "You can pick up trash or keep going");
         groceries = new Quests(new ArrayList<>(), new HashMap<>(), "Choose the groceries, which you desire");
