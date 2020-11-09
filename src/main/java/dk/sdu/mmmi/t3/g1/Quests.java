@@ -11,7 +11,7 @@ public class Quests {
     private String description;
     private boolean isCompleted;
 
-    public Quests(ArrayList choices, HashMap correctChoices, String description){
+    public Quests(ArrayList<String> choices, HashMap<String, Integer> correctChoices, String description){
         this.choices = choices;
         this.choiceWeight = correctChoices;
         this.description = description;
@@ -19,17 +19,15 @@ public class Quests {
     }
 
     public int checkChoice(int x){
-        while (true){
-            try {
-                if (choiceWeight.containsKey(choices.get(x - 1))) {
-                    System.out.println("You chose " + choices.get(x - 1));
-                    return choiceWeight.get(choices.get(x - 1));
-                }
-                return 0;
-            } catch (IndexOutOfBoundsException e) {
-                System.out.println("You don't have that many choices");
-                return 0;
+        try {
+            if (choiceWeight.containsKey(choices.get(x - 1))) {
+                System.out.println("You chose " + choices.get(x - 1));
+                return choiceWeight.get(choices.get(x - 1));
             }
+            return 0;
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("You don't have that many choices");
+            return 0;
         }
     }
 

@@ -21,8 +21,6 @@ public class Game
         parser = new Parser();
         player = new Player();
         createRooms();
-        createQuests();
-
     }
 
 
@@ -30,14 +28,69 @@ public class Game
     {
         Room house, park, shop, road, parking, beach, recycling;
         NonFoodItem can, cup, paperbag;
-      
-        house = new Room("at your home","info");
-        park = new Room("in a park","info");
-        shop = new Room("in Netto","info");
-        road = new Room("on the road","info");
-        parking = new Room("at the parking lot","info");
-        beach = new Room("at the beach","info");
-        recycling = new Room("at the recycling plant","info");
+        Quests breakfast, transport, roadQuest, groceries, recyclingQuest, factory, quiz, parkQuest;
+
+        breakfast = new Quests(new ArrayList<>(), new HashMap<>(), "You wake up and are feeling hungry");
+        transport = new Quests(new ArrayList<>(), new HashMap<>(), "Choose the most environmental-friendly transport method");
+        roadQuest = new Quests(new ArrayList<>(), new HashMap<>(), "You can pick up trash or keep going");
+        groceries = new Quests(new ArrayList<>(), new HashMap<>(), "Choose the groceries, which you desire");
+        recyclingQuest = new Quests(new ArrayList<>(), new HashMap<>(), "You've collected trash throughout your journey. Time to sort it!");
+        factory = new Quests(new ArrayList<>(), new HashMap<>(), "A local factory pours nuclear waste into the sea. Time to make a choice.");
+        parkQuest = new Quests(new ArrayList<>(), new HashMap<>(), "s");
+
+        //Breakfast quest
+        breakfast.setConsequence("");
+        breakfast.addChoice("Oatmeal with some fresh fruit on top");
+        breakfast.addChoice("Triple-Beef Cheeseburger!");
+        breakfast.setChoiceWeight("Oatmeal with some fresh fruit on top", 5);
+        breakfast.setChoiceWeight("Triple-Beef Cheeseburger!", -5);
+
+        // Creating new quest, "Transport", currentRoom is parkingtransport = new Quests(new ArrayList<>(), new HashMap<>(), "Choose the most environmental-friendly transport method");
+        transport.addChoice("Car");
+        transport.addChoice("Bike");
+        transport.addChoice("Walk");
+        transport.addChoice("City bus");
+        transport.addChoice("Metro/Tram/Train");
+        transport.setChoiceWeight("Car", 1);
+        transport.setChoiceWeight("Bike",1 );
+        transport.setChoiceWeight("Walk", 1);
+        transport.setChoiceWeight("City Bus", 1);
+        transport.setChoiceWeight("Metro/tram/Train",1 );
+
+        // Creating a new quest, "road", currentRoom is road
+        roadQuest.addChoice("Do you want to stop and pick it up?");
+        roadQuest.addChoice("Continue your route without stopping");
+        roadQuest.setChoiceWeight("Do you want to stop and pick it up?", 10);
+        roadQuest.setChoiceWeight("Continue your route without stopping", -10);
+
+        // Creating a new quest, "Groceries"
+        groceries.setDescription("Did you know that what you eat have an affect on climate change? It does! About one-quarter of the planet-warming greenhouse gases are generated from raising and harvesting plants, animals and animal products we eat - beef, chicken, fish and so on... But, some food categories requires more ressources to make, which hurts the climate.");
+        //groceries.addChoice("");
+        //groceries.addChoice("");
+        //groceries.setChoiceWeight();
+        //groceries.setChoiceWeight();
+
+        // Creating a new quest, "factory"
+        factory.addChoice("Report it to the authorities");
+        factory.addChoice("Ignore it");
+        factory.setChoiceWeight("Report it to the authorities", 10);
+        factory.setChoiceWeight("Ignore it", -10);
+
+        //Passing on to next quest
+        breakfast.setNextQuest(transport);
+        transport.setNextQuest(roadQuest);
+        roadQuest.setNextQuest(groceries);
+        groceries.setNextQuest(recyclingQuest);
+        recyclingQuest.setNextQuest(factory);
+
+
+        house = new Room("at your home","info", breakfast);
+        park = new Room("in a park","info", parkQuest);
+        shop = new Room("in Netto","info", groceries);
+        road = new Room("on the road","info", roadQuest);
+        parking = new Room("at the parking lot","info", transport);
+        beach = new Room("at the beach","info", factory);
+        recycling = new Room("at the recycling plant","info", recyclingQuest);
 
         can = new NonFoodItem("can", "metal");
         cup = new NonFoodItem("cup", "plastic");
@@ -78,70 +131,6 @@ public class Game
         currentRoom = house; //Starting
     }
 
-    private void createQuests(){
-        Quests breakfast, transport, road, groceries, recycling, factory, quiz;;
-
-        breakfast = new Quests(new ArrayList<>(), new HashMap<>(), "You wake up and are feeling hungry");
-        breakfast.setConsequence("");
-        breakfast.addChoice("Oatmeal with some fresh fruit on top");
-        breakfast.addChoice("Triple-Beef Cheeseburger!");
-        breakfast.setChoiceWeight("Oatmeal with some fresh fruit on top", 5);
-        breakfast.setChoiceWeight("Triple-Beef Cheeseburger!", -5);
-
-
-        // Creating new quest, "Transport", currentRoom is parking
-        transport = new Quests(new ArrayList<>(), new HashMap<>(), "Choose the most environmental-friendly transport method");
-        transport.addChoice("Car");
-        transport.addChoice("Bike");
-        transport.addChoice("Walk");
-        transport.addChoice("City bus");
-        transport.addChoice("Metro/Tram/Train");
-        transport.setChoiceWeight("Car", 1);
-        transport.setChoiceWeight("Bike",1 );
-        transport.setChoiceWeight("Walk", 1);
-        transport.setChoiceWeight("City Bus", 1);
-        transport.setChoiceWeight("Metro/tram/Train",1 );
-
-        // Creating a new quest, "road", currentRoom is road
-
-        road = new Quests(new ArrayList<>(), new HashMap<>(), "You can pick up trash or keep going");
-        road.addChoice("Do you want to stop and pick it up?");
-        road.addChoice("Continue your route without stopping");
-        road.setChoiceWeight("Do you want to stop and pick it up?", 10);
-        road.setChoiceWeight("Continue your route without stopping", -10);
-
-        // Creating a new quest, "Groceries"
-
-        groceries = new Quests(new ArrayList<>(), new HashMap<>(), "Choose the groceries, which you desire");
-        groceries.setDescription("Did you know that what you eat have an affect on climate change? It does! About one-quarter of the planet-warming greenhouse gases are generated from raising and harvesting plants, animals and animal products we eat - beef, chicken, fish and so on... But, some food categories requires more ressources to make, which hurts the climate.");
-        //groceries.addChoice("");
-        //groceries.addChoice("");
-        //groceries.setChoiceWeight();
-        //groceries.setChoiceWeight();
-
-        // Creating a new quest, "recycling"
-        recycling = new Quests(new ArrayList<>(), new HashMap<>(), "You've collected trash throughout your journey. Time to sort it!");
-
-
-        // Creating a new quest, "factory"
-        factory = new Quests(new ArrayList<>(), new HashMap<>(), "A local factory pours nuclear waste into the sea. Time to make a choice.");
-        factory.addChoice("Report it to the authorities");
-        factory.addChoice("Ignore it");
-        factory.setChoiceWeight("Report it to the authorities", 10);
-        factory.setChoiceWeight("Ignore it", -10);
-
-        //Creating a last quest, quiz
-        //quiz...
-
-        //Passing on to next quest
-        breakfast.setNextQuest(transport);
-        transport.setNextQuest(road);
-        road.setNextQuest(groceries);
-        groceries.setNextQuest(recycling);
-        recycling.setNextQuest(factory);
-
-        currentQuest = breakfast; //starting quest
-    }
 
     public void play() 
     {            
@@ -214,7 +203,7 @@ public class Game
                 try {
                     int value = currentQuest.checkChoice(Integer.parseInt(command.getSecondWord()));
                     player.incKlimaindsats(value);
-                    currentQuest.getConsequence(value);
+                    // currentQuest.getConsequence(Integer.parseInt(command.getSecondWord()));
                     if(value!=0) {
                         currentQuest = currentQuest.getNextQuest();
                     }

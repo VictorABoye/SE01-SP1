@@ -2,6 +2,7 @@ package worldofzuul;
 
 import dk.sdu.mmmi.t3.g1.Inventory;
 import dk.sdu.mmmi.t3.g1.Item;
+import dk.sdu.mmmi.t3.g1.Quests;
 
 import java.util.Set;
 import java.util.HashMap;
@@ -15,14 +16,16 @@ public class Room
     private Inventory inventory;
     private boolean isVisited;
     private String infoBox;
+    private Quests quest;
 
-    public Room(String description, String infoBox)
+    public Room(String description, String infoBox, Quests quest)
     {
         this.description = description;
         exits = new HashMap<String, Room>();
         inventory = new Inventory();
         isVisited = false;
         this.infoBox = infoBox;
+        this.quest = quest;
     }
 
     public boolean getVisited(){
