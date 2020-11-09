@@ -204,6 +204,7 @@ public class Game
 
         if(commandWord == CommandWord.UNKNOWN) {
             System.out.println("I don't know what you mean...");
+            System.out.println("You can type 'help' to see your options");
             return false;
         }
 
