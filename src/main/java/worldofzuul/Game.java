@@ -26,7 +26,7 @@ public class Game
     private void createRooms()
     {
         Room house, park, shop, road, parking, beach, recycling;
-        NonFoodItem can, cup, paperbag;
+        NonFoodItem can, cup, straw, water_bottle,  paper_bag, glass_bottle, battery;
         Quests breakfast, transport, roadQuest, groceries, recyclingQuest, factory, quiz, parkQuest;
 
         breakfast = new Quests(new ArrayList<>(), new HashMap<>(), "You wake up and are feeling hungry");
@@ -91,37 +91,55 @@ public class Game
 
         can = new NonFoodItem("can", "metal");
         cup = new NonFoodItem("cup", "plastic");
-        paperbag = new NonFoodItem("paperbag", "paper");
+        straw = new NonFoodItem("straw", "plastic");
+        water_bottle = new NonFoodItem("waterbottle", "plastic");
+        paper_bag = new NonFoodItem("paperbag", "paper");
+        glass_bottle = new NonFoodItem("glassbottle","glass");
+        battery = new NonFoodItem("battery","battery");
 
         house.setExit("north", parking);
+        house.addItemToRoom(battery);
+        house.addItemToRoom(battery);
         house.addItemToRoom(can);
-        house.addItemToRoom(can);
-        house.addItemToRoom(cup);
+
         park.setExit("south", parking);
-        park.addItemToRoom(paperbag);
+        park.addItemToRoom(paper_bag);
+        park.addItemToRoom(water_bottle);
+        park.addItemToRoom(cup);
+        park.addItemToRoom(cup);
 
         shop.setExit("south", road);
 
         road.setExit("north", shop);
         road.setExit("east", parking);
         road.setExit("west", recycling);
+        road.addItemToRoom(can);
 
         parking.setExit("west", road);
         parking.setExit("south", house);
         parking.setExit("north", park);
         parking.setExit("east", beach);
+        parking.addItemToRoom(paper_bag);
 
         beach.setExit("west", parking);
+        beach.addItemToRoom(can);
+        beach.addItemToRoom(cup);
+        beach.addItemToRoom(water_bottle);
+        beach.addItemToRoom(water_bottle);
+        beach.addItemToRoom(paper_bag);
+        beach.addItemToRoom(straw);
 
         recycling.setExit("east", road);
         // For at teste sorting tingeling
 
+        /*
         player.pickUp(can);
         player.pickUp(can);
         player.pickUp(can);
         player.pickUp(cup);
         player.pickUp(cup);
         player.pickUp(paperbag);
+         */
 
 
         currentRoom = house; //Starting
