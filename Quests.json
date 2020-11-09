@@ -16,7 +16,7 @@
   "roadQuest": {
     "description": "At the side of the road you can see trash...",
     "choices": ["Pick up the trash", "Keep going"],
-    "consequences": ["Good choice","Did you know that waste has consequences for both nature and animals?\n Plastic becomes microplastic that accumulates in the soil and in aquatic environments. From here it can end up in animals and eventually in our food."]
+    "consequences": ["Good choice, you have gained 10 climate points...","Did you know that waste has consequences for both nature and animals?\n Plastic becomes microplastic that accumulates in the soil and in aquatic environments. From here it can end up in animals and eventually in our food."]
   },
   "groceries": {
     "description": "hej :)",
@@ -24,9 +24,9 @@
     "consequences": ["consequence"]
   },
   "recyclingQuest": {
-    "description": "",
-    "choices": ["Choice1"],
-    "consequences": ["consequence"]
+    "description": "You've collected trash throughout your journey. Time to sort it!\nTo sort trash write 'sort item material' to sort an item as that material.\nYou gain climate points for each item sorted correctly.",
+    "choices": [""],
+    "consequences": [""]
   },
   "factory": {
     "description": "",

@@ -69,9 +69,9 @@ public class Game
 
         breakfast = new Quests(new ArrayList<>(), new HashMap<>(), parser.parseString((String)questStrings.get(0).get(0)));
         transport = new Quests(new ArrayList<>(), new HashMap<>(), parser.parseString((String)questStrings.get(1).get(0)));
-        roadQuest = new Quests(new ArrayList<>(), new HashMap<>(), "You can pick up trash or keep going");
+        roadQuest = new Quests(new ArrayList<>(), new HashMap<>(), parser.parseString((String)questStrings.get(2).get(0)));
         groceries = new Quests(new ArrayList<>(), new HashMap<>(), "Choose the groceries, which you desire");
-        recyclingQuest = new Quests(new ArrayList<>(), new HashMap<>(), "You've collected trash throughout your journey. Time to sort it!");
+        recyclingQuest = new Quests(new ArrayList<>(), new HashMap<>(), parser.parseString((String)questStrings.get(4).get(0)));
         factory = new Quests(new ArrayList<>(), new HashMap<>(), "A local factory pours nuclear waste into the sea. Time to make a choice.");
         parkQuest = new Quests(new ArrayList<>(), new HashMap<>(), "s");
 
@@ -85,8 +85,8 @@ public class Game
         }
 
         // Creating a new quest, "road", currentRoom is road
-        roadQuest.addChoice("Do you want to stop and pick it up?",10,"");
-        roadQuest.addChoice("Continue your route without stopping",-10,"");
+        roadQuest.addChoice(parser.parseString((String)questStrings.get(2).get(1)),10,parser.parseString((String)questStrings.get(2).get(3)));
+        roadQuest.addChoice(parser.parseString((String)questStrings.get(2).get(2)),-10,parser.parseString((String)questStrings.get(2).get(4)));
 
         // Creating a new quest, "Groceries"
         groceries.setDescription("Did you know that what you eat have an affect on climate change? It does! About one-quarter of the planet-warming greenhouse gases are generated from raising and harvesting plants, animals and animal products we eat - beef, chicken, fish and so on... But, some food categories requires more ressources to make, which hurts the climate.");
