@@ -33,10 +33,13 @@ public class Game
     }
 
     private void loadString(String string) throws IOException, ParseException {
+        //Opens JSON file
         Object obj = new JSONParser().parse(new FileReader("Quests.json"));
+        //Casts to JSONObject in order to use it as JSON
         JSONObject Strings = (JSONObject) obj;
+        //Create temporary array to store strings in before adding to
         ArrayList<String> arr = new ArrayList<>();
-        //Breakfast strings
+        //Strings for array
         JSONObject object = (JSONObject) Strings.get(string);
         arr.add((String) object.get("description"));
         JSONArray choices = (JSONArray) object.get("choices");
