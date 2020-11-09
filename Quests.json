@@ -14,9 +14,9 @@
       "Good choice. It is not only good for the environment, but also for you. You’ve received 5 climate points!\nBy walking you only emit the carbon dioxide you breathe out. Enjoy the nice weather and your better health."]
   },
   "roadQuest": {
-    "description": "",
-    "choices": ["Choice1"],
-    "consequences": ["consequence"]
+    "description": "At the side of the road you can see trash...",
+    "choices": ["Pick up the trash", "Keep going"],
+    "consequences": ["Good choice","Did you know that waste has consequences for both nature and animals?\n Plastic becomes microplastic that accumulates in the soil and in aquatic environments. From here it can end up in animals and eventually in our food."]
   },
   "groceries": {
     "description": "hej :)",
