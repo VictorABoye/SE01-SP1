@@ -144,8 +144,8 @@ public class Game
     {
         System.out.println();
         System.out.println("Welcome to the World of Cool!");
-        System.out.println("World of Cool!is a informative game, which has a purpose to inform YOU about the rising consequences coming from climate change. We believe that by the end of your journey, you will know more about the climate and how to act accordingly in regards to the nature");
-        System.out.println("You will be taken on a journey where the choices you take matters. You'll be giving a climate score starting at 50. Make a wrong choice and it will be decreased, make the right one and it will be increased. Every choice you make is vital!");
+        System.out.println("World of Cool!is a informative game, which has a purpose to inform YOU about the rising consequences coming from climate change.\nWe believe that by the end of your journey, you will know more about the climate and how to act accordingly in regards to the nature");
+        System.out.println("You will be taken on a journey where the choices you take matters.\nYou'll be giving a climate score starting at 50. Make a wrong choice and it will be decreased, make the right one and it will be increased. Every choice you make is vital!");
         System.out.println();
         System.out.println("Reach a climate score of 0 and you will lose, reach 100 and you will win. Good Luck!");
         System.out.println("Type '" + CommandWord.HELP + "' if you need help or want to your commands. Be aware that some commands might not be available in certain places.");
