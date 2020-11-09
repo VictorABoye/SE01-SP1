@@ -61,7 +61,7 @@ public class Quests {
 
     //Return True if the answer has Weight of 1 (the best answer)
     public boolean isBestAnswer(String answer){
-        if (choiceWeight.get(answer) == 1)
+        if (choiceWeight.get(answer) == 5)
             return true;
         return false;
     }

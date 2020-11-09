@@ -5,10 +5,9 @@ import dk.sdu.mmmi.t3.g1.NonFoodItem;
 import dk.sdu.mmmi.t3.g1.Player;
 import dk.sdu.mmmi.t3.g1.Quests;
 
-import javax.sound.midi.SysexMessage;
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Scanner;
 
 public class Game
 {
@@ -226,15 +225,16 @@ public class Game
                 System.out.println("Choose the number corresponding to the option");
             }
             //Input from user. When the user starts next quest, the new "answer" will be entered. Scanner is needed.
-            String tempAnswer = "Car";
+            Scanner myObj = new Scanner(System.in);
+            String answer = myObj.nextLine();
             //
 
             if (currentQuest.hasChoiceWeight() ){
 
-                if (currentQuest.isBestAnswer(tempAnswer)){
+                if (currentQuest.isBestAnswer(answer)){
                     System.out.println("Yes. You've taken the right choice!");
                 }
-                else if (currentQuest.getChoiceWeight(tempAnswer) == 2) {
+                else if (currentQuest.getChoiceWeight(answer) == 2) {
                     System.out.println("Not bad but there's a better choice");
                 }
                 else {
@@ -246,7 +246,7 @@ public class Game
         else if (commandWord == CommandWord.SCORE){
             player.checkKlimaindsats();
         }
-        else if (commandWord == commandWord.ROOMINVENTORY){
+        else if (commandWord == CommandWord.ROOMINVENTORY){
             System.out.println(currentRoom.getLongDescription());
             currentRoom.showInventory();
         }
@@ -255,7 +255,8 @@ public class Game
             System.out.println(currentQuest.getDescription());
             // and options
             currentQuest.showChoices();
-
+            Command testCommand = new Command(CommandWord.CHOOSE, "", "");
+            processCommand(testCommand);
         }
         return wantToQuit;
     }
