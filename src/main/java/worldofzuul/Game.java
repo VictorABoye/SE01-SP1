@@ -57,7 +57,7 @@ public class Game
 
     private void createRooms() throws IOException, ParseException {
         Room house, park, shop, road, parking, beach, recycling;
-        NonFoodItem can, cup, straw, water_bottle,  paper_bag, glass_bottle, battery;
+        NonFoodItem can, cup, straw, water_bottle, paper_bag, glass_bottle, battery;
         Quests breakfast, transport, roadQuest, groceries, recyclingQuest, factory, quiz, parkQuest;
         loadString("breakfast");
         loadString("transport");
@@ -80,10 +80,9 @@ public class Game
         breakfast.addChoice(parser.parseString((String) questStrings.get(0).get(2)),-5,parser.parseString((String) questStrings.get(0).get(4)));
 
         // Creating new quest, "Transport", currentRoom is parkingtransport = new Quests(new ArrayList<>(), new HashMap<>(), "Choose the most environmental-friendly transport method");
-        transport.addChoice(parser.parseString((String) questStrings.get(1).get(1)),-5, parser.parseString((String) questStrings.get(1).get(5)));
-        transport.addChoice(parser.parseString((String) questStrings.get(1).get(2)),-5, parser.parseString((String) questStrings.get(1).get(6)));
-        transport.addChoice(parser.parseString((String) questStrings.get(1).get(3)),-5, parser.parseString((String) questStrings.get(1).get(7)));
-        transport.addChoice(parser.parseString((String) questStrings.get(1).get(4)),5, parser.parseString((String) questStrings.get(1).get(8)));
+        for (int i = 1; i < questStrings.get(1).size()-4; i++) {
+            transport.addChoice(parser.parseString((String) questStrings.get(1).get(i)), -5, parser.parseString((String) questStrings.get(1).get(i+4)));
+        }
 
         // Creating a new quest, "road", currentRoom is road
         roadQuest.addChoice("Do you want to stop and pick it up?",10,"");
@@ -165,7 +164,7 @@ public class Game
         player.pickUp(can);
         player.pickUp(cup);
         player.pickUp(cup);
-        player.pickUp(paperbag);
+        player.pickUp(paper_bag);
          */
 
 
@@ -439,7 +438,7 @@ public class Game
                 System.out.println(currentRoom.getInfoBox());
             }
             currentRoom.setVisited();
-            System.out.println("You can choose between your car, metro, city bus or walking");
+            System.out.println(currentRoom.getLongDescription());
         }
         else {
             currentQuest = currentRoom.getQuest().getNextQuest();
