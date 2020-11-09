@@ -107,5 +107,9 @@ public class Room
     public boolean hasItem(String itemName) {
         return inventory.hasItem(itemName);
     }
+
+    public Quests getQuest() {
+        return quest;
+    }
 }
 

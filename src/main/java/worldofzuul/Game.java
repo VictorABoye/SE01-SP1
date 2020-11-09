@@ -129,6 +129,7 @@ public class Game
 
 
         currentRoom = house; //Starting
+        currentQuest = currentRoom.getQuest();
     }
 
 
@@ -205,7 +206,7 @@ public class Game
                     player.incKlimaindsats(value);
                     // currentQuest.getConsequence(Integer.parseInt(command.getSecondWord()));
                     if(value!=0) {
-                        currentQuest = currentQuest.getNextQuest();
+                        currentQuest.setCompleted();
                     }
                 }catch (NullPointerException e){
                     System.out.println("You have completed all the quests!");
@@ -214,6 +215,7 @@ public class Game
                 System.out.println("Choose the number corresponding to the option");
             }
             //Input from user. When the user starts next quest, the new "answer" will be entered. Scanner is needed.
+            /*
             Scanner myObj = new Scanner(System.in);
             String answer = myObj.nextLine();
             //
@@ -230,6 +232,8 @@ public class Game
                     System.out.println("Worst choice....");
                 }
             }
+
+             */
             
         }
         else if (commandWord == CommandWord.SCORE){
@@ -244,8 +248,6 @@ public class Game
             System.out.println(currentQuest.getDescription());
             // and options
             currentQuest.showChoices();
-            Command testCommand = new Command(CommandWord.CHOOSE, "", "");
-            processCommand(testCommand);
         }
         return wantToQuit;
     }
@@ -357,6 +359,11 @@ public class Game
 
     private void goRoom(Command command) 
     {
+        if(!currentRoom.getQuest().getCompleted()){
+            System.out.println("You haven't completed the task in this room yet! \nComplete it in order to move on");
+            return;
+        }
+
         if(!command.hasSecondWord()) {
             System.out.println("Go where?");
             return;
@@ -370,6 +377,7 @@ public class Game
             System.out.println("There is no door!");
         }
         else if(currentRoom.getShortDescription().equals("at your home")){
+            currentQuest = currentRoom.getQuest().getNextQuest();
             currentRoom = nextRoom;
             if(!currentRoom.getVisited()){
                 System.out.println(currentRoom.getInfoBox());
@@ -378,6 +386,7 @@ public class Game
             System.out.println("You can choose between your car, bicycle and walking");
         }
         else {
+            currentQuest = currentRoom.getQuest().getNextQuest();
             currentRoom = nextRoom;
             if(!currentRoom.getVisited()){
                 System.out.println(currentRoom.getInfoBox());
