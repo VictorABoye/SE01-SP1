@@ -80,7 +80,7 @@ public class Game
         breakfast.addChoice(parser.parseString((String) questStrings.get(0).get(2)),-5,parser.parseString((String) questStrings.get(0).get(4)));
 
         // Creating new quest, "Transport", currentRoom is parkingtransport = new Quests(new ArrayList<>(), new HashMap<>(), "Choose the most environmental-friendly transport method");
-        for (int i = 1; i < questStrings.get(1).size()-4; i++) {
+        for (int i = 1; i <= questStrings.get(1).size()/2; i++) {
             transport.addChoice(parser.parseString((String) questStrings.get(1).get(i)), -5, parser.parseString((String) questStrings.get(1).get(i+4)));
         }
 
@@ -434,11 +434,11 @@ public class Game
         else if(currentRoom.getShortDescription().equals("at your home")){
             currentQuest = currentRoom.getQuest().getNextQuest();
             currentRoom = nextRoom;
+            System.out.println(currentRoom.getLongDescription());
             if(!currentRoom.getVisited()){
                 System.out.println(currentRoom.getInfoBox());
             }
             currentRoom.setVisited();
-            System.out.println(currentRoom.getLongDescription());
         }
         else {
             currentQuest = currentRoom.getQuest().getNextQuest();
