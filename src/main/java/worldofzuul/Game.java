@@ -5,8 +5,18 @@ import dk.sdu.mmmi.t3.g1.NonFoodItem;
 import dk.sdu.mmmi.t3.g1.Player;
 import dk.sdu.mmmi.t3.g1.Quests;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.*;
 
 public class Game
 {
@@ -14,19 +24,45 @@ public class Game
     private Room currentRoom;
     private Player player;
     private Quests currentQuest;
-    public Game() 
-    {
+    private ArrayList<ArrayList> questStrings = new ArrayList<>();
+
+    public Game() throws IOException, ParseException {
         parser = new Parser();
         player = new Player();
         createRooms();
     }
 
+    private void loadString(String string) throws IOException, ParseException {
+        Object obj = new JSONParser().parse(new FileReader("Quests.json"));
+        JSONObject Strings = (JSONObject) obj;
+        ArrayList<String> arr = new ArrayList<>();
+        //Breakfast strings
+        JSONObject object = (JSONObject) Strings.get(string);
+        arr.add((String) object.get("description"));
+        JSONArray choices = (JSONArray) object.get("choices");
+        Iterator itr1 = choices.iterator();
+        while (itr1.hasNext()){
+            arr.add((String)itr1.next());
+        }
+        JSONArray consequences = (JSONArray) object.get("consequences");
+        Iterator itr2 = consequences.iterator();
+        while (itr2.hasNext()){
+            arr.add((String)itr2.next());
+        }
+        questStrings.add(arr);
+    }
 
-    private void createRooms()
-    {
+    private void createRooms() throws IOException, ParseException {
         Room house, park, shop, road, parking, beach, recycling;
         NonFoodItem can, cup, paperbag;
         Quests breakfast, transport, roadQuest, groceries, recyclingQuest, factory, quiz, parkQuest;
+        loadString("breakfast");
+        loadString("transport");
+        loadString("roadQuest");
+        loadString("groceries");
+        loadString("recyclingQuest");
+        loadString("factory");
+        loadString("parkQuest");
 
         breakfast = new Quests(new ArrayList<>(), new HashMap<>(), "You wake up and are feeling hungry");
         transport = new Quests(new ArrayList<>(), new HashMap<>(), "Choose the most environmental-friendly transport method");
@@ -61,10 +97,10 @@ public class Game
 
         // Creating a new quest, "Groceries"
         groceries.setDescription("Did you know that what you eat have an affect on climate change? It does! About one-quarter of the planet-warming greenhouse gases are generated from raising and harvesting plants, animals and animal products we eat - beef, chicken, fish and so on... But, some food categories requires more ressources to make, which hurts the climate.");
-        groceries.addChoice("Lunch: Eggs and toast, Dinner: Lentil Soup");
-        groceries.addChoice("Lunch: BigMac from McDonalds, Dinner: Steak and fries");
-        groceries.setChoiceWeight("Lunch: Eggs and toast, Dinner: Lentil Soup", 10);
-        groceries.setChoiceWeight("Lunch: BigMac from McDonalds, Dinner: Steak and fries", -10);
+        //groceries.addChoice("");
+        //groceries.addChoice("");
+        //groceries.setChoiceWeight();
+        //groceries.setChoiceWeight();
 
         // Creating a new quest, "factory"
         factory.addChoice("Report it to the authorities");
