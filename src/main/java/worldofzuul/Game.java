@@ -332,12 +332,17 @@ public class Game
 
         if (itemName.equals("all")){
             if (items == null) {
-                for (int i = currentRoom.getRoomInventorySize() - 1; i >= 0; i--) {
-                    Item movingItem = currentRoom.getItem(i);
-                    player.pickUp(movingItem);
-                    currentRoom.removeItemFromRoom(movingItem);
+                if (currentRoom.getRoomInventorySize() > 0) {
+                    for (int i = currentRoom.getRoomInventorySize() - 1; i >= 0; i--) {
+                        Item movingItem = currentRoom.getItem(i);
+                        player.pickUp(movingItem);
+                        currentRoom.removeItemFromRoom(movingItem);
+                    }
+                    System.out.println("You took all the items");
                 }
-                System.out.println("You took all the items");
+                else {
+                    System.out.println("There are no items");
+                }
             }
             else {
                 if (currentRoom.hasItem(items)) {
@@ -380,12 +385,17 @@ public class Game
 
         if (itemName.equals("all")){
             if (items == null) {
-                for (int i = player.getPlayerInventorySize() - 1; i >= 0; i--) {
-                    Item movingItem = player.getItem(i);
-                    player.place(movingItem);
-                    currentRoom.addItemToRoom(movingItem);
+                if (player.getPlayerInventorySize() > 0) {
+                    for (int i = player.getPlayerInventorySize() - 1; i >= 0; i--) {
+                        Item movingItem = player.getItem(i);
+                        player.place(movingItem);
+                        currentRoom.addItemToRoom(movingItem);
+                    }
+                    System.out.println("You dropped all your items");
                 }
-                System.out.println("You dropped all your items");
+                else {
+                    System.out.println("You do not have any items");
+                }
             }
             else {
                 if (player.hasItem(items)) {
