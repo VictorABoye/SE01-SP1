@@ -7,7 +7,6 @@ import dk.sdu.mmmi.t3.g1.Quests;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Scanner;
 
 public class Game
 {
@@ -40,21 +39,19 @@ public class Game
         //Breakfast quest
         breakfast.setConsequence("");
         breakfast.addChoice("Oatmeal with some fresh fruit on top");
-        breakfast.addChoice("Triple-Beef Cheeseburger!");
+        breakfast.addChoice("Triple-Beef Cheeseburger");
         breakfast.setChoiceWeight("Oatmeal with some fresh fruit on top", 5);
-        breakfast.setChoiceWeight("Triple-Beef Cheeseburger!", -5);
+        breakfast.setChoiceWeight("Triple-Beef Cheeseburger", -5);
 
         // Creating new quest, "Transport", currentRoom is parkingtransport = new Quests(new ArrayList<>(), new HashMap<>(), "Choose the most environmental-friendly transport method");
         transport.addChoice("Car");
-        transport.addChoice("Bike");
-        transport.addChoice("Walk");
+        transport.addChoice("Walking");
         transport.addChoice("City bus");
         transport.addChoice("Metro/Tram/Train");
-        transport.setChoiceWeight("Car", 1);
-        transport.setChoiceWeight("Bike",1 );
-        transport.setChoiceWeight("Walk", 1);
-        transport.setChoiceWeight("City Bus", 1);
-        transport.setChoiceWeight("Metro/tram/Train",1 );
+        transport.setChoiceWeight("Car", -5);
+        transport.setChoiceWeight("Walking", 5);
+        transport.setChoiceWeight("City Bus", -5);
+        transport.setChoiceWeight("Metro/tram/Train",-5 );
 
         // Creating a new quest, "road", currentRoom is road
         roadQuest.addChoice("Do you want to stop and pick it up?");
@@ -99,7 +96,6 @@ public class Game
         house.addItemToRoom(can);
         house.addItemToRoom(can);
         house.addItemToRoom(cup);
-
         park.setExit("south", parking);
         park.addItemToRoom(paperbag);
 
@@ -148,8 +144,11 @@ public class Game
     {
         System.out.println();
         System.out.println("Welcome to the World of Cool!");
-        //Could be: "World of Cool" is new a game, which can improve the general knowledge of the climate issues and the actions a person, as an individual, can do about the climate change.         System.out.println("World of Cool is a new, incredibly boring adventure game.");
-        System.out.println("Type '" + CommandWord.HELP + "' if you need help.");
+        System.out.println("World of Cool!is a informative game, which has a purpose to inform YOU about the rising consequences coming from climate change. We believe that by the end of your journey, you will know more about the climate and how to act accordingly in regards to the nature");
+        System.out.println("You will be taken on a journey where the choices you take matters. You'll be giving a climate score starting at 50. Make a wrong choice and it will be decreased, make the right one and it will be increased. Every choice you make is vital!");
+        System.out.println();
+        System.out.println("Reach a climate score of 0 and you will lose, reach 100 and you will win. Good Luck!");
+        System.out.println("Type '" + CommandWord.HELP + "' if you need help or want to your commands. Be aware that some commands might not be available in certain places.");
         System.out.println();
         System.out.println(currentRoom.getInfoBox());
         System.out.println(currentRoom.getLongDescription());
@@ -253,9 +252,7 @@ public class Game
 
     private void printHelp() 
     {
-        System.out.println("You are lost. You are alone. You wander");
-        System.out.println("around at the university.");
-        System.out.println();
+        System.out.println("You are lost. You need help.");
         System.out.println("Your command words are:");
         parser.showCommands();
     }
@@ -276,7 +273,7 @@ public class Game
                     player.pickUp(movingItem);
                     currentRoom.removeItemFromRoom(movingItem);
                 }
-                System.out.println("You took all the item");
+                System.out.println("You took all the items");
             }
             else {
                 if (currentRoom.hasItem(items)) {
@@ -382,7 +379,7 @@ public class Game
                 System.out.println(currentRoom.getInfoBox());
             }
             currentRoom.setVisited();
-            System.out.println("You can choose between your car, bicycle and walking");
+            System.out.println("You can choose between your car, metro, city bus or walking");
         }
         else {
             currentQuest = currentRoom.getQuest().getNextQuest();
