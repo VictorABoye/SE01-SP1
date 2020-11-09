@@ -19,10 +19,10 @@
     "consequences": ["Good choice","Did you know that waste has consequences for both nature and animals?\n Plastic becomes microplastic that accumulates in the soil and in aquatic environments. From here it can end up in animals and eventually in our food."]
   },
   "groceries": {
-    "description": "You've arived at the store, and you need to chose what you will be having for lunch and dinner",
+    "description": "You've arrived at the store, and you need to chose what you will be having for lunch and dinner",
     "choices": ["Lunch: Eggs and toast, Dinner: Lentil Soup ", "Lunch: Burgers and fries , Dinner: Steak and fries"],
     "consequences": ["Good choice! Lentil and other sorts of vegetables are generally speaking way less harmfull than meats and other animal products. \n Eventhough you're having eggs, eggs results in 8 times less CO2 per 50 gram of protein in contrast to beef. \n You will now be rewarded 5 climate points",
-      "Bad choice! You're now having beef, which is the biggest sinner in terms of CO2 emission per 50 grams of protein there is. \n Cause of this, you now loose 5 climate points! "]
+      "Bad choice! You're now having beef, which is the biggest sinner in terms of CO2 emission per 50 grams of protein there is, twice a day. \n Cause of this, you now loose 5 climate points! "]
   },
   "recyclingQuest": {
     "description": "",
@@ -30,9 +30,10 @@
     "consequences": ["consequence"]
   },
   "factory": {
-    "description": "",
-    "choices": ["Choice1"],
-    "consequences": ["consequence"]
+    "description":  " You've arrived at the beach. Theres a factory in the distant and you see that it's pouring out nuclear waste into the sea ",
+    "choices": ["Call the authorities" , "Stay quiet, it's not your business.."],
+    "consequences": ["Good choice! Being the first to move is setting a good example and you hereby path the way for others to follow your lead. \n You will be rewarded with 5 climate points for your bravery!",
+    "Bad choice.. If you want to change something, someone has to move first. You can't just wait on someone else. \n You now loose 5 climate points "]
   },
   "parkQuest": {
     "description": "",

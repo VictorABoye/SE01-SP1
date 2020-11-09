@@ -71,8 +71,8 @@ public class Game
         transport = new Quests(new ArrayList<>(), new HashMap<>(), parser.parseString((String)questStrings.get(1).get(0)));
         roadQuest = new Quests(new ArrayList<>(), new HashMap<>(), "You can pick up trash or keep going");
         groceries = new Quests(new ArrayList<>(), new HashMap<>(), parser.parseString((String)questStrings.get(3).get(0)));
-        recyclingQuest = new Quests(new ArrayList<>(), new HashMap<>(), "You've collected trash throughout your journey. Time to sort it!");
-        factory = new Quests(new ArrayList<>(), new HashMap<>(), "A local factory pours nuclear waste into the sea. Time to make a choice.");
+        recyclingQuest = new Quests(new ArrayList<>(), new HashMap<>(), parser.parseString((String)questStrings.get(4).get(0)));
+        factory = new Quests(new ArrayList<>(), new HashMap<>(), parser.parseString((String)questStrings.get(5).get(0)));
         parkQuest = new Quests(new ArrayList<>(), new HashMap<>(), "s");
 
         //Breakfast quest
@@ -93,8 +93,8 @@ public class Game
         groceries.addChoice(parser.parseString((String)questStrings.get(3).get(2)), -10, parser.parseString((String)questStrings.get(3).get(4)) );
 
         // Creating a new quest, "factory"
-        factory.addChoice("Report it to the authorities",10,"");
-        factory.addChoice("Ignore it",-10,"");
+        factory.addChoice(parser.parseString((String)questStrings.get(5).get(1)), 5, parser.parseString((String)questStrings.get(5).get(3)));
+        factory.addChoice(parser.parseString((String)questStrings.get(5).get(2)), -5, parser.parseString((String)questStrings.get(5).get(4)));
 
         //Passing on to next quest
         breakfast.setNextQuest(transport);
