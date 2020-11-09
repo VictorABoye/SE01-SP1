@@ -37,27 +37,30 @@ public class Game
         Object obj = new JSONParser().parse(new FileReader("Quests.json"));
         //Casts to JSONObject in order to use it as JSON
         JSONObject Strings = (JSONObject) obj;
-        //Create temporary array to store strings in before adding to
+        //Create temporary array to store strings in before adding to questStrings array
         ArrayList<String> arr = new ArrayList<>();
-        //Strings for array
+        //Strings are saved under each quest, creating a new JSON object for the quest
         JSONObject object = (JSONObject) Strings.get(string);
         arr.add((String) object.get("description"));
+        //Choices are saved as JSON arrays, creating iterator to add whole array to temp array
         JSONArray choices = (JSONArray) object.get("choices");
         Iterator itr1 = choices.iterator();
         while (itr1.hasNext()){
             arr.add((String)itr1.next());
         }
+        //Same as choices
         JSONArray consequences = (JSONArray) object.get("consequences");
         Iterator itr2 = consequences.iterator();
         while (itr2.hasNext()){
             arr.add((String)itr2.next());
         }
+        //Adding temporary array to questStrings to access later
         questStrings.add(arr);
     }
 
     private void createRooms() throws IOException, ParseException {
         Room house, park, shop, road, parking, beach, recycling;
-        NonFoodItem can, cup, paperbag;
+        NonFoodItem can, cup, straw, water_bottle,  paper_bag, glass_bottle, battery;
         Quests breakfast, transport, roadQuest, groceries, recyclingQuest, factory, quiz, parkQuest;
         loadString("breakfast");
         loadString("transport");
@@ -129,37 +132,55 @@ public class Game
 
         can = new NonFoodItem("can", "metal");
         cup = new NonFoodItem("cup", "plastic");
-        paperbag = new NonFoodItem("paperbag", "paper");
+        straw = new NonFoodItem("straw", "plastic");
+        water_bottle = new NonFoodItem("waterbottle", "plastic");
+        paper_bag = new NonFoodItem("paperbag", "paper");
+        glass_bottle = new NonFoodItem("glassbottle","glass");
+        battery = new NonFoodItem("battery","battery");
 
         house.setExit("north", parking);
+        house.addItemToRoom(battery);
+        house.addItemToRoom(battery);
         house.addItemToRoom(can);
-        house.addItemToRoom(can);
-        house.addItemToRoom(cup);
+
         park.setExit("south", parking);
-        park.addItemToRoom(paperbag);
+        park.addItemToRoom(paper_bag);
+        park.addItemToRoom(water_bottle);
+        park.addItemToRoom(cup);
+        park.addItemToRoom(glass_bottle);
 
         shop.setExit("south", road);
 
         road.setExit("north", shop);
         road.setExit("east", parking);
         road.setExit("west", recycling);
+        road.addItemToRoom(can);
 
         parking.setExit("west", road);
         parking.setExit("south", house);
         parking.setExit("north", park);
         parking.setExit("east", beach);
+        parking.addItemToRoom(paper_bag);
 
         beach.setExit("west", parking);
+        beach.addItemToRoom(can);
+        beach.addItemToRoom(cup);
+        beach.addItemToRoom(water_bottle);
+        beach.addItemToRoom(water_bottle);
+        beach.addItemToRoom(paper_bag);
+        beach.addItemToRoom(straw);
 
         recycling.setExit("east", road);
         // For at teste sorting tingeling
 
+        /*
         player.pickUp(can);
         player.pickUp(can);
         player.pickUp(can);
         player.pickUp(cup);
         player.pickUp(cup);
         player.pickUp(paperbag);
+         */
 
 
         currentRoom = house; //Starting
