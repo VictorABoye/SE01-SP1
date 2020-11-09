@@ -66,13 +66,12 @@ public class Game
         Quests breakfast, transport, roadQuest, groceries, recyclingQuest, factory, quiz, parkQuest;
         loadString("breakfast");
         loadString("transport");
-        /*loadString("roadQuest");
+        loadString("roadQuest");
         loadString("groceries");
         loadString("recyclingQuest");
         loadString("factory");
         loadString("parkQuest");
 
-         */
 
         breakfast = new Quests(new ArrayList<>(), new HashMap<>(), "You wake up and are feeling hungry");
         transport = new Quests(new ArrayList<>(), new HashMap<>(), "Choose the most environmental-friendly transport method");

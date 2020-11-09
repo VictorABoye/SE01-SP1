@@ -8,5 +8,30 @@
     "description": "",
     "choices": ["Choice1"],
     "consequences": ["consequence"]
+  },
+  "roadQuest": {
+    "description": "",
+    "choices": ["Choice1"],
+    "consequences": ["consequence"]
+  },
+  "groceries": {
+    "description": "",
+    "choices": ["Choice1"],
+    "consequences": ["consequence"]
+  },
+  "recyclingQuest": {
+    "description": "",
+    "choices": ["Choice1"],
+    "consequences": ["consequence"]
+  },
+  "factory": {
+    "description": "",
+    "choices": ["Choice1"],
+    "consequences": ["consequence"]
+  },
+  "parkQuest": {
+    "description": "",
+    "choices": ["Choice1"],
+    "consequences": ["consequence"]
   }
 }
