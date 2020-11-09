@@ -71,6 +71,7 @@ public class Quests {
             System.out.println(i + " " + choice);
             i++;
         }
+        System.out.println("Write 'choose' and a number to choose an option");
     }
 
     public Quests getNextQuest() {

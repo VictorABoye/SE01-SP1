@@ -24,8 +24,8 @@ public class Room
         exits = new HashMap<String, Room>();
         inventory = new Inventory();
         isVisited = false;
-        this.infoBox = infoBox;
         this.quest = quest;
+        this.infoBox = this.quest.getDescription();
     }
 
     public boolean getVisited(){

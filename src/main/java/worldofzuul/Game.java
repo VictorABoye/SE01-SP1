@@ -67,8 +67,6 @@ public class Game
         loadString("factory");
         loadString("parkQuest");
 
-        System.out.println(parser.parseString((String)questStrings.get(0).get(0)));
-
         breakfast = new Quests(new ArrayList<>(), new HashMap<>(), parser.parseString((String)questStrings.get(0).get(0)));
         transport = new Quests(new ArrayList<>(), new HashMap<>(), "Choose the most environmental-friendly transport method");
         roadQuest = new Quests(new ArrayList<>(), new HashMap<>(), "You can pick up trash or keep going");
