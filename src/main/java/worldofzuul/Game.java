@@ -80,7 +80,7 @@ public class Game
         breakfast.addChoice(parser.parseString((String) questStrings.get(0).get(2)),-5,parser.parseString((String) questStrings.get(0).get(4)));
 
         // Creating new quest, "Transport", currentRoom is parkingtransport = new Quests(new ArrayList<>(), new HashMap<>(), "Choose the most environmental-friendly transport method");
-        transport.addChoice(parser.parseString((String) questStrings.get(1).get(1)), -5, parser.parseString((String) questStrings.get(1).get(5)));
+        transport.addChoice(parser.parseString((String) questStrings.get(1).get(1)), -10, parser.parseString((String) questStrings.get(1).get(5)));
         transport.addChoice(parser.parseString((String) questStrings.get(1).get(2)), -5, parser.parseString((String) questStrings.get(1).get(6)));
         transport.addChoice(parser.parseString((String) questStrings.get(1).get(3)), -5, parser.parseString((String) questStrings.get(1).get(7)));
         transport.addChoice(parser.parseString((String) questStrings.get(1).get(4)), 5, parser.parseString((String) questStrings.get(1).get(8)));
