@@ -231,7 +231,7 @@ public class Game
             else{
                 if(player.sort(command.getSecondWord(), command.getThirdWord())){
                     if (currentQuest.getDescription().equals("You've collected trash throughout your journey. Time to sort it!")){
-                        currentQuest = currentQuest.getNextQuest();
+                        currentRoom.getQuest().setCompleted();
                     }
                 }
             }
@@ -433,8 +433,8 @@ public class Game
             System.out.println("There is no door!");
         }
         else if(currentRoom.getShortDescription().equals("at your home")){
-            currentQuest = currentRoom.getQuest().getNextQuest();
             currentRoom = nextRoom;
+            currentQuest = currentRoom.getQuest();
             if(!currentRoom.getVisited()){
                 System.out.println(currentRoom.getInfoBox());
             }
@@ -442,8 +442,8 @@ public class Game
             System.out.println("You can choose between your car, metro, city bus or walking");
         }
         else {
-            currentQuest = currentRoom.getQuest().getNextQuest();
             currentRoom = nextRoom;
+            currentQuest = currentRoom.getQuest();
             if(!currentRoom.getVisited()){
                 System.out.println(currentRoom.getInfoBox());
             }
