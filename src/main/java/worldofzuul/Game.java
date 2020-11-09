@@ -14,6 +14,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.*;
@@ -41,6 +42,7 @@ public class Game
         ArrayList<String> arr = new ArrayList<>();
         //Strings are saved under each quest, creating a new JSON object for the quest
         JSONObject object = (JSONObject) Strings.get(string);
+        System.out.println((String) object.get("description"));
         arr.add((String) object.get("description"));
         //Choices are saved as JSON arrays, creating iterator to add whole array to temp array
         JSONArray choices = (JSONArray) object.get("choices");
@@ -64,11 +66,13 @@ public class Game
         Quests breakfast, transport, roadQuest, groceries, recyclingQuest, factory, quiz, parkQuest;
         loadString("breakfast");
         loadString("transport");
-        loadString("roadQuest");
+        /*loadString("roadQuest");
         loadString("groceries");
         loadString("recyclingQuest");
         loadString("factory");
         loadString("parkQuest");
+
+         */
 
         breakfast = new Quests(new ArrayList<>(), new HashMap<>(), "You wake up and are feeling hungry");
         transport = new Quests(new ArrayList<>(), new HashMap<>(), "Choose the most environmental-friendly transport method");

@@ -1,12 +1,12 @@
 {
   "breakfast": {
-    "description": "This long text",
-    "choices": ["Choice 1", "Choice 2"],
-    "consequences": ["Consequence 1", "Consequence 2"]
+    "description": "",
+    "choices": ["Choice1"],
+    "consequences": ["consequence"]
   },
   "transport": {
-    "description": "Description",
-    "choices": ["car","bike"],
-    "consequences": ["Car is bad", "bike is less bad"]
+    "description": "",
+    "choices": ["Choice1"],
+    "consequences": ["consequence"]
   }
 }
