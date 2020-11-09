@@ -199,19 +199,24 @@ public class Game
             itemPlayerToRoom(command);
         }
         else if (commandWord == CommandWord.CHOOSE){
-            try{
+            if (!currentQuest.getCompleted()) {
                 try {
-                    int value = currentQuest.checkChoice(Integer.parseInt(command.getSecondWord()));
-                    player.incKlimaindsats(value);
-                    // currentQuest.getConsequence(Integer.parseInt(command.getSecondWord()));
-                    if(value!=0) {
-                        currentQuest.setCompleted();
+                    try {
+                        int value = currentQuest.checkChoice(Integer.parseInt(command.getSecondWord()));
+                        player.incKlimaindsats(value);
+                        // currentQuest.getConsequence(Integer.parseInt(command.getSecondWord()));
+                        if (value != 0) {
+                            currentQuest.setCompleted();
+                        }
+                    } catch (NullPointerException e) {
+                        System.out.println("You have completed all the quests!");
                     }
-                }catch (NullPointerException e){
-                    System.out.println("You have completed all the quests!");
+                } catch (NumberFormatException e) {
+                    System.out.println("Choose the number corresponding to the option");
                 }
-            }catch (NumberFormatException e){
-                System.out.println("Choose the number corresponding to the option");
+            }
+            else {
+                System.out.println("You do not have a task");
             }
             //Input from user. When the user starts next quest, the new "answer" will be entered. Scanner is needed.
             /*
@@ -244,9 +249,14 @@ public class Game
         }
         else if (commandWord == CommandWord.QUEST){
             //Display current quest
-            System.out.println(currentQuest.getDescription());
-            // and options
-            currentQuest.showChoices();
+            if(!currentQuest.getCompleted()) {
+                System.out.println(currentQuest.getDescription());
+                // and options
+                currentQuest.showChoices();
+            }
+            else {
+                System.out.println("You do not have any task");
+            }
         }
         return wantToQuit;
     }
