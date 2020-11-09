@@ -15,7 +15,6 @@ public class Game
     private Room currentRoom;
     private Player player;
     private Quests currentQuest;
-
     public Game() 
     {
         parser = new Parser();
@@ -65,10 +64,10 @@ public class Game
 
         // Creating a new quest, "Groceries"
         groceries.setDescription("Did you know that what you eat have an affect on climate change? It does! About one-quarter of the planet-warming greenhouse gases are generated from raising and harvesting plants, animals and animal products we eat - beef, chicken, fish and so on... But, some food categories requires more ressources to make, which hurts the climate.");
-        //groceries.addChoice("");
-        //groceries.addChoice("");
-        //groceries.setChoiceWeight();
-        //groceries.setChoiceWeight();
+        groceries.addChoice("Lunch: Eggs and toast, Dinner: Lentil Soup");
+        groceries.addChoice("Lunch: BigMac from McDonalds, Dinner: Steak and fries");
+        groceries.setChoiceWeight("Lunch: Eggs and toast, Dinner: Lentil Soup", 10);
+        groceries.setChoiceWeight("Lunch: BigMac from McDonalds, Dinner: Steak and fries", -10);
 
         // Creating a new quest, "factory"
         factory.addChoice("Report it to the authorities");

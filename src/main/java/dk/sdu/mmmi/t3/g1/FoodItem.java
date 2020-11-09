@@ -11,7 +11,7 @@ public class FoodItem extends Item  {
         expires = new Date((long)Math.random()*10000);
     }
 
-@Override
+    @Override
     public boolean isExpired () {
         Date now = new Date();
         if (now.compareTo(expires)>0){
@@ -20,6 +20,7 @@ public class FoodItem extends Item  {
             return false;
         }
     }
+    @Override
     public void checkExpired (){
         Date now = new Date();
         ArrayList<Item> expiredItems = new ArrayList<>();
@@ -38,7 +39,7 @@ public class FoodItem extends Item  {
             }
         }
     }
-
+    @Override
     public void removeExpired (){
         int countExpired = 0;
         for (Item item : items){
