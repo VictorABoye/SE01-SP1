@@ -144,7 +144,7 @@ public class Game
         park.addItemToRoom(paper_bag);
         park.addItemToRoom(water_bottle);
         park.addItemToRoom(cup);
-        park.addItemToRoom(cup);
+        park.addItemToRoom(glass_bottle);
 
         shop.setExit("south", road);
 
