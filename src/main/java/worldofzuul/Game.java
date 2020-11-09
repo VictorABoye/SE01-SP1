@@ -77,26 +77,18 @@ public class Game
 
         //Breakfast quest
         breakfast.setConsequence("");
-        breakfast.addChoice(parser.parseString((String) questStrings.get(0).get(1)));
-        breakfast.addChoice(parser.parseString((String) questStrings.get(0).get(2)));
-        breakfast.setChoiceWeight("Oatmeal with some fresh fruit on top", 5);
-        breakfast.setChoiceWeight("Triple-Beef Cheeseburger", -5);
+        breakfast.addChoice(parser.parseString((String) questStrings.get(0).get(1)),5,parser.parseString((String) questStrings.get(0).get(3)));
+        breakfast.addChoice(parser.parseString((String) questStrings.get(0).get(2)),-5,parser.parseString((String) questStrings.get(0).get(4)));
 
         // Creating new quest, "Transport", currentRoom is parkingtransport = new Quests(new ArrayList<>(), new HashMap<>(), "Choose the most environmental-friendly transport method");
-        transport.addChoice(parser.parseString((String) questStrings.get(1).get(1)));
-        transport.addChoice(parser.parseString((String) questStrings.get(1).get(2)));
-        transport.addChoice(parser.parseString((String) questStrings.get(1).get(3)));
-        transport.addChoice(parser.parseString((String) questStrings.get(1).get(4)));
-        transport.setChoiceWeight("Car", -5);
-        transport.setChoiceWeight("Walking", 5);
-        transport.setChoiceWeight("City Bus", -5);
-        transport.setChoiceWeight("Metro/tram/Train",-5 );
+        transport.addChoice(parser.parseString((String) questStrings.get(1).get(1)),-5, parser.parseString((String) questStrings.get(1).get(5)));
+        transport.addChoice(parser.parseString((String) questStrings.get(1).get(2)),-5, parser.parseString((String) questStrings.get(1).get(6)));
+        transport.addChoice(parser.parseString((String) questStrings.get(1).get(3)),-5, parser.parseString((String) questStrings.get(1).get(7)));
+        transport.addChoice(parser.parseString((String) questStrings.get(1).get(4)),5, parser.parseString((String) questStrings.get(1).get(8)));
 
         // Creating a new quest, "road", currentRoom is road
-        roadQuest.addChoice("Do you want to stop and pick it up?");
-        roadQuest.addChoice("Continue your route without stopping");
-        roadQuest.setChoiceWeight("Do you want to stop and pick it up?", 10);
-        roadQuest.setChoiceWeight("Continue your route without stopping", -10);
+        roadQuest.addChoice("Do you want to stop and pick it up?",10,"");
+        roadQuest.addChoice("Continue your route without stopping",-10,"");
 
         // Creating a new quest, "Groceries"
         groceries.setDescription("Did you know that what you eat have an affect on climate change? It does! About one-quarter of the planet-warming greenhouse gases are generated from raising and harvesting plants, animals and animal products we eat - beef, chicken, fish and so on... But, some food categories requires more ressources to make, which hurts the climate.");
@@ -106,10 +98,8 @@ public class Game
         //groceries.setChoiceWeight();
 
         // Creating a new quest, "factory"
-        factory.addChoice("Report it to the authorities");
-        factory.addChoice("Ignore it");
-        factory.setChoiceWeight("Report it to the authorities", 10);
-        factory.setChoiceWeight("Ignore it", -10);
+        factory.addChoice("Report it to the authorities",10,"");
+        factory.addChoice("Ignore it",-10,"");
 
         //Passing on to next quest
         breakfast.setNextQuest(transport);
