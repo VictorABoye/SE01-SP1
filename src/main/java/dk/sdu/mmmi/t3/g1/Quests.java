@@ -22,6 +22,7 @@ public class Quests {
         try {
             if (choiceWeight.containsKey(choices.get(x - 1))) {
                 System.out.println("You chose " + choices.get(x - 1));
+                System.out.println(getConsequence(x));
                 return choiceWeight.get(choices.get(x - 1));
             }
             return 0;
@@ -39,12 +40,10 @@ public class Quests {
         isCompleted = true;
     }
 
-    public void addChoice(String choice){
+    public void addChoice(String choice, Integer amount, String consequence){
         this.choices.add(choice);
-    }
-
-    public void setChoiceWeight(String choice, Integer amount) {
         choiceWeight.put(choice, amount);
+        this.consequence.add(consequence);
     }
 
     // Checks if the quest has a choice Weight, in case it does it will return true otherwise false. (Can be used before function getChoiceWeight to be sure the quest has ChoiceWeight)
@@ -68,7 +67,7 @@ public class Quests {
         System.out.println("You have the following options: ");
         int i = 1;
         for(String choice: choices){
-            System.out.println(i + " " + choice);
+            System.out.print(i + " " + choice);
             i++;
         }
         System.out.println("Write 'choose' and a number to choose an option");
