@@ -1,0 +1,12 @@
+{
+  "breakfast": {
+    "description": "",
+    "choices": ["Choice1"],
+    "consequences": ["consequence"]
+  },
+  "transport": {
+    "description": "",
+    "choices": ["Choice1"],
+    "consequences": ["consequence"]
+  }
+}
