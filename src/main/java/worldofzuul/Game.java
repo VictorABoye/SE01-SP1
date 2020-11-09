@@ -73,7 +73,7 @@ public class Game
         groceries = new Quests(new ArrayList<>(), new HashMap<>(), parser.parseString((String)questStrings.get(3).get(0)));
         recyclingQuest = new Quests(new ArrayList<>(), new HashMap<>(), parser.parseString((String)questStrings.get(4).get(0)));
         factory = new Quests(new ArrayList<>(), new HashMap<>(), parser.parseString((String)questStrings.get(5).get(0)));
-        parkQuest = new Quests(new ArrayList<>(), new HashMap<>(), "s");
+        parkQuest = new Quests(new ArrayList<>(), new HashMap<>(), parser.parseString((String)questStrings.get(6).get(0)));
 
         //Breakfast quest
         breakfast.addChoice(parser.parseString((String) questStrings.get(0).get(1)),5,parser.parseString((String) questStrings.get(0).get(3)));
@@ -92,9 +92,14 @@ public class Game
         groceries.addChoice(parser.parseString((String)questStrings.get(3).get(1)), 10, parser.parseString((String)questStrings.get(3).get(3)));
         groceries.addChoice(parser.parseString((String)questStrings.get(3).get(2)), -10, parser.parseString((String)questStrings.get(3).get(4)) );
 
+        recyclingQuest.addChoice(parser.parseString((String)questStrings.get(4).get(1)), 5, parser.parseString((String)questStrings.get(4).get(3)));
+        recyclingQuest.addChoice(parser.parseString((String)questStrings.get(4).get(2)), -5, parser.parseString((String)questStrings.get(4).get(4)));
         // Creating a new quest, "factory"
         factory.addChoice(parser.parseString((String)questStrings.get(5).get(1)), 5, parser.parseString((String)questStrings.get(5).get(3)));
         factory.addChoice(parser.parseString((String)questStrings.get(5).get(2)), -5, parser.parseString((String)questStrings.get(5).get(4)));
+
+        parkQuest.addChoice(parser.parseString((String)questStrings.get(6).get(1)), 5, parser.parseString((String)questStrings.get(6).get(3)) );
+        parkQuest.addChoice(parser.parseString((String)questStrings.get(6).get(2)), -5, parser.parseString((String)questStrings.get(6).get(4)) );
 
         //Passing on to next quest
         breakfast.setNextQuest(transport);

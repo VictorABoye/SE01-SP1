@@ -26,8 +26,8 @@
   },
   "recyclingQuest": {
     "description": "You've collected trash throughout your journey. Time to sort it!\nTo sort trash write 'sort item material' to sort an item as that material.\nYou gain climate points for each item sorted correctly.",
-    "choices": [""],
-    "consequences": [""]
+    "choices": ["Sort the trash"],
+    "consequences": ["Amazing choice!"]
   },
   "factory": {
     "description":  " You've arrived at the beach. Theres a factory in the distant and you see that it's pouring out nuclear waste into the sea ",
@@ -36,8 +36,10 @@
     "Bad choice.. If you want to change something, someone has to move first. You can't just wait on someone else. \n You now loose 5 climate points "]
   },
   "parkQuest": {
-    "description": "",
-    "choices": ["Choice1"],
-    "consequences": ["consequence"]
+    "description": "In the park you see some trash laying around. You know it's gonna take a while to pick it all up. What do you do?",
+    "choices": ["Pick it all up even though it might take 30 minutes? ", "Leave and save some time"],
+    "consequences": ["Great choice! You did the world a service and you now lead the path to a cleaner and brighter tomorrow. \n You will be rewarded 5 climate points for your effort ",
+    "Bad choice. If everybody did as you, the ecosystems of the world would be in shambles"]
+
   }
 }
