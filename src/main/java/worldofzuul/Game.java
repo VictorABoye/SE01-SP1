@@ -68,7 +68,7 @@ public class Game
         loadString("parkQuest");
 
         breakfast = new Quests(new ArrayList<>(), new HashMap<>(), parser.parseString((String)questStrings.get(0).get(0)));
-        transport = new Quests(new ArrayList<>(), new HashMap<>(), "Choose the most environmental-friendly transport method");
+        transport = new Quests(new ArrayList<>(), new HashMap<>(), parser.parseString((String)questStrings.get(1).get(0)));
         roadQuest = new Quests(new ArrayList<>(), new HashMap<>(), "You can pick up trash or keep going");
         groceries = new Quests(new ArrayList<>(), new HashMap<>(), "Choose the groceries, which you desire");
         recyclingQuest = new Quests(new ArrayList<>(), new HashMap<>(), "You've collected trash throughout your journey. Time to sort it!");
@@ -83,10 +83,10 @@ public class Game
         breakfast.setChoiceWeight("Triple-Beef Cheeseburger", -5);
 
         // Creating new quest, "Transport", currentRoom is parkingtransport = new Quests(new ArrayList<>(), new HashMap<>(), "Choose the most environmental-friendly transport method");
-        transport.addChoice("Car");
-        transport.addChoice("Walking");
-        transport.addChoice("City bus");
-        transport.addChoice("Metro/Tram/Train");
+        transport.addChoice(parser.parseString((String) questStrings.get(1).get(1)));
+        transport.addChoice(parser.parseString((String) questStrings.get(1).get(2)));
+        transport.addChoice(parser.parseString((String) questStrings.get(1).get(3)));
+        transport.addChoice(parser.parseString((String) questStrings.get(1).get(4)));
         transport.setChoiceWeight("Car", -5);
         transport.setChoiceWeight("Walking", 5);
         transport.setChoiceWeight("City Bus", -5);
@@ -305,16 +305,20 @@ public class Game
         }
         else if (commandWord == CommandWord.QUEST){
             //Display current quest
-            if(!currentQuest.getCompleted()) {
-                System.out.println(currentQuest.getDescription());
-                // and options
-                currentQuest.showChoices();
-            }
-            else {
-                System.out.println("You do not have any task");
-            }
+            printQuest();
         }
         return wantToQuit;
+    }
+
+    private void printQuest(){
+        if(!currentQuest.getCompleted()) {
+            System.out.println(currentQuest.getDescription());
+            // and options
+            currentQuest.showChoices();
+        }
+        else {
+            System.out.println("You do not have any task");
+        }
     }
 
     private void printHelp() 

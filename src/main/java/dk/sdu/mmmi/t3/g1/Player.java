@@ -49,19 +49,20 @@ public class Player {
     }
 
     public void incKlimaindsats(int x){
+        int pre = klimaIndsats;
         klimaIndsats += x;
         if (klimaIndsats <= 0) {
             System.out.println("You lost...");
             // End game();
         }
-        else if (klimaIndsats <= 25) {
+        else if (pre > klimaIndsats) {
             System.out.println("You can do better");
         }
-        else if (klimaIndsats <= 75) {
+        else if (pre < klimaIndsats) {
             System.out.println("You are doing well");
         }
-        else {
-            System.out.print("Nice");
+        else if (klimaIndsats >= 100){
+            System.out.print("You win!!!");
         }
         checkKlimaindsats();
     }
