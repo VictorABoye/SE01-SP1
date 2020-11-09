@@ -1,5 +1,6 @@
 package worldofzuul;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
@@ -42,5 +43,18 @@ public class Parser
     public void showCommands()
     {
         commands.showAll();
+    }
+
+    public String parseString(String string){
+        StringTokenizer tokenizer = new StringTokenizer(string, "\n");
+        ArrayList<String> temp = new ArrayList<>();
+        while(tokenizer.hasMoreTokens()){
+            temp.add(tokenizer.nextToken());
+        }
+        String str = new String();
+        for(String st: temp){
+            str += "\n"+ st;
+        }
+        return str;
     }
 }
