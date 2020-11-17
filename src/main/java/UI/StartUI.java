@@ -16,7 +16,7 @@ public class StartUI extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        loader.setLocation(getClass().getResource("/test.fxml"));
+        loader.setLocation(getClass().getResource("/fxml/test.fxml"));
         Parent root = loader.load();
         stage.setTitle("World of Cool");
         stage.setScene(new Scene(root, 1280, 720));
