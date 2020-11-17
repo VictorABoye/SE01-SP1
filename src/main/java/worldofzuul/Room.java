@@ -74,10 +74,10 @@ public class Room
 
     public String getLongDescription()
     {
-        return "You are " + description + ".\n" + getExitString();
+        return "You are " + description + ".";
     }
 
-    private String getExitString()
+    public String getExitString()
     {
         String returnString = "You can go:";
         Set<String> keys = exits.keySet();

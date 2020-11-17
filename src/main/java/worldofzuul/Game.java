@@ -103,6 +103,7 @@ public class Game
         parkQuest.addChoice(parser.parseString((String)questStrings.get(6).get(1)), 5, parser.parseString((String)questStrings.get(6).get(3)) );
         parkQuest.addChoice(parser.parseString((String)questStrings.get(6).get(2)), -5, parser.parseString((String)questStrings.get(6).get(4)) );
 
+
         //Passing on to next quest
         breakfast.setNextQuest(transport);
         transport.setNextQuest(roadQuest);
@@ -131,6 +132,7 @@ public class Game
         house.addItemToRoom(battery);
         house.addItemToRoom(battery);
         house.addItemToRoom(can);
+        house.setVisited();
 
         park.setExit("south", parking);
         park.addItemToRoom(paper_bag);
@@ -199,7 +201,8 @@ public class Game
         System.out.println("Reach a climate score of 0 and you will lose, reach 100 and you will win. Good Luck!");
         System.out.println("Type '" + CommandWord.HELP + "' if you need help or want to your commands. Be aware that some commands might not be available in certain places.");
         System.out.println();
-        System.out.println(currentRoom.getInfoBox());
+        printQuest();
+        System.out.println();
         System.out.println(currentRoom.getLongDescription());
     }
 
@@ -256,6 +259,7 @@ public class Game
                         // currentQuest.getConsequence(Integer.parseInt(command.getSecondWord()));
                         if (value != 0) {
                             currentQuest.setCompleted();
+                            System.out.println(currentRoom.getExitString());
                         }
                     } catch (NullPointerException e) {
                         System.out.println("You have completed all the quests!");
@@ -422,6 +426,7 @@ public class Game
         }
         else {
             player.place(movingItem);
+            player.place(movingItem);
             currentRoom.addItemToRoom(movingItem);
             System.out.println("You dropped " + movingItem.getName());
         }
@@ -451,18 +456,31 @@ public class Game
             System.out.println(currentRoom.getLongDescription());
             currentQuest = currentRoom.getQuest();
             if(!currentRoom.getVisited()){
-                System.out.println(currentRoom.getInfoBox());
+                printQuest();
+                currentRoom.setVisited();
+                if(currentRoom.getRoomInventorySize()!=0){
+                    System.out.println("There are items on the floor.\nYou can pick them up using the 'take all' command.");
+                }
             }
-            currentRoom.setVisited();
+            else{
+                System.out.println(currentRoom.getExitString());
+            }
+
         }
         else {
             currentRoom = nextRoom;
             currentQuest = currentRoom.getQuest();
-            if(!currentRoom.getVisited()){
-                System.out.println(currentRoom.getInfoBox());
-            }
-            currentRoom.setVisited();
             System.out.println(currentRoom.getLongDescription());
+            if(!currentRoom.getVisited()){
+                printQuest();
+                currentRoom.setVisited();
+                if(currentRoom.getRoomInventorySize()!=0){
+                    System.out.println("There are items on the floor.\nYou can pick them up using the 'take all' command.");
+                }
+            }
+            else{
+                System.out.println(currentRoom.getExitString());
+            }
         }
     }
 
