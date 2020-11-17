@@ -1,16 +1,13 @@
 <component name="libraryTable">
   <library name="lib1">
     <CLASSES>
-      <root url="file://$PROJECT_DIR$/src/main/resource/libraries/lib" />
+      <root url="file://$PROJECT_DIR$/src/main/resource/libraries/libWindows" />
     </CLASSES>
     <JAVADOC />
-    <NATIVE>
-      <root url="file://$PROJECT_DIR$/src/main/resource/libraries/lib" />
-    </NATIVE>
     <SOURCES>
-      <root url="file://$PROJECT_DIR$/src/main/resource/libraries/lib" />
+      <root url="file://$PROJECT_DIR$/src/main/resource/libraries/libWindows" />
     </SOURCES>
-    <jarDirectory url="file://$PROJECT_DIR$/src/main/resource/libraries/lib" recursive="false" />
-    <jarDirectory url="file://$PROJECT_DIR$/src/main/resource/libraries/lib" recursive="false" type="SOURCES" />
+    <jarDirectory url="file://$PROJECT_DIR$/src/main/resource/libraries/libWindows" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/src/main/resource/libraries/libWindows" recursive="false" type="SOURCES" />
   </library>
 </component>
