@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 
 public class StartUI extends Application {
 
-    final String FILE = "test.fxml";
+    FXMLLoader loader = new FXMLLoader();
 
     public static void main(String[] arg){
         launch(arg);
@@ -16,7 +16,8 @@ public class StartUI extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource(FILE));
+        loader.setLocation(getClass().getResource("/test.fxml"));
+        Parent root = loader.load();
         stage.setTitle("World of Cool");
         stage.setScene(new Scene(root, 1280, 720));
         stage.show();
