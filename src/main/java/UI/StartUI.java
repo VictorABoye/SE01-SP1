@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class StartUI extends Application {
+
     final String FILE = "test.fxml";
 
     public static void main(String[] arg){
