@@ -19,6 +19,7 @@ public class LaunchController {
     @FXML
     public Button startButton, aboutButton, exitButton;
 
+    @FXML
     public void startGame(ActionEvent actionEvent) {
         try {
             Parent firstLevel = FXMLLoader.load(getClass().getResource(firstLevelFile));
@@ -31,6 +32,7 @@ public class LaunchController {
 
     }
 
+    @FXML
     public void aboutPage(ActionEvent actionEvent) {
         try {
             Parent aboutWindow = FXMLLoader.load(getClass().getResource(aboutFile));
@@ -43,7 +45,8 @@ public class LaunchController {
         }
     }
 
+    @FXML
     public void closeGame(ActionEvent actionEvent) {
-        System.exit(0);
+        System.exit(1337);
     }
 }
