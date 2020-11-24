@@ -66,6 +66,7 @@ public class Game
         loadString("recyclingQuest");
         loadString("factory");
         loadString("parkQuest");
+        loadString("quiz");
 
         breakfast = new Quests(new ArrayList<>(), new HashMap<>(), parser.parseString((String)questStrings.get(0).get(0)));
         transport = new Quests(new ArrayList<>(), new HashMap<>(), parser.parseString((String)questStrings.get(1).get(0)));
@@ -74,7 +75,7 @@ public class Game
         recyclingQuest = new Quests(new ArrayList<>(), new HashMap<>(), parser.parseString((String)questStrings.get(4).get(0)));
         factory = new Quests(new ArrayList<>(), new HashMap<>(), parser.parseString((String)questStrings.get(5).get(0)));
         parkQuest = new Quests(new ArrayList<>(), new HashMap<>(), parser.parseString((String)questStrings.get(6).get(0)));
-
+        quiz = new Quests(new ArrayList<>(), new HashMap<>(), parser.parseString((String)questStrings.get(7).get(0)));
         //Breakfast quest
         breakfast.addChoice(parser.parseString((String) questStrings.get(0).get(1)),5,parser.parseString((String) questStrings.get(0).get(3)));
         breakfast.addChoice(parser.parseString((String) questStrings.get(0).get(2)),-5,parser.parseString((String) questStrings.get(0).get(4)));
@@ -103,6 +104,18 @@ public class Game
         parkQuest.addChoice(parser.parseString((String)questStrings.get(6).get(1)), 5, parser.parseString((String)questStrings.get(6).get(3)) );
         parkQuest.addChoice(parser.parseString((String)questStrings.get(6).get(2)), -5, parser.parseString((String)questStrings.get(6).get(4)) );
 
+        // Creating the final quests, "quiz". True/False and should be seperated into multiple quests?
+        /* To be changed
+        quiz.addChoice(parser.parseString((String)questStrings.get(7).get(1)), 5, parser.parseString((String)questStrings.get(7).get(9)) );
+        quiz.addChoice(parser.parseString((String)questStrings.get(7).get(2)), 5, parser.parseString((String)questStrings.get(7).get(10)) );
+        quiz.addChoice(parser.parseString((String)questStrings.get(7).get(2)), 5, parser.parseString((String)questStrings.get(7).get(11)) );
+        quiz.addChoice(parser.parseString((String)questStrings.get(7).get(3)), 5, parser.parseString((String)questStrings.get(7).get(12)) );
+        quiz.addChoice(parser.parseString((String)questStrings.get(7).get(4)), 5, parser.parseString((String)questStrings.get(7).get(13)) );
+        quiz.addChoice(parser.parseString((String)questStrings.get(7).get(5)), 5, parser.parseString((String)questStrings.get(7).get(14)) );
+        quiz.addChoice(parser.parseString((String)questStrings.get(7).get(6)), 5, parser.parseString((String)questStrings.get(7).get(15)) );
+        quiz.addChoice(parser.parseString((String)questStrings.get(7).get(7)), 5, parser.parseString((String)questStrings.get(7).get(16)) );
+        quiz.addChoice(parser.parseString((String)questStrings.get(7).get(8)), 5, parser.parseString((String)questStrings.get(7).get(17)) );
+        */
 
         //Passing on to next quest
         breakfast.setNextQuest(transport);
@@ -110,6 +123,7 @@ public class Game
         roadQuest.setNextQuest(groceries);
         groceries.setNextQuest(recyclingQuest);
         recyclingQuest.setNextQuest(factory);
+        factory.setNextQuest(factory);
 
 
         house = new Room("at your home","info", breakfast);
