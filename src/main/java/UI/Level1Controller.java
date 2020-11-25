@@ -51,32 +51,39 @@ public class Level1Controller{
                 keyPressed((KeyEvent) event);
             }
 
-            //System.out.println(((KeyEvent) event).getSource());
+            System.out.println(event);
         }
     }
 
     public void keyPressed(KeyEvent e) {
         KeyCode code = e.getCode();
 
+        //System.out.println(e);
+
         //Fix all this
-        if (code == KeyCode.W)
+        if (code == KeyCode.W){
             if(Player.getY()>-1*(Window.getHeight())+260){
                 Player.setY(Player.getY()-speed);
-                System.out.println(Player.getY());
             }
-        if (code == KeyCode.S)
+        }
+        if (code == KeyCode.S){
             if(Player.getY()<Window.getHeight()-700){
                 Player.setY(Player.getY()+speed);
             }
-        if (code == KeyCode.A)
-            if(Player.getX()>0){
-                Player.setX(Player.getX()-speed);
+        }
+        if(code == KeyCode.DOWN){
+            System.out.println("Test");
+        }
+        if (code == KeyCode.A || code == KeyCode.LEFT) {
+            if (Player.getX() > 0) {
+                Player.setX(Player.getX() - speed);
             }
-        if (code == KeyCode.D)
+        }
+        if (code == KeyCode.D || code == KeyCode.RIGHT){
             if(Player.getX()<Window.getWidth()-220){
                 Player.setX(Player.getX()+speed);
-                System.out.println(Player.getX());
             }
+        }
         if (code == KeyCode.SPACE)
             System.out.println("space");
         if (code == KeyCode.SHIFT)
