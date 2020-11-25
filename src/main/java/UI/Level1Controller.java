@@ -34,7 +34,7 @@ public class Level1Controller{
     private Rectangle Player;
 
     @FXML
-    public void goToMenu(ActionEvent actionEvent) {
+    public void goToMenu(Event actionEvent) {
         try {
             Parent launcher = FXMLLoader.load(getClass().getResource(launchFile));
             Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
@@ -51,7 +51,10 @@ public class Level1Controller{
                 keyPressed((KeyEvent) event);
             }
 
+
         }
+        // Used for finding KeyCode and relating key info
+        //System.out.println(event);
     }
 
     public void keyPressed(KeyEvent e) {
@@ -85,7 +88,10 @@ public class Level1Controller{
             // Add functionality to pick up items
             System.out.println("Pick up");
         }
-        //Dunno how these if statements funktion
+        if(code== KeyCode.ESCAPE){
+            goToMenu(e);
+        }
+        //Dunno how these if statements function
         if (code == KeyCode.SPACE)
             System.out.println("space");
         if (code == KeyCode.SHIFT)
@@ -93,29 +99,4 @@ public class Level1Controller{
         if (code == KeyCode.CONTROL)
             System.out.println("Ctrl");
     }
-/*
-    @Override
-    public void handle(Event event) {
-        System.out.println(event.getEventType().toString());
-
-        if(event instanceof KeyEvent) {
-            if(event.getSource() == getOnKeyPressed()) {
-                keyPressed((KeyEvent) event);
-            }
-            if(event.getSource() == getOnKeyReleased()) {
-                keyReleased((KeyEvent) event);
-            }
-
-            System.out.println(((KeyEvent) event).getCode());
-        }
-        if(event instanceof MouseEvent) {
-            if(event.getSource() == getOnMouseMoved()) {
-                mouseMoved((MouseEvent) event);
-            }
-
-            System.out.println("mouse at x: " + mouseX + " y: " + mouseY);
-        }
-    }
-
- */
 }
