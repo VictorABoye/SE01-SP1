@@ -47,32 +47,28 @@ public class Level1Controller{
 
     public void move(Event event){
         if(event instanceof KeyEvent) {
-            if(event.getEventType().toString() == "KEY_PRESSED") {
+            if(event.getEventType().toString().equals("KEY_PRESSED")) {
                 keyPressed((KeyEvent) event);
             }
 
-            System.out.println(event);
         }
     }
 
     public void keyPressed(KeyEvent e) {
         KeyCode code = e.getCode();
 
-        //System.out.println(e);
 
         //Fix all this
         if (code == KeyCode.W){
             if(Player.getY()>-1*(Window.getHeight())+260){
                 Player.setY(Player.getY()-speed);
+                System.out.println(Window.getHeight());
             }
         }
         if (code == KeyCode.S){
             if(Player.getY()<Window.getHeight()-700){
                 Player.setY(Player.getY()+speed);
             }
-        }
-        if(code == KeyCode.DOWN){
-            System.out.println("Test");
         }
         if (code == KeyCode.A || code == KeyCode.LEFT) {
             if (Player.getX() > 0) {
@@ -83,7 +79,13 @@ public class Level1Controller{
             if(Player.getX()<Window.getWidth()-220){
                 Player.setX(Player.getX()+speed);
             }
+            System.out.println(Player.getY());
         }
+        if(code == KeyCode.E){
+            // Add functionality to pick up items
+            System.out.println("Pick up");
+        }
+        //Dunno how these if statements funktion
         if (code == KeyCode.SPACE)
             System.out.println("space");
         if (code == KeyCode.SHIFT)

@@ -5,7 +5,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="Window" maxHeight="1080.0" maxWidth="1920.0" onKeyPressed="#move" onKeyReleased="#move" onMouseClicked="#move" onMouseDragged="#move" onMouseMoved="#move" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Level1Controller">
+<AnchorPane fx:id="Window" maxHeight="720.0" maxWidth="1280.0" onKeyPressed="#move" onKeyReleased="#move" onMouseClicked="#move" onMouseDragged="#move" onMouseMoved="#move" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Level1Controller">
    <children>
       <Text layoutX="215.0" layoutY="399.0" strokeType="OUTSIDE" strokeWidth="0.0" text="This is the first Level">
          <font>
