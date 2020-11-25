@@ -1,17 +1,24 @@
 package UI;
 
+import dk.sdu.mmmi.t3.g1.Entity;
+import dk.sdu.mmmi.t3.g1.Player;
+
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class LaunchController {
+public class LaunchController implements FXMLLoading {
 
     final String firstLevelFile = "/fxml/Level1.fxml";
     final String aboutFile = "/fxml/About.fxml";
@@ -24,7 +31,12 @@ public class LaunchController {
         try {
             Parent firstLevel = FXMLLoader.load(getClass().getResource(firstLevelFile));
             Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(firstLevel));
+            Scene scene = new Scene(firstLevel);
+            scene.setOnKeyPressed(event -> {
+                if (event.getCode() == KeyCode.ESCAPE) Level1Controller.back(event, stage);
+                else Level1Controller.playerMovement(event);
+            });
+            stage.setScene(scene);
             stage.show();
         } catch (IOException e){
             System.out.println("Cannot find fxml file");
@@ -46,8 +58,10 @@ public class LaunchController {
         }
     }
 
-    @FXML
-    public void closeGame(ActionEvent actionEvent) {
+    @Override
+    public void closeGame(ActionEvent event) {
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.close();
         System.exit(1337);
     }
 }

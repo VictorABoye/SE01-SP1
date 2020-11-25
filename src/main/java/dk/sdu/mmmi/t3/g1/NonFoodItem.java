@@ -1,10 +1,15 @@
 package dk.sdu.mmmi.t3.g1;
 
+import javafx.scene.image.ImageView;
+import javafx.scene.shape.Rectangle;
+
 public class NonFoodItem extends Item {
 
-    public NonFoodItem(String name, String type) {
-        super(name, type);
+    public NonFoodItem(ImageView image, String name, String type) {
+        super(image, type, name);
     }
+
+    /*
     @Override
     public boolean isExpired() {
         return false;
@@ -19,4 +24,6 @@ public class NonFoodItem extends Item {
     public void checkExpired(){
 
     }
+
+     */
 }

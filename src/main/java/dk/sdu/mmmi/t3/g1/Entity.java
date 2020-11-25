@@ -1,0 +1,69 @@
+package dk.sdu.mmmi.t3.g1;
+
+import javafx.scene.image.ImageView;
+import javafx.scene.shape.Rectangle;
+
+public abstract class Entity {
+    final protected String type;
+    protected ImageView image;
+    protected boolean dead;
+
+    protected double x,y,h,w;
+
+    public Entity(ImageView image, String type){
+        this.image = image;
+        this.type = type;
+        x=image.getLayoutX();
+        y= image.getLayoutY();
+        h= image.getFitHeight();
+        w= image.getFitWidth();
+    }
+
+    public double getH() {
+        return h;
+    }
+
+    public void setH(double h) {
+        this.h = h;
+    }
+
+    public double getW() {
+        return w;
+    }
+
+    public void setW(double w) {
+        this.w = w;
+    }
+
+    public double getX() {
+        return x;
+    }
+
+    public void setX(double x) {
+        this.x = x;
+    }
+
+    public double getY() {
+        return y;
+    }
+
+    public void setY(double y) {
+        this.y = y;
+    }
+
+    public ImageView getImage() {
+        return image;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public boolean isDead() {
+        return dead;
+    }
+
+    public void kill(){
+        this.dead = true;
+    }
+}

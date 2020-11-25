@@ -1,15 +1,14 @@
 package UI;
 
-import dk.sdu.mmmi.t3.g1.Moving;
-import javafx.event.ActionEvent;
+import javafx.application.Platform;
 import javafx.event.Event;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
@@ -19,32 +18,35 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class Level1Controller{
+public class Level1Controller extends PlayerControl{
 
     final String launchFile = "/fxml/Launcher.fxml";
+    final static String pauseFile = "/fxml/Pause.fxml";
     private int speed = 15;
-
-    @FXML
-    public Button backButton;
 
     @FXML
     private AnchorPane Window;
 
     @FXML
-    private Rectangle Player;
+    public ImageView item, player;
 
-    @FXML
-    public void goToMenu(Event actionEvent) {
-        try {
-            Parent launcher = FXMLLoader.load(getClass().getResource(launchFile));
-            Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(launcher));
-            stage.show();
-        } catch (IOException e){
-            System.out.println("Cannot find fxml file");
+
+
+    public static void back(KeyEvent event, Stage preStage) {
+        if (event.getCode() == KeyCode.ESCAPE){
+            try {
+                Parent pauseWindow = FXMLLoader.load(Level1Controller.class.getResource(pauseFile));
+                Stage stage = new Stage();
+                stage.setTitle("Game Paused");
+                stage.setScene(new Scene(pauseWindow));
+                stage.show();
+            } catch (IOException e){
+                System.out.println("Cannot find fxml file");
+            }
         }
     }
 
+    /*
     public void move(Event event){
         if(event instanceof KeyEvent) {
             if(event.getEventType().toString().equals("KEY_PRESSED")) {
@@ -57,32 +59,34 @@ public class Level1Controller{
         //System.out.println(event);
     }
 
+
+
     public void keyPressed(KeyEvent e) {
         KeyCode code = e.getCode();
 
 
         //Fix all this
         if (code == KeyCode.W){
-            if(Player.getY()>-1*(Window.getHeight())+260){
-                Player.setY(Player.getY()-speed);
+            if(player.getY()>-1*(Window.getHeight())+260){
+                player.setY(player.getY()-speed);
                 System.out.println(Window.getHeight());
             }
         }
         if (code == KeyCode.S){
-            if(Player.getY()<Window.getHeight()-700){
-                Player.setY(Player.getY()+speed);
+            if(player.getY()<Window.getHeight()-700){
+                player.setY(player.getY()+speed);
             }
         }
         if (code == KeyCode.A || code == KeyCode.LEFT) {
-            if (Player.getX() > 0) {
-                Player.setX(Player.getX() - speed);
+            if (player.getX() > 0) {
+                player.setX(player.getX() - speed);
             }
         }
         if (code == KeyCode.D || code == KeyCode.RIGHT){
-            if(Player.getX()<Window.getWidth()-220){
-                Player.setX(Player.getX()+speed);
+            if(player.getX()<Window.getWidth()-220){
+                player.setX(player.getX()+speed);
             }
-            System.out.println(Player.getY());
+            System.out.println(player.getY());
         }
         if(code == KeyCode.E){
             // Add functionality to pick up items
@@ -99,4 +103,6 @@ public class Level1Controller{
         if (code == KeyCode.CONTROL)
             System.out.println("Ctrl");
     }
+
+     */
 }

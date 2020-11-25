@@ -1,10 +1,13 @@
 package worldofzuul;
 
+
+/*
 import dk.sdu.mmmi.t3.g1.Item;
 import dk.sdu.mmmi.t3.g1.NonFoodItem;
 import dk.sdu.mmmi.t3.g1.Player;
 import dk.sdu.mmmi.t3.g1.Quests;
 import dk.sdu.mmmi.t3.g1.Data;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -26,13 +29,13 @@ public class Game
 
     public Game() throws IOException, ParseException {
         parser = new Parser();
-        player = new Player();
+        //player = new Player();
         createRooms();
     }
 
     private void createRooms() throws IOException, ParseException {
         Room house, park, shop, road, parking, beach, recycling;
-        NonFoodItem can, cup, straw, water_bottle, paper_bag, glass_bottle, battery;
+        //NonFoodItem can, cup, straw, water_bottle, paper_bag, glass_bottle, battery;
         Quests breakfast, transport, roadQuest, groceries, recyclingQuest, factory, quiz, parkQuest;
         Data quests = new Data();
         questStrings.add(quests.questString("breakfast"));
@@ -91,7 +94,7 @@ public class Game
         quiz.addChoice(parser.parseString((String)questStrings.get(7).get(6)), 5, parser.parseString((String)questStrings.get(7).get(15)) );
         quiz.addChoice(parser.parseString((String)questStrings.get(7).get(7)), 5, parser.parseString((String)questStrings.get(7).get(16)) );
         quiz.addChoice(parser.parseString((String)questStrings.get(7).get(8)), 5, parser.parseString((String)questStrings.get(7).get(17)) );
-        */
+
 
         //Passing on to next quest
         breakfast.setNextQuest(transport);
@@ -109,6 +112,7 @@ public class Game
         beach = new Room("at the beach","info", factory);
         recycling = new Room("at the recycling plant","info", recyclingQuest);
 
+
         can = new NonFoodItem("can", "metal");
         cup = new NonFoodItem("cup", "plastic");
         straw = new NonFoodItem("straw", "plastic");
@@ -117,32 +121,41 @@ public class Game
         glass_bottle = new NonFoodItem("glassbottle","glass");
         battery = new NonFoodItem("battery","battery");
 
+
+
         house.setExit("north", parking);
+
         house.addItemToRoom(battery);
         house.addItemToRoom(battery);
         house.addItemToRoom(can);
+
+
         house.setVisited();
 
         park.setExit("south", parking);
+
         park.addItemToRoom(paper_bag);
         park.addItemToRoom(water_bottle);
         park.addItemToRoom(cup);
         park.addItemToRoom(glass_bottle);
+
+
 
         shop.setExit("south", road);
 
         road.setExit("north", shop);
         road.setExit("east", parking);
         road.setExit("west", recycling);
-        road.addItemToRoom(can);
+        //road.addItemToRoom(can);
 
         parking.setExit("west", road);
         parking.setExit("south", house);
         parking.setExit("north", park);
         parking.setExit("east", beach);
-        parking.addItemToRoom(paper_bag);
+        //parking.addItemToRoom(paper_bag);
 
         beach.setExit("west", parking);
+
         beach.addItemToRoom(can);
         beach.addItemToRoom(cup);
         beach.addItemToRoom(water_bottle);
@@ -150,17 +163,19 @@ public class Game
         beach.addItemToRoom(paper_bag);
         beach.addItemToRoom(straw);
 
+
+
         recycling.setExit("east", road);
         // For at teste sorting tingeling
 
-        /*
+
         player.pickUp(can);
         player.pickUp(can);
         player.pickUp(can);
         player.pickUp(cup);
         player.pickUp(cup);
         player.pickUp(paper_bag);
-         */
+
 
 
         currentRoom = house; //Starting
@@ -220,6 +235,7 @@ public class Game
             //Pick up method from player instance
             itemRoomToPlayer(command);
         }
+
         else if (commandWord == CommandWord.SORT){
             if(!currentRoom.getShortDescription().equals("at the recycling plant")){
                 System.out.println("You are not at the recycling plant, so you can't sort items.");
@@ -232,6 +248,8 @@ public class Game
                 }
             }
         }
+
+
         else if (commandWord == CommandWord.INVENTORY){
             player.showInventory();
         }
@@ -279,7 +297,7 @@ public class Game
                 }
             }
 
-             */
+
             
         }
         else if (commandWord == CommandWord.SCORE){
@@ -484,3 +502,6 @@ public class Game
         }
     }
 }
+
+ */
+
