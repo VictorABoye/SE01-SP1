@@ -4,6 +4,7 @@ import dk.sdu.mmmi.t3.g1.Item;
 import dk.sdu.mmmi.t3.g1.NonFoodItem;
 import dk.sdu.mmmi.t3.g1.Player;
 import dk.sdu.mmmi.t3.g1.Quests;
+import dk.sdu.mmmi.t3.g1.Data;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -29,44 +30,19 @@ public class Game
         createRooms();
     }
 
-    private void loadString(String string) throws IOException, ParseException {
-        //Opens JSON file
-        Object obj = new JSONParser().parse(new FileReader("Quests.json"));
-        //Casts to JSONObject in order to use it as JSON
-        JSONObject Strings = (JSONObject) obj;
-        //Create temporary array to store strings in before adding to questStrings array
-        ArrayList<String> arr = new ArrayList<>();
-        //Strings are saved under each quest, creating a new JSON object for the quest
-        JSONObject object = (JSONObject) Strings.get(string);
-        arr.add((String) object.get("description"));
-        //Choices are saved as JSON arrays, creating iterator to add whole array to temp array
-        JSONArray choices = (JSONArray) object.get("choices");
-        Iterator itr1 = choices.iterator();
-        while (itr1.hasNext()){
-            arr.add((String)itr1.next());
-        }
-        //Same as choices
-        JSONArray consequences = (JSONArray) object.get("consequences");
-        Iterator itr2 = consequences.iterator();
-        while (itr2.hasNext()){
-            arr.add((String)itr2.next());
-        }
-        //Adding temporary array to questStrings to access later
-        questStrings.add(arr);
-    }
-
     private void createRooms() throws IOException, ParseException {
         Room house, park, shop, road, parking, beach, recycling;
         NonFoodItem can, cup, straw, water_bottle, paper_bag, glass_bottle, battery;
         Quests breakfast, transport, roadQuest, groceries, recyclingQuest, factory, quiz, parkQuest;
-        loadString("breakfast");
-        loadString("transport");
-        loadString("roadQuest");
-        loadString("groceries");
-        loadString("recyclingQuest");
-        loadString("factory");
-        loadString("parkQuest");
-        loadString("quiz");
+        Data quests = new Data();
+        questStrings.add(quests.questString("breakfast"));
+        questStrings.add(quests.questString("transport"));
+        questStrings.add(quests.questString("roadQuest"));
+        questStrings.add(quests.questString("groceries"));
+        questStrings.add(quests.questString("recyclingQuest"));
+        questStrings.add(quests.questString("factory"));
+        questStrings.add(quests.questString("parkQuest"));
+        questStrings.add(quests.questString("quiz"));
 
         breakfast = new Quests(new ArrayList<>(), new HashMap<>(), parser.parseString((String)questStrings.get(0).get(0)));
         transport = new Quests(new ArrayList<>(), new HashMap<>(), parser.parseString((String)questStrings.get(1).get(0)));
@@ -123,7 +99,6 @@ public class Game
         roadQuest.setNextQuest(groceries);
         groceries.setNextQuest(recyclingQuest);
         recyclingQuest.setNextQuest(factory);
-        factory.setNextQuest(factory);
 
 
         house = new Room("at your home","info", breakfast);
@@ -209,7 +184,7 @@ public class Game
     {
         System.out.println();
         System.out.println("Welcome to the World of Cool!");
-        System.out.println("World of Cool!is a informative game, which has a purpose to inform YOU about the rising consequences coming from climate change.\nWe believe that by the end of your journey, you will know more about the climate and how to act accordingly in regards to the nature");
+        System.out.println("World of Cool is an informative game, which has a purpose to inform YOU about the rising consequences coming from climate change.\nWe believe that by the end of your journey, you will know more about the climate and how to act accordingly in regards to the nature");
         System.out.println("You will be taken on a journey where the choices you take matters.\nYou'll be giving a climate score starting at 50. Make a wrong choice and it will be decreased, make the right one and it will be increased. Every choice you make is vital!");
         System.out.println();
         System.out.println("Reach a climate score of 0 and you will lose, reach 100 and you will win. Good Luck!");
