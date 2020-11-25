@@ -28,6 +28,7 @@ public class LaunchController {
             stage.show();
         } catch (IOException e){
             System.out.println("Cannot find fxml file");
+            e.printStackTrace();
         }
 
     }
