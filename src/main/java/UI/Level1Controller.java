@@ -28,7 +28,7 @@ public class Level1Controller extends PlayerControl{
     private AnchorPane Window;
 
     @FXML
-    public ImageView item, player;
+    public ImageView itemCan, player;
 
 
 

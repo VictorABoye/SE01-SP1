@@ -13,12 +13,12 @@
             <Font size="96.0" />
          </font>
       </Text>
-      <ImageView fx:id="item" fitHeight="50.0" fitWidth="100.0" layoutX="987.0" layoutY="153.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="itemCan" fitHeight="50.0" fitWidth="100.0" layoutX="300.0" layoutY="400.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/can.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="player" fitHeight="200.0" fitWidth="200.0" layoutX="10.0" layoutY="450.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="player" fitHeight="100.0" fitWidth="100.0" layoutX="50.0" layoutY="450.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/obama.png" />
          </image>

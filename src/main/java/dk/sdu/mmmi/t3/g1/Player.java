@@ -2,24 +2,78 @@ package dk.sdu.mmmi.t3.g1;
 
 
 import javafx.scene.image.ImageView;
-import javafx.scene.shape.Rectangle;
-
-
 
 public class Player extends Entity implements Movement{
 
     private int klimaIndsats;
-    private Inventory inventory;
+    //private Inventory inventory;
     private double speed = 10;
 
-    public Player(ImageView image, String type){
-        super(image, type);
+    public Player(ImageView image, String type, String url){
+        super(image, type, url);
         dead = false;
         this.klimaIndsats = 50;
-        inventory = new Inventory();
+        //inventory = new Inventory();
     }
 
-    public Item getItem(String itemName){
+    public void incKlimaindsats(int x){
+        int pre = klimaIndsats;
+        klimaIndsats += x;
+        if (klimaIndsats <= 0) {
+            System.out.println("You lost...");
+            // End game();
+        }
+        else if (pre > klimaIndsats) {
+            System.out.println("You can do better");
+        }
+        else if (pre < klimaIndsats) {
+            System.out.println("You are doing well");
+        }
+        else if (klimaIndsats >= 100){
+            System.out.print("You win!!!");
+        }
+        checkKlimaindsats();
+    }
+
+    public int getKlimaindsats() {
+        return klimaIndsats;
+    }
+
+    public void checkKlimaindsats(){
+        System.out.println("Your current score is: " + getKlimaindsats());
+    }
+
+
+
+    @Override
+    public void moveUp(){
+        image.setLayoutY(y-speed);
+    }
+
+    @Override
+    public void moveDown(){
+        image.setLayoutY(y+speed);
+    }
+
+    @Override
+    public void moveRight(){
+        image.setLayoutX(x-speed);
+    }
+
+    @Override
+    public void moveLeft(){
+        image.setLayoutX(x+speed);
+    }
+
+
+
+    /*
+     *
+     * Legacy Code
+     *
+     */
+      /*
+        public Item getItem(String itemName){
         return inventory.getItem(itemName);
     }
 
@@ -57,34 +111,15 @@ public class Player extends Entity implements Movement{
         }
     }
 
-    public void incKlimaindsats(int x){
-        int pre = klimaIndsats;
-        klimaIndsats += x;
-        if (klimaIndsats <= 0) {
-            System.out.println("You lost...");
-            // End game();
-        }
-        else if (pre > klimaIndsats) {
-            System.out.println("You can do better");
-        }
-        else if (pre < klimaIndsats) {
-            System.out.println("You are doing well");
-        }
-        else if (klimaIndsats >= 100){
-            System.out.print("You win!!!");
-        }
-        checkKlimaindsats();
+
+    public int getPlayerInventorySize() {
+        return inventory.getSize();
     }
 
-    public int getKlimaindsats() {
-        return klimaIndsats;
+    public boolean hasItem(String items) {
+        return inventory.hasItem(items);
     }
 
-    public void checkKlimaindsats(){
-        System.out.println("Your current score is: " + getKlimaindsats());
-    }
-
-    /*
     public boolean sort(String item, String type){
         if(item == null){
             System.out.println("You need to choose an item to sort");
@@ -131,34 +166,5 @@ public class Player extends Entity implements Movement{
         }
         return false;
     }
-
      */
-
-    public int getPlayerInventorySize() {
-        return inventory.getSize();
-    }
-
-    public boolean hasItem(String items) {
-        return inventory.hasItem(items);
-    }
-
-    @Override
-    public void moveUp(){
-        image.setLayoutY(y-speed);
-    }
-
-    @Override
-    public void moveDown(){
-        image.setLayoutY(y+speed);
-    }
-
-    @Override
-    public void moveRight(){
-        image.setLayoutX(x-speed);
-    }
-
-    @Override
-    public void moveLeft(){
-        image.setLayoutX(x+speed);
-    }
 }

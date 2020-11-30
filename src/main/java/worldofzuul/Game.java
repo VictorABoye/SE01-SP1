@@ -1,6 +1,39 @@
 package worldofzuul;
 
+import dk.sdu.mmmi.t3.g1.WorldPlayer;
 
+public class Game{
+
+    private WorldPlayer player;
+    private Room currentRoom;
+
+    public Game(){
+        player = new WorldPlayer();
+        createWorld();
+    }
+
+    private void createWorld() {
+        //Create all the Rooms
+    }
+
+    public void play() {
+
+    }
+
+    public WorldPlayer getWorldPlayer()
+    {
+        return player;
+    }
+}
+
+
+
+
+/*
+ *
+ * Legacy Game Class
+ *
+ */
 /*
 import dk.sdu.mmmi.t3.g1.Item;
 import dk.sdu.mmmi.t3.g1.NonFoodItem;

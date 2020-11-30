@@ -1,18 +1,20 @@
 package dk.sdu.mmmi.t3.g1;
 
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.shape.Rectangle;
 
 public abstract class Entity {
     final protected String type;
     protected ImageView image;
     protected boolean dead;
+    protected String url;
 
     protected double x,y,h,w;
 
-    public Entity(ImageView image, String type){
+    public Entity(ImageView image, String type, String url){
         this.image = image;
         this.type = type;
+        this.url = url;
         x=image.getLayoutX();
         y= image.getLayoutY();
         h= image.getFitHeight();
@@ -51,7 +53,11 @@ public abstract class Entity {
         this.y = y;
     }
 
-    public ImageView getImage() {
+    public Image getImage() {
+        return image.getImage();
+    }
+
+    public ImageView getImageView(){
         return image;
     }
 
@@ -65,5 +71,9 @@ public abstract class Entity {
 
     public void kill(){
         this.dead = true;
+    }
+
+    public String getUrl(){
+        return url;
     }
 }

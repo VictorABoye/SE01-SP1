@@ -1,5 +1,6 @@
 package UI;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -26,6 +27,7 @@ public class PauseController implements FXMLLoading{
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(launcher));
             stage.setTitle("World of Cool");
+            stage.setResizable(false);
             stage.show();
         } catch (IOException e){
             System.out.println("Cannot find fxml file");
@@ -35,8 +37,7 @@ public class PauseController implements FXMLLoading{
 
     @Override
     public void closeGame(ActionEvent event) {
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.close();
+        Platform.exit();
         System.exit(1337);
     }
 
