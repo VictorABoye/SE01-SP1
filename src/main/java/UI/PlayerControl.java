@@ -80,12 +80,15 @@ public abstract class PlayerControl {
                 Parent inventoryWindow = FXMLLoader.load(PlayerControl.class.getResource(inventoryFile));
                 Stage stage = new Stage();
                 stage.setTitle("Player Inventory");
-                stage.setScene(new Scene(inventoryWindow));
+                Scene scene = new Scene(inventoryWindow);
+                stage.setScene(scene);
                 InventoryController.makeInventory(worldPlayer);
                 stage.show();
                 //System.out.println(keyEvent.getCode());
                 //if (keyEvent.getCode() == KeyCode.ESCAPE) stage.close();
-                inventoryWindow.setOnKeyPressed(InventoryController::closeWindow);
+                scene.setOnKeyPressed(event1 -> {
+                    stage.close();
+                });
             } catch (IOException e){
                 System.out.println("Cannot find fxml file");
             }

@@ -51,6 +51,7 @@ public class InventoryController {
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
+
     }
 
     public static void makeInventory(WorldPlayer worldPlayer)
@@ -58,15 +59,6 @@ public class InventoryController {
         for (int i = 0; i < worldPlayer.getInventory().getSize(); i++)
         {
             addItemToView(worldPlayer.getItemByIndex(i),i);
-        }
-    }
-
-    public static void closeWindow(KeyEvent event)
-    {
-        System.out.println(event.getCode());
-        if (event.getCode() == KeyCode.ESCAPE) {
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.close();
         }
     }
 }
