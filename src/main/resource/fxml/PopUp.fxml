@@ -7,7 +7,7 @@
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.PopUpController">
    <children>
       <Text fx:id="questInfo" layoutX="64.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="This text is from the quest" wrappingWidth="440.0" />
-      <Button fx:id="choice1" layoutX="60.0" layoutY="310.0" mnemonicParsing="false" onAction="#getChoice" text="Button" />
+      <Button fx:id="choice1" layoutX="60.0" layoutY="310.0" mnemonicParsing="false" text="Button" />
       <Button fx:id="choice2" layoutX="200.0" layoutY="310.0" mnemonicParsing="false" text="Button" />
       <Button fx:id="choice3" layoutX="340.0" layoutY="310.0" mnemonicParsing="false" text="Button" />
       <Button fx:id="choice4" layoutX="480.0" layoutY="310.0" mnemonicParsing="false" text="Button" />

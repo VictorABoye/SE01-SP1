@@ -20,7 +20,7 @@ public class StartUI extends Application {
         Parent root = FXMLLoader.load(getClass().getResource(launchFile));
         stage.setTitle("World of Cool");
         stage.setScene(new Scene(root));
-        stage.setResizable(false);
+        stage.setResizable(true);
         stage.show();
     }
 }

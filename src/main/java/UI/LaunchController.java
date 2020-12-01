@@ -44,6 +44,7 @@ public class LaunchController implements FXMLLoading {
                 if (event.getCode() == KeyCode.ESCAPE) Level1Controller.back(event, stage);
                 else Level1Controller.playerMovement(event, game.getWorldPlayer());
             });
+            stage.setAlwaysOnTop(false);
             stage.setScene(scene);
             stage.show();
         } catch (IOException e){
