@@ -23,7 +23,7 @@ public class Game{
         return currentRoom;
     }
 
-    public static void setCurrntRoom(Room room) {
+    public static void setCurrentRoom(Room room) {
         currentRoom = room;
     }
 

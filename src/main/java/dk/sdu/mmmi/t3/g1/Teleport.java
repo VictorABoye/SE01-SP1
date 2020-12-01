@@ -38,7 +38,10 @@ public class Teleport extends Entity{
         } catch (IOException e){
             System.out.println(e.getMessage());
         }
-        Game.setCurrntRoom(linkedRoom);
+        if (linkedRoom != null) {
+            Game.setCurrentRoom(linkedRoom);
+        }
+        System.out.println("No linked room");
     }
 
     public void linkTeleport(Room room){

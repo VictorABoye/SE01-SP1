@@ -124,7 +124,7 @@ public abstract class PlayerControl {
             System.out.println("Shift");
         if (code == KeyCode.CONTROL)
             System.out.println("Ctrl");
-        else System.out.println(code.toString());
+        //else System.out.println(code.toString());
         //System.out.println("X: " + player.getX() + "; Y: " + player.getY());
 
         if (Game.playerCollidesTeleport(player)){
