@@ -11,5 +11,6 @@
     <orderEntry type="library" exported="" name="json-simple-1.1.1" level="project" />
     <orderEntry type="library" exported="" name="libLinux" level="project" />
     <orderEntry type="library" exported="" name="libWindows" level="project" />
+    <orderEntry type="library" name="javafx" level="project" />
   </component>
 </module>
