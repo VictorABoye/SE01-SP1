@@ -28,13 +28,7 @@ public class Level1Controller extends PlayerControl{
     @FXML
     public void initialize(){
         //Set items
-        /*
-        if (Game.getCurrentRoom().getRoomInventorySize() == 0) {
-            itemCan1.setVisible(false);
-            itemCan2.setVisible(false);
-        }
-
-         */
+        System.out.print(Game.getRooms().get(0).getRoomInventorySize());
     }
 
 }

@@ -13,9 +13,11 @@ public class Game{
 
     private static WorldPlayer player;
     private static Room currentRoom;
+    private static ArrayList<Room> rooms;
 
     public Game(){
         player = new WorldPlayer();
+        rooms = new ArrayList<>();
         createWorld();
     }
 
@@ -25,6 +27,10 @@ public class Game{
 
     public static void setCurrentRoom(Room room) {
         currentRoom = room;
+    }
+
+    public static ArrayList<Room> getRooms() {
+        return rooms;
     }
 
     private void createWorld() {
