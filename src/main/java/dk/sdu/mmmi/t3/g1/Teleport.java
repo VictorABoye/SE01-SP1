@@ -40,6 +40,8 @@ public class Teleport extends Entity{
         }
         if (linkedRoom != null) {
             Game.setCurrentRoom(linkedRoom);
+            System.out.println(Game.getCurrentRoom().getInfoBox());
+            return;
         }
         System.out.println("No linked room");
     }

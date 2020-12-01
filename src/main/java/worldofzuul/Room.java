@@ -8,7 +8,6 @@ import dk.sdu.mmmi.t3.g1.Teleport;
 import java.util.ArrayList;
 import java.util.Set;
 import java.util.HashMap;
-import java.util.Iterator;
 
 
 public class Room {
@@ -19,7 +18,7 @@ public class Room {
     private Quests quest;
     private ArrayList<Teleport> teleports;
 
-    public Room (String infoBox, Quests quest)
+    public Room (Quests quest)
     {
         exits = new HashMap<String, Room>();
         inventory = new Inventory();

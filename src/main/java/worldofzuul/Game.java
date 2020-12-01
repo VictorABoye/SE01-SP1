@@ -48,7 +48,7 @@ public class Game{
             Teleport tpNorth = new Teleport((ImageView) window1.lookup("#tpNorth"),"teleport","/fxml/Level2.fxml");
 
             //Create Room
-            level1 = new Room("info",new Quests(new ArrayList<>(), new HashMap<>(), "dummy"));
+            level1 = new Room(new Quests(new ArrayList<>(), new HashMap<>(), "L1"));
             level1.addItemToRoom(can1);
             level1.addItemToRoom(can2);
             level1.addTeleporterToRoom(tpNorth);
@@ -67,7 +67,7 @@ public class Game{
             Teleport tpSouth = new Teleport((ImageView) window2.lookup("#tpSouth"),"teleport","/fxml/Level3.fxml");
 
             //Create Room
-            level2 = new Room("info",new Quests(new ArrayList<>(), new HashMap<>(), "dummy"));
+            level2 = new Room(new Quests(new ArrayList<>(), new HashMap<>(), "L2"));
             level2.addTeleporterToRoom(tpSouth);
 
         //Level3
@@ -83,7 +83,7 @@ public class Game{
             Teleport tpEast = new Teleport((ImageView) window3.lookup("#tpEast"),"teleport","/fxml/Level1.fxml");
 
             //Create Room
-            level3 = new Room("dummy",new Quests(new ArrayList<>(), new HashMap<>(), "dummy"));
+            level3 = new Room(new Quests(new ArrayList<>(), new HashMap<>(), "L3"));
             level3.addTeleporterToRoom(tpEast);
 
             //Link room
