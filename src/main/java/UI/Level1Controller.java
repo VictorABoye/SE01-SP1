@@ -15,6 +15,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.stage.Window;
 
 
@@ -38,10 +39,13 @@ public class Level1Controller extends PlayerControl{
         try{
             Parent popUp = FXMLLoader.load(Level1Controller.class.getResource(questFile));
             Stage stage = new Stage();
-            stage.setTitle("Make a choice!");
-            stage.setScene(new Scene(popUp));
+            Scene scene = new Scene(popUp);
+            stage.setScene(scene);
             stage.setAlwaysOnTop(true);
+            scene.setOnKeyPressed(keyEvent -> {});
+            stage.initStyle(StageStyle.UNDECORATED);
             stage.show();
+            stage.requestFocus();
         } catch (IOException e){
             e.printStackTrace();
         }

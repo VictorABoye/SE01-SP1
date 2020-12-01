@@ -43,8 +43,6 @@ public class Player extends Entity implements Movement{
         System.out.println("Your current score is: " + getKlimaindsats());
     }
 
-
-
     @Override
     public void moveUp(){
         image.setLayoutY(y-speed);
