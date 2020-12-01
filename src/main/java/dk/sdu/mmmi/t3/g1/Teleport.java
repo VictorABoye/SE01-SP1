@@ -12,12 +12,14 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import worldofzuul.Game;
+import worldofzuul.Room;
 
 import java.io.IOException;
 
 public class Teleport extends Entity{
 
     private String linkedRoomFXML;
+    private Room linkedRoom;
 
     public Teleport(ImageView image, String type, String linkedRoomFXML) {
         super(image, type);
@@ -36,5 +38,10 @@ public class Teleport extends Entity{
         } catch (IOException e){
             System.out.println(e.getMessage());
         }
+        Game.setCurrntRoom(linkedRoom);
+    }
+
+    public void linkTeleport(Room room){
+        linkedRoom = room;
     }
 }

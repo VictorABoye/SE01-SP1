@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -16,6 +17,9 @@ import javafx.stage.Stage;
 import worldofzuul.Game;
 import worldofzuul.Room;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public abstract class PlayerControl {
@@ -30,6 +34,8 @@ public abstract class PlayerControl {
         Scene window = (Scene) event.getSource();
         Player player = new Player((ImageView) window.lookup("#player"),"player","dummy");
 
+
+        //Add player animation
         //Fix all this
         if (code == KeyCode.W){
             if(player.getY() > 0){
@@ -48,7 +54,9 @@ public abstract class PlayerControl {
             }
         }
         if (code == KeyCode.A || code == KeyCode.LEFT) {
-            if (player.getX() > 0) {
+            if (player.getX() > 0)
+            {
+                //player.getImageView().setImage(left);
                 player.moveRight();
             }
             else {
@@ -63,6 +71,7 @@ public abstract class PlayerControl {
                 player.setY(window.getWidth());
             }
         }
+
         if(code == KeyCode.E){
             // Add functionality to pick up items
             //System.out.println(playerCollidesItem(event));

@@ -23,26 +23,30 @@ public class Game{
         return currentRoom;
     }
 
+    public static void setCurrntRoom(Room room) {
+        currentRoom = room;
+    }
+
     private void createWorld() {
         //Create all the Rooms
-
+        Room level1, level2;
 
         try {
             //FXML File
-            String FXML = "/fxml/Level1.fxml";
+            String FXML1 = "/fxml/Level1.fxml";
 
             //Loader
-            Parent window = FXMLLoader.load(getClass().getResource(FXML));
+            Parent window1 = FXMLLoader.load(getClass().getResource(FXML1));
 
             //Create Items
-            Item can1 = new NonFoodItem((ImageView) window.lookup("#itemCan1"),"item","can");
-            Item can2 = new NonFoodItem((ImageView) window.lookup("#itemCan2"),"item","can");
+            Item can1 = new NonFoodItem((ImageView) window1.lookup("#itemCan1"),"item","can");
+            Item can2 = new NonFoodItem((ImageView) window1.lookup("#itemCan2"),"item","can");
 
             //Create Teleport
-            Teleport tpNorth = new Teleport((ImageView) window.lookup("#tpNorth"),"teleport","/fxml/Level2.fxml");
+            Teleport tpNorth = new Teleport((ImageView) window1.lookup("#tpNorth"),"teleport","/fxml/Level2.fxml");
 
             //Create Room
-            Room level1 = new Room("info",new Quests(new ArrayList<>(), new HashMap<>(), "String"));
+            level1 = new Room("info",new Quests(new ArrayList<>(), new HashMap<>(), "dummy"));
             level1.addItemToRoom(can1);
             level1.addItemToRoom(can2);
             level1.addTeleporterToRoom(tpNorth);
@@ -50,9 +54,36 @@ public class Game{
             //Starting Room
             currentRoom = level1;
 
+
+
+        //Level2
+            String FXML2 = "/fxml/Level2.fxml";
+
+            Parent window2 = FXMLLoader.load(getClass().getResource(FXML2));
+
+            //Items
+
+            //Teleporter
+            Teleport tpSouth = new Teleport((ImageView) window2.lookup("#tpSouth"),"teleporter","/fxml/Level1.fxml");
+
+            level2 = new Room("info",new Quests(new ArrayList<>(), new HashMap<>(), "dummy"));
+            //Add items to room
+            //Add teleporter
+            level2.addTeleporterToRoom(tpSouth);
+
+
+
+            //Link room
+            level1.getTP(0).linkTeleport(level2);
+            level2.getTP(0).linkTeleport(level1);
+
         } catch (IOException e){
             System.out.println(e.getMessage());
         }
+
+
+        //Link all rooms
+
     }
 
     public void play() {

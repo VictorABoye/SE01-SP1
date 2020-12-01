@@ -7,9 +7,14 @@
 
 <AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Level2Controller">
    <children>
-      <ImageView fx:id="player" fitHeight="150.0" fitWidth="200.0" layoutX="188.0" layoutY="167.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="player" fitHeight="100.0" fitWidth="100.0" layoutX="200.0" layoutY="150.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/player/player_default.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="tpSouth" fitHeight="150.0" fitWidth="200.0" layoutY="570.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/door.png" />
          </image>
       </ImageView>
    </children>
