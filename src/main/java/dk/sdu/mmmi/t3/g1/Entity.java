@@ -13,10 +13,10 @@ public abstract class Entity {
     public Entity(ImageView image, String type){
         this.image = image;
         this.type = type;
-        x=image.getLayoutX();
-        y= image.getLayoutY();
-        h= image.getFitHeight();
-        w= image.getFitWidth();
+        x = image.getLayoutX();
+        y = image.getLayoutY();
+        h = image.getFitHeight();
+        w = image.getFitWidth();
     }
 
     public double getH() {

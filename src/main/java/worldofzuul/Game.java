@@ -29,7 +29,7 @@ public class Game{
 
     private void createWorld() {
         //Create all the Rooms
-        Room level1, level2;
+        Room level1, level2, level3;
 
         try {
             //FXML File
@@ -51,10 +51,6 @@ public class Game{
             level1.addItemToRoom(can2);
             level1.addTeleporterToRoom(tpNorth);
 
-            //Starting Room
-            currentRoom = level1;
-
-
 
         //Level2
             String FXML2 = "/fxml/Level2.fxml";
@@ -64,7 +60,7 @@ public class Game{
             //Items
 
             //Teleporter
-            Teleport tpSouth = new Teleport((ImageView) window2.lookup("#tpSouth"),"teleporter","/fxml/Level1.fxml");
+            Teleport tpSouth = new Teleport((ImageView) window2.lookup("#tpSouth"),"teleport","/fxml/Level1.fxml");
 
             level2 = new Room("info",new Quests(new ArrayList<>(), new HashMap<>(), "dummy"));
             //Add items to room
@@ -72,10 +68,29 @@ public class Game{
             level2.addTeleporterToRoom(tpSouth);
 
 
+            //Level3
+            String FXML3 = "/fxml/Level3.fxml";
+
+            Parent window3 = FXMLLoader.load(getClass().getResource(FXML3));
+
+            //Items
+
+            //Teleporter
+            Teleport tpEast = new Teleport((ImageView) window3.lookup("#tpEast"),"teleport","/fxml/Level3.fxml");
+
+            level3 = new Room("dummy",new Quests(new ArrayList<>(), new HashMap<>(), "dummy"));
+            level3.addTeleporterToRoom(tpEast);
 
             //Link room
             level1.getTP(0).linkTeleport(level2);
-            level2.getTP(0).linkTeleport(level1);
+            level2.getTP(0).linkTeleport(level3);
+            level3.getTP(0).linkTeleport(level1);
+
+
+
+            //Starting Room
+            currentRoom = level1;
+
 
         } catch (IOException e){
             System.out.println(e.getMessage());
