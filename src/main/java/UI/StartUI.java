@@ -12,6 +12,8 @@ public class StartUI extends Application {
     final String launchFile = "/fxml/Launcher.fxml";
 
     public static void main(String[] arg){
+        Game game = new Game();
+        game.play();
         launch(arg);
     }
 

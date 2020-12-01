@@ -20,15 +20,10 @@ import java.io.IOException;
 
 public class Level1Controller extends PlayerControl{
 
-    final String launchFile = "/fxml/Launcher.fxml";
     final static String pauseFile = "/fxml/Pause.fxml";
-    private int speed = 15;
 
     @FXML
-    private AnchorPane Window;
-
-    @FXML
-    public ImageView itemCan1, itemCan2, player;
+    public ImageView itemCan1, itemCan2, player, tpNorth;
 
 
 

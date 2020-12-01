@@ -11,7 +11,7 @@ import java.util.HashMap;
 
 public class Game{
 
-    private WorldPlayer player;
+    private static WorldPlayer player;
     private static Room currentRoom;
 
     public Game(){
@@ -38,11 +38,16 @@ public class Game{
             Item can1 = new NonFoodItem((ImageView) window.lookup("#itemCan1"),"item","can");
             Item can2 = new NonFoodItem((ImageView) window.lookup("#itemCan2"),"item","can");
 
+            //Create Teleport
+            Teleport tpNorth = new Teleport((ImageView) window.lookup("#tpNorth"),"teleport","/fxml/Level2.fxml");
+
             //Create Room
             Room level1 = new Room("info",new Quests(new ArrayList<>(), new HashMap<>(), "String"));
             level1.addItemToRoom(can1);
             level1.addItemToRoom(can2);
+            level1.addTeleporterToRoom(tpNorth);
 
+            //Starting Room
             currentRoom = level1;
 
         } catch (IOException e){
@@ -54,7 +59,7 @@ public class Game{
         System.out.println("Play the game");
     }
 
-    public WorldPlayer getWorldPlayer()
+    public static WorldPlayer getWorldPlayer()
     {
         return player;
     }
@@ -119,6 +124,64 @@ public class Game{
                 System.out.println(shortestDist);
             }
         return currentRoom.getItem(itemIndex);
+    }
+
+    public static boolean playerCollidesTeleport(Player player){
+        Teleport currentTP = getClosestTeleporterToPlayer(player);
+        if (currentTP != null) {
+            //Player player = new Player(((ImageView)((Scene)event.getSource()).lookup("#player")),"player","@../images/obama.png");
+            double ix1 = currentTP.getX();
+            double iy1 = currentTP.getY();
+            double ix2 = currentTP.getW() + ix1;
+            double iy2 = currentTP.getH() + iy1;
+            double px1 = player.getX();
+            double py1 = player.getY();
+            double px2 = player.getW() + px1;
+            double py2 = player.getH() + py1;
+            if (px2 >= ix1 && py1 <= iy2 && !(px1 >= ix2) && !(py2 <= iy1)) {
+                currentTP.getImageView().setVisible(false);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static Teleport getClosestTeleporterToPlayer(Player player){
+        if (currentRoom.getAmountOfTeleports() <= 0) return null;
+        Teleport currentTP;
+        double shortestDist = 999999;
+        int itemIndex = 0;
+
+        for (int i = 0; i < currentRoom.getAmountOfTeleports(); i++) {
+            currentTP = currentRoom.getTP(i);
+            //Player on screen
+            double px1 = player.getX();
+            double px2 = player.getW() + px1;
+            double py1 = player.getY();
+            double py2 = player.getH() + py1;
+            double pmx = px2 / 2.0;
+            double pmy = py2 / 2.0;
+            System.out.println("Player X: " + pmx + " Y: " + pmy);
+            //Item on screen
+            double ix1 = currentTP.getX();
+            double ix2 = currentTP.getW() + ix1;
+            double iy1 = currentTP.getY();
+            double iy2 = currentTP.getH() + iy1;
+            double imx = ix2 / 2.0;
+            double imy = iy2 / 2.0;
+            System.out.println("Item X: " + imx + " Y: " + imy);
+            //Distance between player and item
+            double mpx = Math.abs(pmx - imx);
+            double mpy = Math.abs(pmy - imy);
+            double dist = Math.sqrt((mpx+mpy)*(mpx+mpy));
+
+            if (dist < shortestDist){
+                shortestDist = dist;
+                itemIndex = i;
+            }
+            System.out.println(shortestDist);
+        }
+        return currentRoom.getTP(itemIndex);
     }
 }
 

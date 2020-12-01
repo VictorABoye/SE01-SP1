@@ -28,5 +28,10 @@
             <Image url="@../images/obama.png" />
          </image>
       </ImageView>
+      <ImageView fx:id="tpNorth" fitHeight="150.0" fitWidth="200.0" layoutX="200.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/door.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

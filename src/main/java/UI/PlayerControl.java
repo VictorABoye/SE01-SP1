@@ -1,8 +1,6 @@
 package UI;
 
-import dk.sdu.mmmi.t3.g1.Item;
-import dk.sdu.mmmi.t3.g1.NonFoodItem;
-import dk.sdu.mmmi.t3.g1.WorldPlayer;
+import dk.sdu.mmmi.t3.g1.*;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
@@ -13,7 +11,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
-import dk.sdu.mmmi.t3.g1.Player;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import worldofzuul.Game;
@@ -28,10 +25,10 @@ public abstract class PlayerControl {
     static final private String pauseFile = "/fxml/Pause.fxml";
 
 
-    public static void playerMovement(KeyEvent event, WorldPlayer worldPlayer){
+    public static void playerMovement(KeyEvent event, WorldPlayer worldPlayer, Stage stage){
         KeyCode code = event.getCode();
         Scene window = (Scene) event.getSource();
-        Player player = new Player((ImageView) window.lookup("#player"),"player");
+        Player player = new Player((ImageView) window.lookup("#player"),"player","dummy");
 
         //Fix all this
         if (code == KeyCode.W){
@@ -83,39 +80,37 @@ public abstract class PlayerControl {
         {
             try {
                 Parent inventoryWindow = FXMLLoader.load(PlayerControl.class.getResource(inventoryFile));
-                Stage stage = new Stage();
-                stage.setTitle("Player Inventory");
+                Stage popup = new Stage();
+                popup.setTitle("Player Inventory");
                 Scene scene = new Scene(inventoryWindow);
-                stage.setScene(scene);
+                popup.setScene(scene);
                 InventoryController.makeInventory(worldPlayer);
-                stage.show();
+                popup.show();
                 //System.out.println(keyEvent.getCode());
                 //if (keyEvent.getCode() == KeyCode.ESCAPE) stage.close();
                 scene.setOnKeyPressed(event1 -> {
-                    stage.close();
+                    if (event1.getCode() == KeyCode.ESCAPE) popup.close();
                 });
             } catch (IOException e){
                 System.out.println("Cannot find fxml file");
             }
         }
 
-        /*
+
         if(code== KeyCode.ESCAPE){
-            Stage theWindow = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            theWindow.close();
             try {
                 Parent pauseWindow = FXMLLoader.load(PlayerControl.class.getResource(pauseFile));
-                Stage stage = new Stage();
-                stage.setTitle("Game Paused");
-                stage.setScene(new Scene(pauseWindow));
-                stage.show();
+                Stage pauseStage = new Stage();
+                pauseStage.setTitle("Game Paused");
+                pauseStage.setScene(new Scene(pauseWindow));
+                pauseStage.show();
             } catch (IOException e){
                 System.out.println("Cannot find fxml file");
             }
             //goToMenu(event);
         }
 
-         */
+
 
         //Dunno how these if statements function
         if (code == KeyCode.SPACE)
@@ -126,19 +121,11 @@ public abstract class PlayerControl {
             System.out.println("Ctrl");
         else System.out.println(code.toString());
         //System.out.println("X: " + player.getX() + "; Y: " + player.getY());
-    }
 
-/*
-    public void goToMenu(Event actionEvent) {
-        try {
-            Parent launcher = FXMLLoader.load(getClass().getResource(launchFile));
-            Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(launcher));
-            stage.show();
-        } catch (IOException e){
-            System.out.println("Cannot find fxml file");
+        if (Game.playerCollidesTeleport(player)){
+            Teleport currentTP = Game.getClosestTeleporterToPlayer(player);
+            System.out.println("TELEPORT TO LEVEL2");
+            currentTP.teleportToRoom(event, stage);
         }
     }
-
- */
 }

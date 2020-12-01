@@ -3,7 +3,9 @@ package worldofzuul;
 import dk.sdu.mmmi.t3.g1.Inventory;
 import dk.sdu.mmmi.t3.g1.Item;
 import dk.sdu.mmmi.t3.g1.Quests;
+import dk.sdu.mmmi.t3.g1.Teleport;
 
+import java.util.ArrayList;
 import java.util.Set;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -15,6 +17,7 @@ public class Room {
     private boolean isVisited;
     private String infoBox;
     private Quests quest;
+    private ArrayList<Teleport> teleports;
 
     public Room (String infoBox, Quests quest)
     {
@@ -23,6 +26,7 @@ public class Room {
         isVisited = false;
         this.quest = quest;
         this.infoBox = this.quest.getDescription();
+        teleports = new ArrayList<>();
     }
 
     public boolean getVisited(){
@@ -97,6 +101,18 @@ public class Room {
 
     public Quests getQuest() {
         return quest;
+    }
+
+    public void addTeleporterToRoom(Teleport tp) {
+        teleports.add(tp);
+    }
+
+    public int getAmountOfTeleports() {
+        return teleports.size();
+    }
+
+    public Teleport getTP(int index) {
+        return teleports.get(index);
     }
 }
 
