@@ -1,5 +1,6 @@
 package UI;
 
+import dk.sdu.mmmi.t3.g1.Start;
 import javafx.application.Platform;
 import javafx.event.Event;
 import javafx.fxml.FXML;
@@ -22,6 +23,7 @@ public class Level1Controller extends PlayerControl{
 
     final String launchFile = "/fxml/Launcher.fxml";
     final static String pauseFile = "/fxml/Pause.fxml";
+    final static String questFile = "/fxml/PopUp.fxml";
     private int speed = 15;
 
     @FXML
@@ -30,6 +32,19 @@ public class Level1Controller extends PlayerControl{
     @FXML
     public ImageView itemCan, player;
 
+
+    public void initialize(){
+        try{
+            Parent popUp = FXMLLoader.load(Level1Controller.class.getResource(questFile));
+            Stage stage = new Stage();
+            stage.setTitle("Make a choice!");
+            stage.setScene(new Scene(popUp));
+            stage.setAlwaysOnTop(true);
+            stage.show();
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+    }
 
 
     public static void back(KeyEvent event, Stage preStage) {

@@ -12,7 +12,7 @@ import java.awt.event.ActionEvent;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class PopUpController implements Initializable{
+public class PopUpController{
 
     @FXML
     public Text questInfo;
@@ -20,15 +20,8 @@ public class PopUpController implements Initializable{
     @FXML
     public Button choice1, choice2, choice3, choice4;
 
-
-    public void getChoice(ActionEvent event){
-        System.out.println("this");
-        Stage cStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        cStage.close();
-    }
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    @FXML
+    public void initialize() {
         questInfo.setText("This is the newest text");
         choice1.setText("This is choice 1");
         choice2.setText("This is choice 2");
@@ -38,6 +31,11 @@ public class PopUpController implements Initializable{
     }
 
 
+    public void getChoice(ActionEvent event){
+        System.out.println("this");
+        Stage cStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        cStage.close();
+    }
 
 
 
