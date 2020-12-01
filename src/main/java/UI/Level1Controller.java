@@ -1,6 +1,5 @@
 package UI;
 
-import dk.sdu.mmmi.t3.g1.Start;
 import javafx.application.Platform;
 import javafx.event.Event;
 import javafx.fxml.FXML;
