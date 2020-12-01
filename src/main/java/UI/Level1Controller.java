@@ -32,7 +32,7 @@ public class Level1Controller extends PlayerControl{
     private AnchorPane Window;
 
     @FXML
-    public ImageView itemCan, player;
+    public ImageView itemCan1, itemCan2, player;
 
 
     public void initialize(){

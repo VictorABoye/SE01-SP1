@@ -1,28 +1,124 @@
 package worldofzuul;
 
-import dk.sdu.mmmi.t3.g1.WorldPlayer;
+import dk.sdu.mmmi.t3.g1.*;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.image.ImageView;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Game{
 
     private WorldPlayer player;
-    private Room currentRoom;
+    private static Room currentRoom;
 
     public Game(){
         player = new WorldPlayer();
         createWorld();
     }
 
+    public static Room getCurrentRoom() {
+        return currentRoom;
+    }
+
     private void createWorld() {
         //Create all the Rooms
+
+
+        try {
+            //FXML File
+            String FXML = "/fxml/Level1.fxml";
+
+            //Loader
+            Parent window = FXMLLoader.load(getClass().getResource(FXML));
+
+            //Create Items
+            Item can1 = new NonFoodItem((ImageView) window.lookup("#itemCan1"),"item","can");
+            Item can2 = new NonFoodItem((ImageView) window.lookup("#itemCan2"),"item","can");
+
+            //Create Room
+            Room level1 = new Room("info",new Quests(new ArrayList<>(), new HashMap<>(), "String"));
+            level1.addItemToRoom(can1);
+            level1.addItemToRoom(can2);
+
+            currentRoom = level1;
+
+        } catch (IOException e){
+            System.out.println(e.getMessage());
+        }
     }
 
     public void play() {
-
+        System.out.println("Play the game");
     }
 
     public WorldPlayer getWorldPlayer()
     {
         return player;
+    }
+
+
+    public static boolean playerCollidesItem(Player player){
+        //Room currentRoom = event.getSource();
+        //Item currentItem = currentRoom.getItem(item);
+        //Player player = currentRoom.getPlayer();
+        Item currentItem = getClosestItemToPlayer(player);
+        if (currentItem != null) {
+            //Player player = new Player(((ImageView)((Scene)event.getSource()).lookup("#player")),"player","@../images/obama.png");
+            double ix1 = currentItem.getX();
+            double iy1 = currentItem.getY();
+            double ix2 = currentItem.getW() + ix1;
+            double iy2 = currentItem.getH() + iy1;
+            double px1 = player.getX();
+            double py1 = player.getY();
+            double px2 = player.getW() + px1;
+            double py2 = player.getH() + py1;
+            if (px2 >= ix1 && py1 <= iy2 && !(px1 >= ix2) && !(py2 <= iy1)) {
+                currentItem.getImageView().setVisible(false);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static Item getClosestItemToPlayer(Player player){
+        if (currentRoom.getRoomInventorySize() <= 0) return null;
+        Item currentItem;
+        double shortestDist = 999999;
+        int itemIndex = 0;
+
+            for (int i = 0; i < currentRoom.getRoomInventorySize(); i++) {
+                currentItem = currentRoom.getItem(i);
+                //Player on screen
+                double px1 = player.getX();
+                double px2 = player.getW() + px1;
+                double py1 = player.getY();
+                double py2 = player.getH() + py1;
+                double pmx = px2 / 2.0;
+                double pmy = py2 / 2.0;
+                System.out.println("Player X: " + pmx + " Y: " + pmy);
+                //Item on screen
+                double ix1 = currentItem.getX();
+                double ix2 = currentItem.getW() + ix1;
+                double iy1 = currentItem.getY();
+                double iy2 = currentItem.getH() + iy1;
+                double imx = ix2 / 2.0;
+                double imy = iy2 / 2.0;
+                System.out.println("Item X: " + imx + " Y: " + imy);
+                //Distance between player and item
+                double mpx = Math.abs(pmx - imx);
+                double mpy = Math.abs(pmy - imy);
+                double dist = Math.sqrt((mpx+mpy)*(mpx+mpy));
+
+                if (dist < shortestDist){
+                    shortestDist = dist;
+                    itemIndex = i;
+                }
+                System.out.println(shortestDist);
+            }
+        return currentRoom.getItem(itemIndex);
     }
 }
 

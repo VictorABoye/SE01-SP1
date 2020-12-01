@@ -2,7 +2,7 @@ package worldofzuul;
 
 import dk.sdu.mmmi.t3.g1.Inventory;
 import dk.sdu.mmmi.t3.g1.Item;
-//import dk.sdu.mmmi.t3.g1.Quests;
+import dk.sdu.mmmi.t3.g1.Quests;
 
 import java.util.Set;
 import java.util.HashMap;
@@ -10,21 +10,19 @@ import java.util.Iterator;
 
 
 public class Room {
-    private String description;
     private HashMap<String, Room> exits;
     private Inventory inventory;
     private boolean isVisited;
     private String infoBox;
-    //private Quests quest;
+    private Quests quest;
 
-    public Room(String description, String infoBox /*Quests quest */)
+    public Room (String infoBox, Quests quest)
     {
-        this.description = description;
         exits = new HashMap<String, Room>();
         inventory = new Inventory();
         isVisited = false;
-        //this.quest = quest;
-        //this.infoBox = this.quest.getDescription();
+        this.quest = quest;
+        this.infoBox = this.quest.getDescription();
     }
 
     public boolean getVisited(){
@@ -66,16 +64,6 @@ public class Room {
         }
     }
 
-    public String getShortDescription()
-    {
-        return description;
-    }
-
-    public String getLongDescription()
-    {
-        return "You are " + description + ".";
-    }
-
     public String getExitString()
     {
         String returnString = "You can go:";
@@ -107,11 +95,8 @@ public class Room {
         return inventory.hasItem(itemName);
     }
 
-    /*
     public Quests getQuest() {
         return quest;
     }
-
-     */
 }
 
