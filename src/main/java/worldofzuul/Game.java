@@ -134,7 +134,7 @@ public class Game{
                 double py2 = player.getH() + py1;
                 double pmx = px2 / 2.0;
                 double pmy = py2 / 2.0;
-                System.out.println("Player X: " + pmx + " Y: " + pmy);
+                //System.out.println("Player X: " + pmx + " Y: " + pmy);
                 //Item on screen
                 double ix1 = currentItem.getX();
                 double ix2 = currentItem.getW() + ix1;
@@ -142,7 +142,7 @@ public class Game{
                 double iy2 = currentItem.getH() + iy1;
                 double imx = ix2 / 2.0;
                 double imy = iy2 / 2.0;
-                System.out.println("Item X: " + imx + " Y: " + imy);
+                //System.out.println("Item X: " + imx + " Y: " + imy);
                 //Distance between player and item
                 double mpx = Math.abs(pmx - imx);
                 double mpy = Math.abs(pmy - imy);
@@ -152,7 +152,7 @@ public class Game{
                     shortestDist = dist;
                     itemIndex = i;
                 }
-                System.out.println(shortestDist);
+                //System.out.println(shortestDist);
             }
         return currentRoom.getItem(itemIndex);
     }
@@ -192,7 +192,7 @@ public class Game{
             double py2 = player.getH() + py1;
             double pmx = px2 / 2.0;
             double pmy = py2 / 2.0;
-            System.out.println("Player X: " + pmx + " Y: " + pmy);
+            //System.out.println("Player X: " + pmx + " Y: " + pmy);
             //Item on screen
             double ix1 = currentTP.getX();
             double ix2 = currentTP.getW() + ix1;
@@ -200,7 +200,7 @@ public class Game{
             double iy2 = currentTP.getH() + iy1;
             double imx = ix2 / 2.0;
             double imy = iy2 / 2.0;
-            System.out.println("Item X: " + imx + " Y: " + imy);
+            //System.out.println("Item X: " + imx + " Y: " + imy);
             //Distance between player and item
             double mpx = Math.abs(pmx - imx);
             double mpy = Math.abs(pmy - imy);
@@ -210,7 +210,7 @@ public class Game{
                 shortestDist = dist;
                 itemIndex = i;
             }
-            System.out.println(shortestDist);
+            //System.out.println(shortestDist);
         }
         return currentRoom.getTP(itemIndex);
     }

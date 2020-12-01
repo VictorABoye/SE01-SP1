@@ -34,7 +34,6 @@ public abstract class PlayerControl {
         Scene window = (Scene) event.getSource();
         Player player = new Player((ImageView) window.lookup("#player"),"player","dummy");
 
-
         //Add player animation
         //Fix all this
         if (code == KeyCode.W){
@@ -105,7 +104,6 @@ public abstract class PlayerControl {
             }
         }
 
-
         if(code== KeyCode.ESCAPE){
             try {
                 Parent pauseWindow = FXMLLoader.load(PlayerControl.class.getResource(pauseFile));
@@ -119,8 +117,6 @@ public abstract class PlayerControl {
             //goToMenu(event);
         }
 
-
-
         //Dunno how these if statements function
         if (code == KeyCode.SPACE)
             System.out.println("space");
@@ -133,7 +129,6 @@ public abstract class PlayerControl {
 
         if (Game.playerCollidesTeleport(player)){
             Teleport currentTP = Game.getClosestTeleporterToPlayer(player);
-            System.out.println("TELEPORT TO LEVEL2");
             currentTP.teleportToRoom(event, stage);
         }
     }
