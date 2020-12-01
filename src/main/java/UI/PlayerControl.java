@@ -16,6 +16,8 @@ import javafx.scene.input.KeyEvent;
 import dk.sdu.mmmi.t3.g1.Player;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
+import worldofzuul.Game;
+import worldofzuul.Room;
 
 import java.io.IOException;
 
@@ -29,7 +31,7 @@ public abstract class PlayerControl {
     public static void playerMovement(KeyEvent event, WorldPlayer worldPlayer){
         KeyCode code = event.getCode();
         Scene window = (Scene) event.getSource();
-        Player player = new Player((ImageView) window.lookup("#player"),"player","/images/obama.png");
+        Player player = new Player((ImageView) window.lookup("#player"),"player");
 
         //Fix all this
         if (code == KeyCode.W){
@@ -67,10 +69,13 @@ public abstract class PlayerControl {
         if(code == KeyCode.E){
             // Add functionality to pick up items
             //System.out.println(playerCollidesItem(event));
-            if (playerCollidesItem(event,player))
+            if (Game.playerCollidesItem(player))
             {
-                Item currentItem = new NonFoodItem(((ImageView)((Scene)event.getSource()).lookup("#itemCan")),"item","can","/images/can.png");
+                Item currentItem = Game.getClosestItemToPlayer(player);
                 worldPlayer.addItem(currentItem);
+                ImageView imageView = (ImageView) window.lookup("#" + currentItem.getImageView().getId());
+                imageView.setVisible(false);
+                Game.getCurrentRoom().removeItemFromRoom(currentItem);
             }
             System.out.println("Pick up");
         }
@@ -120,22 +125,7 @@ public abstract class PlayerControl {
         if (code == KeyCode.CONTROL)
             System.out.println("Ctrl");
         else System.out.println(code.toString());
-        System.out.println("X: " + player.getX() + "; Y: " + player.getY());
-    }
-
-    public static boolean playerCollidesItem(KeyEvent event, Player player /*, ImageView item*/){
-        //Room currentRoom = event.getSource();
-        //Item currentItem = currentRoom.getItem(item);
-        //Player player = currentRoom.getPlayer();
-        Item currentItem = new NonFoodItem(((ImageView)((Scene)event.getSource()).lookup("#itemCan")),"item","can","@../images/can.png");
-        //Player player = new Player(((ImageView)((Scene)event.getSource()).lookup("#player")),"player","@../images/obama.png");
-        double ix1 = currentItem.getX(); double iy1 = currentItem.getY(); double ix2 = currentItem.getW()+ix1; double iy2 = currentItem.getH()+iy1;
-        double px1 = player.getX(); double py1 = player.getY(); double px2 = player.getW()+px1; double py2 = player.getH()+py1;
-        if (px2 >= ix1 && py1 <= iy2 && !(px1 >= ix2) && !(py2 <= iy1)){
-            currentItem.getImageView().setVisible(false);
-            return true;
-        }
-        return false;
+        //System.out.println("X: " + player.getX() + "; Y: " + player.getY());
     }
 
 /*

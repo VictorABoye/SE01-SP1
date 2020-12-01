@@ -10,16 +10,14 @@ import java.util.Iterator;
 
 
 public class Room {
-    private String description;
     private HashMap<String, Room> exits;
     private Inventory inventory;
     private boolean isVisited;
     private String infoBox;
     private Quests quest;
 
-    public Room(String description, String infoBox, Quests quest)
+    public Room (String infoBox, Quests quest)
     {
-        this.description = description;
         exits = new HashMap<String, Room>();
         inventory = new Inventory();
         isVisited = false;
@@ -64,16 +62,6 @@ public class Room {
         }catch (NullPointerException e){
             System.out.println("Room is empty");
         }
-    }
-
-    public String getShortDescription()
-    {
-        return description;
-    }
-
-    public String getLongDescription()
-    {
-        return "You are " + description + ".";
     }
 
     public String getExitString()

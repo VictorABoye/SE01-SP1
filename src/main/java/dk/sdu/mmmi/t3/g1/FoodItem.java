@@ -9,8 +9,8 @@ import java.util.Date;
 public class FoodItem extends Item  {
     private Date expires;
 
-    public FoodItem(ImageView image, String name, String type, String url) {
-        super(image, type, name, url);
+    public FoodItem(ImageView image, String name, String type) {
+        super(image, type, name);
         expires = new Date((long) (Math.random() * 10000));
     }
 
