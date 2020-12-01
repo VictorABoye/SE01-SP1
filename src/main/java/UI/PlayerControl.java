@@ -36,6 +36,11 @@ public abstract class PlayerControl {
 
         //Add player animation
         //Fix all this
+
+        if (Game.playerCollidesTeleport(player)){
+            Teleport currentTP = Game.getClosestTeleporterToPlayer(player);
+            currentTP.teleportToRoom(event, stage);
+        }
         if (code == KeyCode.W){
             if(player.getY() > 0){
                 player.moveUp();
@@ -126,10 +131,5 @@ public abstract class PlayerControl {
             System.out.println("Ctrl");
         //else System.out.println(code.toString());
         //System.out.println("X: " + player.getX() + "; Y: " + player.getY());
-
-        if (Game.playerCollidesTeleport(player)){
-            Teleport currentTP = Game.getClosestTeleporterToPlayer(player);
-            currentTP.teleportToRoom(event, stage);
-        }
     }
 }

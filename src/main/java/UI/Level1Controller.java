@@ -23,7 +23,7 @@ import java.io.IOException;
 public class Level1Controller extends PlayerControl{
 
     @FXML
-    public ImageView itemCan1, itemCan2, player, tpNorth;
+    public ImageView itemCan1, itemCan2, player, tpNorth, tp1;
 
     @FXML
     public void initialize(){

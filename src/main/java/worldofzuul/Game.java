@@ -32,6 +32,7 @@ public class Game{
         Room level1, level2, level3;
 
         try {
+        //Level 1
             //FXML File
             String FXML1 = "/fxml/Level1.fxml";
 
@@ -43,6 +44,7 @@ public class Game{
             Item can2 = new NonFoodItem((ImageView) window1.lookup("#itemCan2"),"item","can");
 
             //Create Teleport
+            Teleport tp1 = new Teleport((ImageView) window1.lookup("#tp1"),"teleport","/fxml/Level1.fxml");
             Teleport tpNorth = new Teleport((ImageView) window1.lookup("#tpNorth"),"teleport","/fxml/Level2.fxml");
 
             //Create Room
@@ -50,43 +52,45 @@ public class Game{
             level1.addItemToRoom(can1);
             level1.addItemToRoom(can2);
             level1.addTeleporterToRoom(tpNorth);
-
+            level1.addTeleporterToRoom(tp1);
 
         //Level2
+            //FXML file
             String FXML2 = "/fxml/Level2.fxml";
 
+            //Loader
             Parent window2 = FXMLLoader.load(getClass().getResource(FXML2));
 
-            //Items
+            //Create Items
 
-            //Teleporter
-            Teleport tpSouth = new Teleport((ImageView) window2.lookup("#tpSouth"),"teleport","/fxml/Level1.fxml");
+            //Create Teleporter
+            Teleport tpSouth = new Teleport((ImageView) window2.lookup("#tpSouth"),"teleport","/fxml/Level3.fxml");
 
+            //Create Room
             level2 = new Room("info",new Quests(new ArrayList<>(), new HashMap<>(), "dummy"));
-            //Add items to room
-            //Add teleporter
             level2.addTeleporterToRoom(tpSouth);
 
-
-            //Level3
+        //Level3
+            //FXML file
             String FXML3 = "/fxml/Level3.fxml";
 
+            //Loader
             Parent window3 = FXMLLoader.load(getClass().getResource(FXML3));
 
-            //Items
+            //Create Items
 
-            //Teleporter
-            Teleport tpEast = new Teleport((ImageView) window3.lookup("#tpEast"),"teleport","/fxml/Level3.fxml");
+            //Create Teleporter
+            Teleport tpEast = new Teleport((ImageView) window3.lookup("#tpEast"),"teleport","/fxml/Level1.fxml");
 
+            //Create Room
             level3 = new Room("dummy",new Quests(new ArrayList<>(), new HashMap<>(), "dummy"));
             level3.addTeleporterToRoom(tpEast);
 
             //Link room
             level1.getTP(0).linkTeleport(level2);
+            level1.getTP(1).linkTeleport(level1);
             level2.getTP(0).linkTeleport(level3);
             level3.getTP(0).linkTeleport(level1);
-
-
 
             //Starting Room
             currentRoom = level1;

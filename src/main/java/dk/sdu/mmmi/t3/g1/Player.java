@@ -7,7 +7,7 @@ public class Player extends Entity implements Movement{
 
     private int klimaIndsats;
     //private Inventory inventory;
-    private double speed = 10;
+    private double speed = 25;
 
     public Player(ImageView image, String type, String string){
         super(image, type);
