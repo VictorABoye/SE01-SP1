@@ -6,8 +6,9 @@ import javafx.scene.shape.Rectangle;
 public abstract class Item extends Entity {
     private String name;
 
-    public Item(ImageView image, String type, String name){
-        super(image, type);
+    public Item(ImageView image, String name){
+        super(image);
+        type = "item";
         this.name = name;
     }
 

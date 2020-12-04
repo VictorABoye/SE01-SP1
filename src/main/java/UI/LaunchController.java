@@ -27,8 +27,6 @@ public class LaunchController implements FXMLLoading {
     final String firstLevelFile = "/fxml/Level1.fxml";
     final String aboutFile = "/fxml/About.fxml";
 
-    Game game;
-
     @FXML
     public Button startButton, aboutButton, exitButton;
 
@@ -39,7 +37,7 @@ public class LaunchController implements FXMLLoading {
             Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             Scene scene = new Scene(firstLevel);
             scene.setOnKeyPressed(event -> {
-                Level1Controller.playerMovement(event, Game.getWorldPlayer(),stage);
+                Level1Controller.playerMovement(event,stage);
             });
             stage.setScene(scene);
             stage.show();

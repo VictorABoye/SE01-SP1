@@ -1,5 +1,9 @@
 package worldofzuul;
 
+import UI.Level1Controller;
+import UI.Level2Controller;
+import UI.Level3Controller;
+import UI.PlayerControl;
 import dk.sdu.mmmi.t3.g1.*;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -46,12 +50,14 @@ public class Game{
             Parent window1 = FXMLLoader.load(getClass().getResource(FXML1));
 
             //Create Items
-            Item can1 = new NonFoodItem((ImageView) window1.lookup("#itemCan1"),"item","can");
-            Item can2 = new NonFoodItem((ImageView) window1.lookup("#itemCan2"),"item","can");
+            Item can1 = new NonFoodItem((ImageView) window1.lookup("#itemCan1"),"can");
+            can1.getImageView().setVisible(true);
+            Item can2 = new NonFoodItem((ImageView) window1.lookup("#itemCan2"),"can");
+            can2.getImageView().setVisible(true);
 
             //Create Teleport
-            Teleport tp1 = new Teleport((ImageView) window1.lookup("#tp1"),"teleport","/fxml/Level1.fxml");
-            Teleport tpNorth = new Teleport((ImageView) window1.lookup("#tpNorth"),"teleport","/fxml/Level2.fxml");
+            Teleport tp1 = new Teleport((ImageView) window1.lookup("#tp1"),"/fxml/Level1.fxml");
+            Teleport tpNorth = new Teleport((ImageView) window1.lookup("#tpNorth"),"/fxml/Level2.fxml");
 
             //Create Room
             level1 = new Room(new Quests(new ArrayList<>(), new HashMap<>(), "L1"));
@@ -70,7 +76,7 @@ public class Game{
             //Create Items
 
             //Create Teleporter
-            Teleport tpSouth = new Teleport((ImageView) window2.lookup("#tpSouth"),"teleport","/fxml/Level3.fxml");
+            Teleport tpSouth = new Teleport((ImageView) window2.lookup("#tpSouth"),"/fxml/Level3.fxml");
 
             //Create Room
             level2 = new Room(new Quests(new ArrayList<>(), new HashMap<>(), "L2"));
@@ -86,7 +92,7 @@ public class Game{
             //Create Items
 
             //Create Teleporter
-            Teleport tpEast = new Teleport((ImageView) window3.lookup("#tpEast"),"teleport","/fxml/Level1.fxml");
+            Teleport tpEast = new Teleport((ImageView) window3.lookup("#tpEast"),"/fxml/Level1.fxml");
 
             //Create Room
             level3 = new Room(new Quests(new ArrayList<>(), new HashMap<>(), "L3"));
@@ -97,6 +103,11 @@ public class Game{
             level1.getTP(1).linkTeleport(level1);
             level2.getTP(0).linkTeleport(level3);
             level3.getTP(0).linkTeleport(level1);
+
+            //Populate the Rooms ArrayList
+            rooms.add(level1);
+            rooms.add(level2);
+            rooms.add(level3);
 
             //Starting Room
             currentRoom = level1;
@@ -119,7 +130,6 @@ public class Game{
     {
         return player;
     }
-
 
     public static boolean playerCollidesItem(Player player){
         //Room currentRoom = event.getSource();
@@ -145,7 +155,7 @@ public class Game{
     }
 
     public static Item getClosestItemToPlayer(Player player){
-        if (currentRoom.getRoomInventorySize() <= 0) return null;
+        if (currentRoom.getRoomInventorySize() == 0) return null;
         Item currentItem;
         double shortestDist = 999999;
         int itemIndex = 0;
@@ -195,7 +205,6 @@ public class Game{
             double px2 = player.getW() + px1;
             double py2 = player.getH() + py1;
             if (px2 >= ix1 && py1 <= iy2 && !(px1 >= ix2) && !(py2 <= iy1)) {
-                currentTP.getImageView().setVisible(false);
                 return true;
             }
         }

@@ -1,34 +1,43 @@
 package UI;
 
+import dk.sdu.mmmi.t3.g1.Inventory;
 import dk.sdu.mmmi.t3.g1.Item;
-import javafx.application.Platform;
-import javafx.event.Event;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.shape.Rectangle;
-import javafx.stage.Stage;
 import worldofzuul.Game;
 
-
-import java.io.IOException;
+import java.util.ArrayList;
 
 public class Level1Controller extends PlayerControl{
 
     @FXML
     public ImageView itemCan1, itemCan2, player, tpNorth, tp1;
 
-    @FXML
-    public void initialize(){
-        //Set items
-        System.out.print(Game.getRooms().get(0).getRoomInventorySize());
+    private ArrayList<ImageView> itemsInRoom = new ArrayList<>();
+
+    public void populateArraylist(){
+        //Add All Items to the Arraylist;
+
+        itemsInRoom.add(itemCan1);
+        itemsInRoom.add(itemCan2);
     }
 
+    @FXML
+    public void initialize(){
+        populateArraylist();
+        if (itemsInRoom.size() > 0 && Game.getWorldPlayer().getInventory().getSize() > 0) {
+            for (ImageView roomImageView : itemsInRoom) {
+                String roomItemId = roomImageView.getId();
+                for (int j = 0; j < Game.getWorldPlayer().getInventory().getSize(); j++) {
+                    ImageView playerImageView = Game.getWorldPlayer().getInventory().getItem(j).getImageView();
+                    String playerItemID = playerImageView.getId();
+                    if (playerItemID.equals(roomItemId)) {
+                        roomImageView.setVisible(false);
+                    }
+                }
+            }
+        }
+    }
 }

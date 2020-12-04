@@ -1,5 +1,6 @@
 package worldofzuul;
 
+import UI.PlayerControl;
 import dk.sdu.mmmi.t3.g1.Inventory;
 import dk.sdu.mmmi.t3.g1.Item;
 import dk.sdu.mmmi.t3.g1.Quests;
@@ -28,7 +29,11 @@ public class Room {
         teleports = new ArrayList<>();
     }
 
-    public boolean getVisited(){
+    public Inventory getInventory(){
+        return inventory;
+    }
+
+    public boolean isVisited(){
         return isVisited;
     }
 
@@ -67,8 +72,7 @@ public class Room {
         }
     }
 
-    public String getExitString()
-    {
+    public String getExitString() {
         String returnString = "You can go:";
         Set<String> keys = exits.keySet();
         for(String exit : keys) {

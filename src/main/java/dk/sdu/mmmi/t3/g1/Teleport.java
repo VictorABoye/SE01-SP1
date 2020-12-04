@@ -18,32 +18,32 @@ import java.io.IOException;
 
 public class Teleport extends Entity{
 
-    private String linkedRoomFXML;
+    final private String linkedRoomFXML;
     private Room linkedRoom;
 
-    public Teleport(ImageView image, String type, String linkedRoomFXML) {
-        super(image, type);
+    public Teleport(ImageView image, String linkedRoomFXML) {
+        super(image);
+        type = "teleport";
         this.linkedRoomFXML = linkedRoomFXML;
     }
 
-    public void teleportToRoom(KeyEvent event, Stage stage){
+    public void teleportToRoom(Stage stage){
+
         try {
-            Parent firstLevel = FXMLLoader.load(getClass().getResource(linkedRoomFXML));
-            Scene scene = new Scene(firstLevel);
-            scene.setOnKeyPressed(anEvent -> {
-                Level1Controller.playerMovement(anEvent, Game.getWorldPlayer(), stage);
-            });
-            stage.setScene(scene);
-            stage.show();
+            if (linkedRoom != null) {
+                Parent firstLevel = FXMLLoader.load(getClass().getResource(linkedRoomFXML));
+                Scene scene = new Scene(firstLevel);
+                scene.setOnKeyPressed(anEvent -> {
+                    Level1Controller.playerMovement(anEvent, stage);
+                });
+                stage.setScene(scene);
+                stage.show();
+                Game.setCurrentRoom(linkedRoom);
+            }
         } catch (IOException e){
             System.out.println(e.getMessage());
         }
-        if (linkedRoom != null) {
-            Game.setCurrentRoom(linkedRoom);
-            System.out.println(Game.getCurrentRoom().getInfoBox());
-            return;
-        }
-        System.out.println("No linked room");
+
     }
 
     public void linkTeleport(Room room){

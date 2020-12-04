@@ -26,20 +26,25 @@ public abstract class PlayerControl {
 
     final static private String launchFile = "/fxml/Launcher.fxml";
     final static private String inventoryFile = "/fxml/Inventory.fxml";
-    static final private String pauseFile = "/fxml/Pause.fxml";
+    final static private String pauseFile = "/fxml/Pause.fxml";
 
 
-    public static void playerMovement(KeyEvent event, WorldPlayer worldPlayer, Stage stage){
+    public static void playerMovement(KeyEvent event, Stage stage){
+        WorldPlayer worldPlayer = Game.getWorldPlayer();
         KeyCode code = event.getCode();
         Scene window = (Scene) event.getSource();
-        Player player = new Player((ImageView) window.lookup("#player"),"player","dummy");
+        Player player = new Player((ImageView) window.lookup("#player"));
 
         //Add player animation
         //Fix all this
 
         if (Game.playerCollidesTeleport(player)){
             Teleport currentTP = Game.getClosestTeleporterToPlayer(player);
-            currentTP.teleportToRoom(event, stage);
+            if (currentTP != null) {
+                currentTP.teleportToRoom(stage);
+                return;
+            }
+            System.out.println("No TP");
         }
         if (code == KeyCode.W){
             if(player.getY() > 0){
@@ -82,12 +87,15 @@ public abstract class PlayerControl {
             if (Game.playerCollidesItem(player))
             {
                 Item currentItem = Game.getClosestItemToPlayer(player);
-                worldPlayer.addItem(currentItem);
-                ImageView imageView = (ImageView) window.lookup("#" + currentItem.getImageView().getId());
-                imageView.setVisible(false);
-                Game.getCurrentRoom().removeItemFromRoom(currentItem);
+                if (currentItem != null) {
+                    worldPlayer.addItem(currentItem);
+                    ImageView imageView = (ImageView) window.lookup("#" + currentItem.getImageView().getId());
+                    imageView.setVisible(false);
+                    Game.getCurrentRoom().removeItemFromRoom(currentItem);
+                    System.out.println(Game.getWorldPlayer().getInventory().getSize());
+                }
             }
-            System.out.println("Pick up");
+            //System.out.println("Pick up");
         }
         if (code == KeyCode.I)
         {
@@ -119,7 +127,6 @@ public abstract class PlayerControl {
             } catch (IOException e){
                 System.out.println("Cannot find fxml file");
             }
-            //goToMenu(event);
         }
 
         //Dunno how these if statements function
