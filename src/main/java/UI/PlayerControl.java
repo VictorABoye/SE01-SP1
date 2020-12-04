@@ -109,6 +109,7 @@ public abstract class PlayerControl {
                 popup.setTitle("Player Inventory");
                 Scene scene = new Scene(inventoryWindow);
                 popup.setScene(scene);
+                popup.getIcons().add(new Image("/images/test.jpg"));
                 popup.show();
                 //System.out.println(keyEvent.getCode());
                 //if (keyEvent.getCode() == KeyCode.ESCAPE) stage.close();
@@ -126,6 +127,7 @@ public abstract class PlayerControl {
                 Stage pauseStage = new Stage();
                 pauseStage.setTitle("Game Paused");
                 pauseStage.setScene(new Scene(pauseWindow));
+                pauseStage.getIcons().add(new Image("/images/test.jpg"));
                 pauseStage.show();
             } catch (IOException e){
                 System.out.println("Cannot find fxml file");
