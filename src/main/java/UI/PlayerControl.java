@@ -1,39 +1,51 @@
 package UI;
 
-import dk.sdu.mmmi.t3.g1.Item;
-import dk.sdu.mmmi.t3.g1.NonFoodItem;
-import dk.sdu.mmmi.t3.g1.WorldPlayer;
+import dk.sdu.mmmi.t3.g1.*;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
-import dk.sdu.mmmi.t3.g1.Player;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import worldofzuul.Game;
 import worldofzuul.Room;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public abstract class PlayerControl {
 
     final static private String launchFile = "/fxml/Launcher.fxml";
     final static private String inventoryFile = "/fxml/Inventory.fxml";
-    static final private String pauseFile = "/fxml/Pause.fxml";
+    final static private String pauseFile = "/fxml/Pause.fxml";
 
 
-    public static void playerMovement(KeyEvent event, WorldPlayer worldPlayer){
+    public static void playerMovement(KeyEvent event, Stage stage){
+        WorldPlayer worldPlayer = Game.getWorldPlayer();
         KeyCode code = event.getCode();
         Scene window = (Scene) event.getSource();
-        Player player = new Player((ImageView) window.lookup("#player"),"player");
+        Player player = new Player((ImageView) window.lookup("#player"));
 
+        //Add player animation
         //Fix all this
+
+        if (Game.playerCollidesTeleport(player)){
+            Teleport currentTP = Game.getClosestTeleporterToPlayer(player);
+            if (currentTP != null) {
+                currentTP.teleportToRoom(stage);
+                return;
+            }
+            System.out.println("No TP");
+        }
         if (code == KeyCode.W){
             if(player.getY() > 0){
                 player.moveUp();
@@ -51,7 +63,9 @@ public abstract class PlayerControl {
             }
         }
         if (code == KeyCode.A || code == KeyCode.LEFT) {
-            if (player.getX() > 0) {
+            if (player.getX() > 0)
+            {
+                //player.getImageView().setImage(left);
                 player.moveRight();
             }
             else {
@@ -66,56 +80,54 @@ public abstract class PlayerControl {
                 player.setY(window.getWidth());
             }
         }
+
         if(code == KeyCode.E){
             // Add functionality to pick up items
             //System.out.println(playerCollidesItem(event));
             if (Game.playerCollidesItem(player))
             {
                 Item currentItem = Game.getClosestItemToPlayer(player);
-                worldPlayer.addItem(currentItem);
-                ImageView imageView = (ImageView) window.lookup("#" + currentItem.getImageView().getId());
-                imageView.setVisible(false);
-                Game.getCurrentRoom().removeItemFromRoom(currentItem);
+                if (currentItem != null) {
+                    worldPlayer.addItem(currentItem);
+                    ImageView imageView = (ImageView) window.lookup("#" + currentItem.getImageView().getId());
+                    imageView.setVisible(false);
+                    Game.getCurrentRoom().removeItemFromRoom(currentItem);
+                    System.out.println(Game.getWorldPlayer().getInventory().getSize());
+                }
             }
-            System.out.println("Pick up");
+            //System.out.println("Pick up");
         }
         if (code == KeyCode.I)
         {
             try {
                 Parent inventoryWindow = FXMLLoader.load(PlayerControl.class.getResource(inventoryFile));
-                Stage stage = new Stage();
-                stage.setTitle("Player Inventory");
+                Stage popup = new Stage();
+                popup.setTitle("Player Inventory");
                 Scene scene = new Scene(inventoryWindow);
-                stage.setScene(scene);
+                popup.setScene(scene);
                 InventoryController.makeInventory(worldPlayer);
-                stage.show();
+                popup.show();
                 //System.out.println(keyEvent.getCode());
                 //if (keyEvent.getCode() == KeyCode.ESCAPE) stage.close();
                 scene.setOnKeyPressed(event1 -> {
-                    stage.close();
+                    if (event1.getCode() == KeyCode.ESCAPE) popup.close();
                 });
             } catch (IOException e){
                 System.out.println("Cannot find fxml file");
             }
         }
 
-        /*
         if(code== KeyCode.ESCAPE){
-            Stage theWindow = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            theWindow.close();
             try {
                 Parent pauseWindow = FXMLLoader.load(PlayerControl.class.getResource(pauseFile));
-                Stage stage = new Stage();
-                stage.setTitle("Game Paused");
-                stage.setScene(new Scene(pauseWindow));
-                stage.show();
+                Stage pauseStage = new Stage();
+                pauseStage.setTitle("Game Paused");
+                pauseStage.setScene(new Scene(pauseWindow));
+                pauseStage.show();
             } catch (IOException e){
                 System.out.println("Cannot find fxml file");
             }
-            //goToMenu(event);
         }
-
-         */
 
         //Dunno how these if statements function
         if (code == KeyCode.SPACE)
@@ -124,21 +136,7 @@ public abstract class PlayerControl {
             System.out.println("Shift");
         if (code == KeyCode.CONTROL)
             System.out.println("Ctrl");
-        else System.out.println(code.toString());
+        //else System.out.println(code.toString());
         //System.out.println("X: " + player.getX() + "; Y: " + player.getY());
     }
-
-/*
-    public void goToMenu(Event actionEvent) {
-        try {
-            Parent launcher = FXMLLoader.load(getClass().getResource(launchFile));
-            Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(launcher));
-            stage.show();
-        } catch (IOException e){
-            System.out.println("Cannot find fxml file");
-        }
-    }
-
- */
 }

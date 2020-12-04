@@ -4,19 +4,19 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 public abstract class Entity {
-    final protected String type;
+    protected String type;
     protected ImageView image;
     protected boolean dead;
 
     protected double x,y,h,w;
 
-    public Entity(ImageView image, String type){
+    public Entity(ImageView image){
         this.image = image;
-        this.type = type;
-        x=image.getLayoutX();
-        y= image.getLayoutY();
-        h= image.getFitHeight();
-        w= image.getFitWidth();
+        type = "entity";
+        x = image.getLayoutX();
+        y = image.getLayoutY();
+        h = image.getFitHeight();
+        w = image.getFitWidth();
     }
 
     public double getH() {

@@ -26,6 +26,11 @@ public class InventoryController {
     @FXML
     public ImageView item01;
 
+    @FXML
+    public void initialize(){
+
+    }
+
     public static void addItemToView(Item item, int index)
     {
         index++;

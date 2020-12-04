@@ -5,8 +5,8 @@ import javafx.scene.shape.Rectangle;
 
 public class NonFoodItem extends Item {
 
-    public NonFoodItem(ImageView image, String type, String name) {
-        super(image, type, name);
+    public NonFoodItem(ImageView image, String name) {
+        super(image, name);
     }
 
     /*

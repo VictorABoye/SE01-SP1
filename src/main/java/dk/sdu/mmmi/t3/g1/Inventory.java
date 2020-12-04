@@ -30,6 +30,10 @@ public class Inventory {
         return items.get(index);
     }
 
+    public ArrayList<Item> getAllItems(){
+        return items;
+    }
+
     public void showInventory(){
         //System.out.println("Inventory:");
         //for(Item item: items){
