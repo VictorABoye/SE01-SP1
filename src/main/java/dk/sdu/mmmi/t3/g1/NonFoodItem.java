@@ -5,8 +5,15 @@ import javafx.scene.shape.Rectangle;
 
 public class NonFoodItem extends Item {
 
-    public NonFoodItem(ImageView image, String name) {
+    private String material;
+
+    public NonFoodItem(ImageView image, String name, String material) {
         super(image, name);
+        this.material = material;
+    }
+
+    public String getMaterial(){
+        return material;
     }
 
     /*

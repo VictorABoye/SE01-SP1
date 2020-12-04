@@ -109,7 +109,6 @@ public abstract class PlayerControl {
                 popup.setTitle("Player Inventory");
                 Scene scene = new Scene(inventoryWindow);
                 popup.setScene(scene);
-                InventoryController.makeInventory(worldPlayer);
                 popup.show();
                 //System.out.println(keyEvent.getCode());
                 //if (keyEvent.getCode() == KeyCode.ESCAPE) stage.close();

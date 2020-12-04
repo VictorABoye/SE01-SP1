@@ -17,11 +17,9 @@ public class Game{
 
     private static WorldPlayer player;
     private static Room currentRoom;
-    private static ArrayList<Room> rooms;
 
     public Game(){
         player = new WorldPlayer();
-        rooms = new ArrayList<>();
         createWorld();
     }
 
@@ -33,16 +31,12 @@ public class Game{
         currentRoom = room;
     }
 
-    public static ArrayList<Room> getRooms() {
-        return rooms;
-    }
-
     private void createWorld() {
         //Create all the Rooms
-        Room level1, level2, level3;
+        Room home, parking, beach, park, road, shop, recycling;
 
         try {
-        //Level 1
+        //Home
             //FXML File
             String FXML1 = "/fxml/Level1.fxml";
 
@@ -50,23 +44,25 @@ public class Game{
             Parent window1 = FXMLLoader.load(getClass().getResource(FXML1));
 
             //Create Items
-            Item can1 = new NonFoodItem((ImageView) window1.lookup("#itemCan1"),"can");
+            Item can1 = new NonFoodItem((ImageView) window1.lookup("#itemCan1"),"can","metal");
             can1.getImageView().setVisible(true);
-            Item can2 = new NonFoodItem((ImageView) window1.lookup("#itemCan2"),"can");
+            Item can2 = new NonFoodItem((ImageView) window1.lookup("#itemCan2"),"can","metal");
             can2.getImageView().setVisible(true);
 
-            //Create Teleport
+            //Create Teleports
             Teleport tp1 = new Teleport((ImageView) window1.lookup("#tp1"),"/fxml/Level1.fxml");
             Teleport tpNorth = new Teleport((ImageView) window1.lookup("#tpNorth"),"/fxml/Level2.fxml");
 
             //Create Room
-            level1 = new Room(new Quests(new ArrayList<>(), new HashMap<>(), "L1"));
-            level1.addItemToRoom(can1);
-            level1.addItemToRoom(can2);
-            level1.addTeleporterToRoom(tpNorth);
-            level1.addTeleporterToRoom(tp1);
+            home = new Room(new Quests(new ArrayList<>(), new HashMap<>(), "L1"));
 
-        //Level2
+            //Add Items and Teleporters to Room
+            home.addItemToRoom(can1);
+            home.addItemToRoom(can2);
+            home.addTeleporterToRoom(tpNorth);
+            home.addTeleporterToRoom(tp1);
+
+        //Parking
             //FXML file
             String FXML2 = "/fxml/Level2.fxml";
 
@@ -75,14 +71,16 @@ public class Game{
 
             //Create Items
 
-            //Create Teleporter
+            //Create Teleporters
             Teleport tpSouth = new Teleport((ImageView) window2.lookup("#tpSouth"),"/fxml/Level3.fxml");
 
             //Create Room
-            level2 = new Room(new Quests(new ArrayList<>(), new HashMap<>(), "L2"));
-            level2.addTeleporterToRoom(tpSouth);
+            parking = new Room(new Quests(new ArrayList<>(), new HashMap<>(), "L2"));
 
-        //Level3
+            //Add Items and Teleporters to Room
+            parking.addTeleporterToRoom(tpSouth);
+
+        //Beach
             //FXML file
             String FXML3 = "/fxml/Level3.fxml";
 
@@ -91,26 +89,54 @@ public class Game{
 
             //Create Items
 
-            //Create Teleporter
+            //Create Teleporters
             Teleport tpEast = new Teleport((ImageView) window3.lookup("#tpEast"),"/fxml/Level1.fxml");
 
             //Create Room
-            level3 = new Room(new Quests(new ArrayList<>(), new HashMap<>(), "L3"));
-            level3.addTeleporterToRoom(tpEast);
+            beach = new Room(new Quests(new ArrayList<>(), new HashMap<>(), "L3"));
+
+            //Add Items and Teleporters to Room
+            beach.addTeleporterToRoom(tpEast);
+
+
+
+        //Park
+            //FXML file
+            //Loader
+            //Create Items
+            //Create Teleporters
+            //Create Room
+            //Add Items and Teleporters to Room
+        //Road
+            //FXML file
+            //Loader
+            //Create Items
+            //Create Teleporters
+            //Create Room
+            //Add Items and Teleporters to Room
+        //Shop
+            //FXML file
+            //Loader
+            //Create Items
+            //Create Teleporters
+            //Create Room
+            //Add Items and Teleporters to Room
+        //Recycling plant
+            //FXML file
+            //Loader
+            //Create Items
+            //Create Teleporters
+            //Create Room
+            //Add Items and Teleporters to Room
 
             //Link room
-            level1.getTP(0).linkTeleport(level2);
-            level1.getTP(1).linkTeleport(level1);
-            level2.getTP(0).linkTeleport(level3);
-            level3.getTP(0).linkTeleport(level1);
-
-            //Populate the Rooms ArrayList
-            rooms.add(level1);
-            rooms.add(level2);
-            rooms.add(level3);
+            home.getTP(0).linkTeleport(parking);
+            home.getTP(1).linkTeleport(home);
+            parking.getTP(0).linkTeleport(beach);
+            beach.getTP(0).linkTeleport(home);
 
             //Starting Room
-            currentRoom = level1;
+            currentRoom = home;
 
 
         } catch (IOException e){
