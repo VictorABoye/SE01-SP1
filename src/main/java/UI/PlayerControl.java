@@ -13,6 +13,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
 import javafx.scene.shape.Rectangle;
+import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
 import worldofzuul.Game;
 import worldofzuul.Room;
@@ -34,6 +35,7 @@ public abstract class PlayerControl {
         KeyCode code = event.getCode();
         Scene window = (Scene) event.getSource();
         Player player = new Player((ImageView) window.lookup("#player"));
+        player.getImageView().setRotationAxis(Rotate.Y_AXIS);
 
         //Add player animation
         //Fix all this
@@ -63,6 +65,7 @@ public abstract class PlayerControl {
             }
         }
         if (code == KeyCode.A || code == KeyCode.LEFT) {
+            player.getImageView().setRotate(180);
             if (player.getX() > 0)
             {
                 //player.getImageView().setImage(left);
@@ -73,6 +76,7 @@ public abstract class PlayerControl {
             }
         }
         if (code == KeyCode.D || code == KeyCode.RIGHT){
+            player.getImageView().setRotate(0);
             if(player.getX()+player.getW() < window.getWidth()){
                 player.moveLeft();
             }
