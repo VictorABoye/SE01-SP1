@@ -2,11 +2,17 @@ package UI;
 
 import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import worldofzuul.Game;
 
 import java.util.ArrayList;
 
 public class Level2Controller extends PlayerControl{
+
+    @FXML
+    public AnchorPane window;
 
     @FXML
     public ImageView tpSouth, player;
@@ -23,6 +29,7 @@ public class Level2Controller extends PlayerControl{
     @FXML
     public void initialize(){
         populateArraylist();
+        window.getChildren().addAll(ScoreBar.createScoreBar());
         if (itemsInRoom.size() > 0 && Game.getWorldPlayer().getInventory().getSize() > 0) {
             for (ImageView roomImageView : itemsInRoom) {
                 String roomItemId = roomImageView.getId();

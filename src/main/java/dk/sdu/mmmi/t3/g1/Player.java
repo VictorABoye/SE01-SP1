@@ -5,43 +5,12 @@ import javafx.scene.image.ImageView;
 
 public class Player extends Entity implements Movement{
 
-    private int klimaIndsats;
-    //private Inventory inventory;
     private double speed = 25;
 
     public Player(ImageView image){
         super(image);
         type = "player";
         dead = false;
-        this.klimaIndsats = 50;
-        //inventory = new Inventory();
-    }
-
-    public void incKlimaindsats(int x){
-        int pre = klimaIndsats;
-        klimaIndsats += x;
-        if (klimaIndsats <= 0) {
-            System.out.println("You lost...");
-            // End game();
-        }
-        else if (pre > klimaIndsats) {
-            System.out.println("You can do better");
-        }
-        else if (pre < klimaIndsats) {
-            System.out.println("You are doing well");
-        }
-        else if (klimaIndsats >= 100){
-            System.out.print("You win!!!");
-        }
-        checkKlimaindsats();
-    }
-
-    public int getKlimaindsats() {
-        return klimaIndsats;
-    }
-
-    public void checkKlimaindsats(){
-        System.out.println("Your current score is: " + getKlimaindsats());
     }
 
 

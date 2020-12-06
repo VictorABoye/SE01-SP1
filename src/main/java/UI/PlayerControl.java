@@ -1,10 +1,7 @@
 package UI;
 
 import dk.sdu.mmmi.t3.g1.*;
-import javafx.event.Event;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
@@ -12,15 +9,12 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
 import worldofzuul.Game;
-import worldofzuul.Room;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public abstract class PlayerControl {
@@ -29,13 +23,14 @@ public abstract class PlayerControl {
     final static private String inventoryFile = "/fxml/Inventory.fxml";
     final static private String pauseFile = "/fxml/Pause.fxml";
 
-
     public static void playerMovement(KeyEvent event, Stage stage){
         WorldPlayer worldPlayer = Game.getWorldPlayer();
         KeyCode code = event.getCode();
         Scene window = (Scene) event.getSource();
         Player player = new Player((ImageView) window.lookup("#player"));
         player.getImageView().setRotationAxis(Rotate.Y_AXIS);
+        Rectangle scoreBar = (Rectangle) window.lookup("#scoreBar");
+        Rectangle scoreBackGround = (Rectangle) window.lookup("#scoreBackGround");
 
         //Add player animation
         //Fix all this
@@ -133,6 +128,13 @@ public abstract class PlayerControl {
                 System.out.println("Cannot find fxml file");
             }
         }
+
+        if (code == KeyCode.K) Game.getWorldPlayer().addToClimateScore(0.5);
+        if (code == KeyCode.L) Game.getWorldPlayer().addToClimateScore(-0.5);
+
+        double climateScore = Game.getWorldPlayer().getClimateScore();
+        scoreBar.setWidth(climateScore/100.0*1200);
+        scoreBar.setFill(ScoreBar.getColor(climateScore));
 
         //Dunno how these if statements function
         if (code == KeyCode.SPACE)

@@ -33,11 +33,11 @@ public class Teleport extends Entity{
             if (linkedRoom != null) {
                 Parent firstLevel = FXMLLoader.load(getClass().getResource(linkedRoomFXML));
                 Scene scene = new Scene(firstLevel);
+                stage.setScene(scene);
+                stage.show();
                 scene.setOnKeyPressed(anEvent -> {
                     Level1Controller.playerMovement(anEvent, stage);
                 });
-                stage.setScene(scene);
-                stage.show();
                 Game.setCurrentRoom(linkedRoom);
             }
         } catch (IOException e){
