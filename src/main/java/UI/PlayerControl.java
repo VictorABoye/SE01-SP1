@@ -16,6 +16,7 @@ import javafx.stage.Stage;
 import worldofzuul.Game;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public abstract class PlayerControl {
 
@@ -134,7 +135,7 @@ public abstract class PlayerControl {
 
         double climateScore = Game.getWorldPlayer().getClimateScore();
         scoreBar.setWidth(climateScore/100.0*1200);
-        scoreBar.setFill(ScoreBar.getColor(climateScore));
+        scoreBar.setFill(getColor(climateScore));
 
         //Dunno how these if statements function
         if (code == KeyCode.SPACE)
@@ -145,5 +146,56 @@ public abstract class PlayerControl {
             System.out.println("Ctrl");
         //else System.out.println(code.toString());
         //System.out.println("X: " + player.getX() + "; Y: " + player.getY());
+    }
+
+    public static Rectangle[] createScoreBar(){
+        Rectangle[] scoreSet = new Rectangle[2];
+        Rectangle scoreBar = new Rectangle();
+        scoreBar.setId("scoreBar");
+        scoreBar.setLayoutX(40);
+        scoreBar.setLayoutY(680);
+        scoreBar.setHeight(20);
+        double score = Game.getWorldPlayer().getClimateScore();
+        scoreBar.setWidth(score/100.0*1200);
+        scoreBar.setFill(getColor(score));
+        Rectangle scoreBackGround = new Rectangle();
+        scoreBackGround.setId("scoreBackGround");
+        scoreBackGround.setLayoutX(40);
+        scoreBackGround.setLayoutY(680);
+        scoreBackGround.setHeight(20);
+        scoreBackGround.setWidth(1200);
+        scoreSet[0] = scoreBackGround;
+        scoreSet[1] = scoreBar;
+        return scoreSet;
+    }
+
+    public static Color getColor(double value){
+        if (value < 10) return Color.DARKRED;
+        else if (value < 20) return Color.RED;
+        else if (value < 30) return Color.DARKORANGE;
+        else if (value < 40) return Color.ORANGE;
+        else if (value < 50) return Color.YELLOW;
+        else if (value < 60) return Color.YELLOWGREEN;
+        else if (value < 70) return Color.DARKGREEN;
+        else if (value < 80) return Color.GREEN;
+        else if (value < 90) return Color.LIGHTGREEN;
+        else if (value < 100) return Color.CYAN;
+        else if (value == 100) return Color.BLUE;
+        else return Color.BLACK;
+    }
+
+    public static void setImages(ArrayList<ImageView> itemsInRoom){
+        if (itemsInRoom.size() > 0 && Game.getWorldPlayer().getInventory().getSize() > 0) {
+            for (ImageView roomImageView : itemsInRoom) {
+                String roomItemId = roomImageView.getId();
+                for (int j = 0; j < Game.getWorldPlayer().getInventory().getSize(); j++) {
+                    ImageView playerImageView = Game.getWorldPlayer().getInventory().getItem(j).getImageView();
+                    String playerItemID = playerImageView.getId();
+                    if (playerItemID.equals(roomItemId)) {
+                        roomImageView.setVisible(false);
+                    }
+                }
+            }
+        }
     }
 }

@@ -29,18 +29,7 @@ public class Level2Controller extends PlayerControl{
     @FXML
     public void initialize(){
         populateArraylist();
-        window.getChildren().addAll(ScoreBar.createScoreBar());
-        if (itemsInRoom.size() > 0 && Game.getWorldPlayer().getInventory().getSize() > 0) {
-            for (ImageView roomImageView : itemsInRoom) {
-                String roomItemId = roomImageView.getId();
-                for (int j = 0; j < Game.getWorldPlayer().getInventory().getSize(); j++) {
-                    ImageView playerImageView = Game.getWorldPlayer().getInventory().getItem(j).getImageView();
-                    String playerItemID = playerImageView.getId();
-                    if (playerItemID.equals(roomItemId)) {
-                        roomImageView.setVisible(false);
-                    }
-                }
-            }
-        }
+        window.getChildren().addAll(createScoreBar());
+        setImages(itemsInRoom);
     }
 }
