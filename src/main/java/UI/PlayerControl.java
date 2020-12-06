@@ -24,6 +24,10 @@ public abstract class PlayerControl {
     final static private String inventoryFile = "/fxml/Inventory.fxml";
     final static private String pauseFile = "/fxml/Pause.fxml";
 
+
+    //===Used by "setOnKeyPressed"======================================================================================
+
+    //Control based on player input
     public static void playerMovement(KeyEvent event, Stage stage){
         WorldPlayer worldPlayer = Game.getWorldPlayer();
         KeyCode code = event.getCode();
@@ -148,6 +152,8 @@ public abstract class PlayerControl {
         //System.out.println("X: " + player.getX() + "; Y: " + player.getY());
     }
 
+
+    //===Used by the controllers "Initialize"===========================================================================
 
     //Creates the score bar and its background, and sets their placement
     public static Rectangle[] createScoreBar(){
