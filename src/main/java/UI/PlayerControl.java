@@ -148,6 +148,8 @@ public abstract class PlayerControl {
         //System.out.println("X: " + player.getX() + "; Y: " + player.getY());
     }
 
+
+    //Creates the score bar and its background, and sets their placement
     public static Rectangle[] createScoreBar(){
         Rectangle[] scoreSet = new Rectangle[2];
         Rectangle scoreBar = new Rectangle();
@@ -164,11 +166,14 @@ public abstract class PlayerControl {
         scoreBackGround.setLayoutY(680);
         scoreBackGround.setHeight(20);
         scoreBackGround.setWidth(1200);
+        scoreBackGround.setFill(Color.BLACK);
         scoreSet[0] = scoreBackGround;
         scoreSet[1] = scoreBar;
         return scoreSet;
     }
 
+
+    //Determines the color of the score bar
     public static Color getColor(double value){
         if (value < 10) return Color.DARKRED;
         else if (value < 20) return Color.RED;
@@ -184,6 +189,8 @@ public abstract class PlayerControl {
         else return Color.BLACK;
     }
 
+
+    //Hides Images if they are in the players inventory
     public static void setImages(ArrayList<ImageView> itemsInRoom){
         if (itemsInRoom.size() > 0 && Game.getWorldPlayer().getInventory().getSize() > 0) {
             for (ImageView roomImageView : itemsInRoom) {
