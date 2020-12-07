@@ -25,20 +25,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4ed4ae49-7cd4-404b-9ae0-9209ffd50f9f" name="Default Changelist" comment="Added last levels">
-      <change afterPath="$PROJECT_DIR$/src/main/resource/images/Levels/Park.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resource/images/Levels/Road.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resource/images/Levels/Store.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resource/images/Levels/recycling.png" afterDir="false" />
+    <list default="true" id="4ed4ae49-7cd4-404b-9ae0-9209ffd50f9f" name="Default Changelist" comment="Added signs and pictures">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/worldofzuul/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/worldofzuul/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resource/fxml/Level2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resource/fxml/Level2.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resource/fxml/Level3.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resource/fxml/Level3.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resource/fxml/Level4.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resource/fxml/Level4.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resource/fxml/Level5.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resource/fxml/Level5.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resource/fxml/Level6.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resource/fxml/Level6.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resource/fxml/Level7.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resource/fxml/Level7.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resource/images/Levels/Parking.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resource/images/Levels/Parking.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,7 +100,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607343864699</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Added signs and pictures">
+      <created>1607349501060</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1607349501060</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -138,7 +134,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added last levels" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added last levels" />
+    <MESSAGE value="Added signs and pictures" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added signs and pictures" />
   </component>
   <component name="WindowStateProjectService">
     <state x="414" y="175" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1607342518672">
@@ -149,30 +146,38 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="753" y="252" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1607342844426" />
-    <state width="1877" height="2" key="GridCell.Tab.0.bottom" timestamp="1607348296032">
+    <state width="1877" height="2" key="GridCell.Tab.0.bottom" timestamp="1607349627534">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="2" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1607348296032" />
-    <state width="1877" height="2" key="GridCell.Tab.0.center" timestamp="1607348296032">
+    <state width="1877" height="2" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1607349627534" />
+    <state width="1877" height="2" key="GridCell.Tab.0.center" timestamp="1607349627534">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="2" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1607348296032" />
-    <state width="1877" height="2" key="GridCell.Tab.0.left" timestamp="1607348296032">
+    <state width="1877" height="2" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1607349627534" />
+    <state width="1877" height="2" key="GridCell.Tab.0.left" timestamp="1607349627534">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="2" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1607348296032" />
-    <state width="1877" height="2" key="GridCell.Tab.0.right" timestamp="1607348296032">
+    <state width="1877" height="2" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1607349627534" />
+    <state width="1877" height="2" key="GridCell.Tab.0.right" timestamp="1607349627534">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="2" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1607348296032" />
+    <state width="1877" height="2" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1607349627534" />
+    <state x="184" y="86" key="MergeDialog" timestamp="1607349552474">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="184" y="86" key="MergeDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1607349552474" />
+    <state x="598" y="281" key="MultipleFileMergeDialog" timestamp="1607349552478">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="598" y="281" key="MultipleFileMergeDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1607349552478" />
     <state x="440" y="94" key="SettingsEditor" timestamp="1607342847348">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="440" y="94" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1607342847348" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1607343990949">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1607349560317">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1607343990949" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1607349560317" />
     <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607344571589">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
