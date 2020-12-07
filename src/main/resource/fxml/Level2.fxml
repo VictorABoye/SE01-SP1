@@ -35,7 +35,7 @@
             <Image url="@../images/utility/door.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="342.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="150.0" fitWidth="129.0" layoutX="1137.0" layoutY="190.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/Signs/BEACH.png" />
          </image>
@@ -44,7 +44,7 @@
          <image>
             <Image url="@../images/Signs/ROAD.png" />
          </image></ImageView>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="1109.0" layoutY="183.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="425.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/Signs/PARK.png" />
          </image></ImageView>
