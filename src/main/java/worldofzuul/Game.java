@@ -86,7 +86,7 @@ public class Game{
         groceries.addChoice(parser.parseString((String)questStrings.get(3).get(2)), -10, parser.parseString((String)questStrings.get(3).get(4)) );
 
         recyclingQuest.addChoice(parser.parseString((String)questStrings.get(4).get(1)), 5, parser.parseString((String)questStrings.get(4).get(3)));
-        recyclingQuest.addChoice(parser.parseString((String)questStrings.get(4).get(2)), 5, parser.parseString((String)questStrings.get(4).get(4)));
+        recyclingQuest.addChoice(parser.parseString((String)questStrings.get(4).get(2)), -5, parser.parseString((String)questStrings.get(4).get(4)));
 
         // Creating a new quest, "factory"
         factory.addChoice(parser.parseString((String)questStrings.get(5).get(1)), 5, parser.parseString((String)questStrings.get(5).get(3)));

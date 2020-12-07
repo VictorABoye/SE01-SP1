@@ -25,6 +25,8 @@ public abstract class PlayerControl {
     final static private String inventoryFile = "/fxml/Inventory.fxml";
     final static private String pauseFile = "/fxml/Pause.fxml";
     final static private String questFile = "/fxml/PopUp.fxml";
+    final static private String sortingFile = "/fxml/Sorting.fxml";
+
 
 
     //===Used by "setOnKeyPressed"======================================================================================
@@ -111,6 +113,23 @@ public abstract class PlayerControl {
                 System.out.println("Cannot find fxml file");
             }
         }
+        if (code == KeyCode.R)
+        {
+            try {
+                Parent inventoryWindow = FXMLLoader.load(PlayerControl.class.getResource(sortingFile));
+                Stage popup = new Stage();
+                popup.setTitle("Items sorting");
+                Scene scene = new Scene(inventoryWindow);
+                popup.setScene(scene);
+                popup.getIcons().add(new Image("/images/test.jpg"));
+                popup.show();
+                scene.setOnKeyPressed(event1 -> {
+                    if (event1.getCode() == KeyCode.ESCAPE) popup.close();
+                });
+            } catch (IOException e){
+                System.out.println("Cannot find fxml file");
+            }
+        }
 
         if (Game.getCurrentRoom().hasWalls()){
             Barrier wall = Game.getCurrentRoom().getWall();
@@ -139,9 +158,7 @@ public abstract class PlayerControl {
             }
             System.out.println("No TP");
         }
-        double climateScore = Game.getWorldPlayer().getClimateScore();
-        scoreBar.setWidth(climateScore/100.0*1200);
-        scoreBar.setFill(getColor(climateScore));
+        updateScoreBar(scoreBar);
 
 
         //For testing
@@ -172,6 +189,13 @@ public abstract class PlayerControl {
     }
 
 
+    //Update the Score bar
+    public static void updateScoreBar(Rectangle scoreBar){
+        double climateScore = Game.getWorldPlayer().getClimateScore();
+        scoreBar.setWidth(climateScore/100.0*1200);
+        scoreBar.setFill(getColor(climateScore));
+    }
+
     //===Used by the controllers "Initialize"===========================================================================
 
     //Creates the score bar and its background, and sets their placement
@@ -182,9 +206,7 @@ public abstract class PlayerControl {
         scoreBar.setLayoutX(40);
         scoreBar.setLayoutY(680);
         scoreBar.setHeight(20);
-        double score = Game.getWorldPlayer().getClimateScore();
-        scoreBar.setWidth(score/100.0*1200);
-        scoreBar.setFill(getColor(score));
+        updateScoreBar(scoreBar);
         Rectangle scoreBackGround = new Rectangle();
         scoreBackGround.setId("scoreBackGround");
         scoreBackGround.setLayoutX(40);

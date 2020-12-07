@@ -33,7 +33,7 @@ public class InventoryController {
                 itemView.setFitHeight(size);
                 itemView.setFitWidth(size);
                 itemView.setLayoutY(text.getLayoutY()+padding);
-                itemView.setLayoutX((size*i)+padding);
+                itemView.setLayoutX((size*i+padding*i)+padding);
                 window.getChildren().add(itemView);
             }
         }

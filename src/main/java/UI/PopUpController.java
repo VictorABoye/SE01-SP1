@@ -22,6 +22,8 @@ public class PopUpController{
     @FXML
     public Button choice1, choice2, choice3, choice4;
 
+    private int padding = 10;
+
     @FXML
     public void initialize() {
         questInfo.setText(Game.getCurrentRoom().getQuest().getDescription());
@@ -30,8 +32,8 @@ public class PopUpController{
         if(amount==2){
             choice1.setText(choices.get(0));
             choice2.setVisible(false);
-            choice3.setVisible(false);
-            choice4.setText(choices.get(1));
+            choice3.setText(choices.get(1));
+            choice4.setVisible(false);
         }
         if(amount==3){
             choice1.setText(choices.get(0));
@@ -55,10 +57,4 @@ public class PopUpController{
         cStage.close();
         Game.getCurrentRoom().getQuest().setCompleted();
     }
-
-
-
-    /*
-    If button pushed, give value for choice.
-     */
 }

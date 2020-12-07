@@ -64,7 +64,6 @@ public class Quests {
     }
 
     public ArrayList<String> showChoices(){
-        System.out.println("You have the following options: ");
         ArrayList<String> arr = new ArrayList<>();
         for(String choice: choices){
             arr.add(choice);
