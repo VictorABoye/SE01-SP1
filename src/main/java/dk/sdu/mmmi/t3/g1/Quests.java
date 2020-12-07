@@ -63,14 +63,13 @@ public class Quests {
         return false;
     }
 
-    public void showChoices(){
+    public ArrayList<String> showChoices(){
         System.out.println("You have the following options: ");
-        int i = 1;
+        ArrayList<String> arr = new ArrayList<>();
         for(String choice: choices){
-            System.out.print(i + " " + choice);
-            i++;
+            arr.add(choice);
         }
-        System.out.println("Write 'choose' and a number to choose an option");
+        return arr;
     }
 
     public Quests getNextQuest() {

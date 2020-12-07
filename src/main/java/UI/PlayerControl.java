@@ -13,6 +13,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import worldofzuul.Game;
 
 import java.io.IOException;
@@ -23,6 +24,7 @@ public abstract class PlayerControl {
     final static private String launchFile = "/fxml/Launcher.fxml";
     final static private String inventoryFile = "/fxml/Inventory.fxml";
     final static private String pauseFile = "/fxml/Pause.fxml";
+    final static private String questFile = "/fxml/PopUp.fxml";
 
 
     //===Used by "setOnKeyPressed"======================================================================================
@@ -39,6 +41,8 @@ public abstract class PlayerControl {
 
         //Add player animation
         //Fix all this
+
+        if(!Game.getCurrentRoom().getQuest().getCompleted()) popUpWindow();
 
         if (code == KeyCode.W){
             if(player.getY() > 0){
@@ -143,6 +147,21 @@ public abstract class PlayerControl {
             System.out.println("Shift");
         if (code == KeyCode.CONTROL)
             System.out.println("Ctrl");
+    }
+
+    //Sets popup for currentroom
+    private static void popUpWindow(){
+        try{
+            Parent popUp = FXMLLoader.load(Level1Controller.class.getResource(questFile));
+            Stage stage = new Stage();
+            Scene scene = new Scene(popUp);
+            stage.setScene(scene);
+            stage.setAlwaysOnTop(false);
+            stage.initStyle(StageStyle.UNDECORATED);
+            stage.show();
+        } catch (IOException e){
+            e.printStackTrace();
+        }
     }
 
 

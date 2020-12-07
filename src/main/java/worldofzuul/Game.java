@@ -9,6 +9,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import org.json.simple.parser.ParseException;
+import worldofzuul.Parser;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -20,17 +22,21 @@ public class Game{
     private static Room currentRoom;
     private static boolean finished;
     private static ArrayList<Room> rooms;
+    private Parser parser;
+    private ArrayList<ArrayList> questStrings = new ArrayList<>();
 
-    public Game(){
+
+    public Game() throws IOException, ParseException {
         player = new WorldPlayer();
         finished = false;
         rooms = new ArrayList<>();
+        parser = new Parser();
         createWorld();
     }
 
     //===Initial methods================================================================================================
 
-    private void createWorld() {
+    private void createWorld() throws IOException, ParseException {
         //FXML files
         String FXML1 = "/fxml/Level1.fxml";
         String FXML2 = "/fxml/Level2.fxml";
@@ -39,6 +45,78 @@ public class Game{
         String FXML5 = "/fxml/Level5.fxml";
         String FXML6 = "/fxml/Level6.fxml";
         String FXML7 = "/fxml/Level7.fxml";
+
+
+        Quests breakfast, transport, roadQuest, groceries, recyclingQuest, factory, quiz, parkQuest;
+        Data quests = new Data();
+        questStrings.add(quests.questString("breakfast"));
+        questStrings.add(quests.questString("transport"));
+        questStrings.add(quests.questString("roadQuest"));
+        questStrings.add(quests.questString("groceries"));
+        questStrings.add(quests.questString("recyclingQuest"));
+        questStrings.add(quests.questString("factory"));
+        questStrings.add(quests.questString("parkQuest"));
+        //questStrings.add(quests.questString("quiz"));
+
+        breakfast = new Quests(new ArrayList<>(), new HashMap<>(), parser.parseString((String)questStrings.get(0).get(0)));
+        transport = new Quests(new ArrayList<>(), new HashMap<>(), parser.parseString((String)questStrings.get(1).get(0)));
+        roadQuest = new Quests(new ArrayList<>(), new HashMap<>(), parser.parseString((String)questStrings.get(2).get(0)));
+        groceries = new Quests(new ArrayList<>(), new HashMap<>(), parser.parseString((String)questStrings.get(3).get(0)));
+        recyclingQuest = new Quests(new ArrayList<>(), new HashMap<>(), parser.parseString((String)questStrings.get(4).get(0)));
+        factory = new Quests(new ArrayList<>(), new HashMap<>(), parser.parseString((String)questStrings.get(5).get(0)));
+        parkQuest = new Quests(new ArrayList<>(), new HashMap<>(), parser.parseString((String)questStrings.get(6).get(0)));
+        //quiz = new Quests(new ArrayList<>(), new HashMap<>(), parser.parseString((String)questStrings.get(7).get(0)));
+        //Breakfast quest
+        breakfast.addChoice(parser.parseString((String) questStrings.get(0).get(1)),5,parser.parseString((String) questStrings.get(0).get(3)));
+        breakfast.addChoice(parser.parseString((String) questStrings.get(0).get(2)),-5,parser.parseString((String) questStrings.get(0).get(4)));
+
+        // Creating new quest, "Transport", currentRoom is parkingtransport = new Quests(new ArrayList<>(), new HashMap<>(), "Choose the most environmental-friendly transport method");
+        transport.addChoice(parser.parseString((String) questStrings.get(1).get(1)), -10, parser.parseString((String) questStrings.get(1).get(5)));
+        transport.addChoice(parser.parseString((String) questStrings.get(1).get(2)), -5, parser.parseString((String) questStrings.get(1).get(6)));
+        transport.addChoice(parser.parseString((String) questStrings.get(1).get(3)), -5, parser.parseString((String) questStrings.get(1).get(7)));
+        transport.addChoice(parser.parseString((String) questStrings.get(1).get(4)), 5, parser.parseString((String) questStrings.get(1).get(8)));
+
+
+        // Creating a new quest, "road", currentRoom is road
+        roadQuest.addChoice(parser.parseString((String)questStrings.get(2).get(1)),10,parser.parseString((String)questStrings.get(2).get(3)));
+        roadQuest.addChoice(parser.parseString((String)questStrings.get(2).get(2)),-10,parser.parseString((String)questStrings.get(2).get(4)));
+
+        // Creating a new quest, "Groceries"
+        groceries.addChoice(parser.parseString((String)questStrings.get(3).get(1)), 10, parser.parseString((String)questStrings.get(3).get(3)));
+        groceries.addChoice(parser.parseString((String)questStrings.get(3).get(2)), -10, parser.parseString((String)questStrings.get(3).get(4)) );
+
+        recyclingQuest.addChoice(parser.parseString((String)questStrings.get(4).get(1)), 5, parser.parseString((String)questStrings.get(4).get(3)));
+        recyclingQuest.addChoice(parser.parseString((String)questStrings.get(4).get(2)), 5, parser.parseString((String)questStrings.get(4).get(4)));
+
+        // Creating a new quest, "factory"
+        factory.addChoice(parser.parseString((String)questStrings.get(5).get(1)), 5, parser.parseString((String)questStrings.get(5).get(3)));
+        factory.addChoice(parser.parseString((String)questStrings.get(5).get(2)), -5, parser.parseString((String)questStrings.get(5).get(4)));
+
+        parkQuest.addChoice(parser.parseString((String)questStrings.get(6).get(1)), 5, parser.parseString((String)questStrings.get(6).get(3)) );
+        parkQuest.addChoice(parser.parseString((String)questStrings.get(6).get(2)), -5, parser.parseString((String)questStrings.get(6).get(4)) );
+
+        // Creating the final quests, "quiz". True/False and should be seperated into multiple quests?
+        /*
+        quiz.addChoice(parser.parseString((String)questStrings.get(7).get(1)), 5, parser.parseString((String)questStrings.get(7).get(9)) );
+        quiz.addChoice(parser.parseString((String)questStrings.get(7).get(2)), 5, parser.parseString((String)questStrings.get(7).get(10)) );
+        quiz.addChoice(parser.parseString((String)questStrings.get(7).get(2)), 5, parser.parseString((String)questStrings.get(7).get(11)) );
+        quiz.addChoice(parser.parseString((String)questStrings.get(7).get(3)), 5, parser.parseString((String)questStrings.get(7).get(12)) );
+        quiz.addChoice(parser.parseString((String)questStrings.get(7).get(4)), 5, parser.parseString((String)questStrings.get(7).get(13)) );
+        quiz.addChoice(parser.parseString((String)questStrings.get(7).get(5)), 5, parser.parseString((String)questStrings.get(7).get(14)) );
+        quiz.addChoice(parser.parseString((String)questStrings.get(7).get(6)), 5, parser.parseString((String)questStrings.get(7).get(15)) );
+        quiz.addChoice(parser.parseString((String)questStrings.get(7).get(7)), 5, parser.parseString((String)questStrings.get(7).get(16)) );
+        quiz.addChoice(parser.parseString((String)questStrings.get(7).get(8)), 5, parser.parseString((String)questStrings.get(7).get(17)) );
+
+
+         */
+
+        //Passing on to next quest
+        breakfast.setNextQuest(transport);
+        transport.setNextQuest(roadQuest);
+        roadQuest.setNextQuest(groceries);
+        groceries.setNextQuest(recyclingQuest);
+        recyclingQuest.setNextQuest(factory);
+
 
         try {
             //===Home lvl===============================================================================================
@@ -54,7 +132,7 @@ public class Game{
             Teleport homeTPNorth = new Teleport((ImageView) window1.lookup("#tpNorth"),FXML2);
 
             //Create Room
-            Room home = new Room(new Quests(new ArrayList<>(), new HashMap<>(), "L1"));
+            Room home = new Room(breakfast);
 
             //Add Items and Teleporters to Room
             home.addItemToRoom(can1);
@@ -75,7 +153,7 @@ public class Game{
             Teleport parkingTPWest = new Teleport((ImageView) window2.lookup("#tpWest"),FXML5);
 
             //Create Room
-            Room parking = new Room(new Quests(new ArrayList<>(), new HashMap<>(), "L2"));
+            Room parking = new Room(transport);
 
             //Add Items and Teleporters to Room
             parking.addTeleporterToRoom(parkingTPNorth);
@@ -94,7 +172,7 @@ public class Game{
             Teleport beachTPWest = new Teleport((ImageView) window3.lookup("#tpWest"),FXML2);
 
             //Create Room
-            Room beach = new Room(new Quests(new ArrayList<>(), new HashMap<>(), "L3"));
+            Room beach = new Room(factory);
 
             //Add Items and Teleporters to Room
             beach.addTeleporterToRoom(beachTPWest);
@@ -110,7 +188,7 @@ public class Game{
             Teleport parkTPSouth = new Teleport((ImageView) window4.lookup("#tpSouth"),FXML2);
 
             //Create Room
-            Room park = new Room(new Quests(new ArrayList<>(), new HashMap<>(),"dummy"));
+            Room park = new Room(parkQuest);
 
             //Add Items and Teleporters to Room
             park.addTeleporterToRoom(parkTPSouth);
@@ -127,7 +205,7 @@ public class Game{
             Teleport roadTPWest = new Teleport((ImageView) window5.lookup("#tpWest"),FXML7);
 
             //Create Room
-            Room road = new Room(new Quests(new ArrayList<>(), new HashMap<>(), "dummy"));
+            Room road = new Room(roadQuest);
 
             //Add Items and Teleporters to Room
             road.addTeleporterToRoom(roadTPNorth);
@@ -144,7 +222,7 @@ public class Game{
             Teleport shopTPSouth = new Teleport((ImageView) window6.lookup("#tpSouth"),FXML5);
 
             //Create Room
-            Room shop = new Room(new Quests(new ArrayList<>(), new HashMap<>(),"dummy"));
+            Room shop = new Room(groceries);
 
             //Add Items and Teleporters to Room
             shop.addTeleporterToRoom(shopTPSouth);
@@ -159,7 +237,7 @@ public class Game{
             Teleport recyclingTPEast = new Teleport((ImageView) window7.lookup("#tpEast"),FXML5);
 
             //Create Room
-            Room recycling = new Room(new Quests(new ArrayList<>(), new HashMap<>(), "dummy"));
+            Room recycling = new Room(recyclingQuest);
 
             //Add Items and Teleporters to Room
             recycling.addTeleporterToRoom(recyclingTPEast);

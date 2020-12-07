@@ -7,13 +7,16 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import org.json.simple.parser.ParseException;
 import worldofzuul.Game;
+
+import java.io.IOException;
 
 public class StartUI extends Application {
 
     final String launchFile = "/fxml/Launcher.fxml";
 
-    public static void main(String[] arg){
+    public static void main(String[] arg) throws IOException, ParseException {
         Game game = new Game();
         game.play();
         launch(arg);
