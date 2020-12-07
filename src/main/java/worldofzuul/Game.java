@@ -93,11 +93,15 @@ public class Game{
             //Create Teleporters
             Teleport beachTPWest = new Teleport((ImageView) window3.lookup("#tpWest"),FXML2);
 
+            //Create Barriers
+            Barrier beachBarrier = new Barrier((ImageView) window3.lookup("#wall"));
+
             //Create Room
             Room beach = new Room(new Quests(new ArrayList<>(), new HashMap<>(), "L3"));
 
             //Add Items and Teleporters to Room
             beach.addTeleporterToRoom(beachTPWest);
+            beach.addWall(beachBarrier);
 
             //===Park lvl===============================================================================================
 
@@ -109,11 +113,15 @@ public class Game{
             //Create Teleporters
             Teleport parkTPSouth = new Teleport((ImageView) window4.lookup("#tpSouth"),FXML2);
 
+            //Create Barriers
+            Barrier parkBarrier = new Barrier((ImageView) window4.lookup("#wall"));
+
             //Create Room
             Room park = new Room(new Quests(new ArrayList<>(), new HashMap<>(),"dummy"));
 
             //Add Items and Teleporters to Room
             park.addTeleporterToRoom(parkTPSouth);
+            park.addWall(parkBarrier);
 
             //===Road lvl===============================================================================================
 
@@ -155,14 +163,19 @@ public class Game{
             Parent window7 = FXMLLoader.load(getClass().getResource(FXML7));
 
             //Create Items
+
             //Create Teleporters
             Teleport recyclingTPEast = new Teleport((ImageView) window7.lookup("#tpEast"),FXML5);
+
+            //Create Barrier
+            Barrier recyclingBarrier = new Barrier((ImageView) window7.lookup("#wall"));
 
             //Create Room
             Room recycling = new Room(new Quests(new ArrayList<>(), new HashMap<>(), "dummy"));
 
             //Add Items and Teleporters to Room
             recycling.addTeleporterToRoom(recyclingTPEast);
+            recycling.addWall(recyclingBarrier);
 
             //===Link rooms=============================================================================================
             home.getTP(0).linkTeleport(parking);

@@ -108,6 +108,13 @@ public abstract class PlayerControl {
             }
         }
 
+        if (Game.getCurrentRoom().hasWalls()){
+            Barrier wall = Game.getCurrentRoom().getWall();
+            if (player.getImageView().getLayoutY() <= wall.getImageView().getLayoutY() + wall.getImageView().getFitHeight()){
+                player.getImageView().setLayoutY(wall.getH() + wall.getY());
+            }
+        }
+
         if(code== KeyCode.ESCAPE){
             try {
                 Parent pauseWindow = FXMLLoader.load(PlayerControl.class.getResource(pauseFile));
