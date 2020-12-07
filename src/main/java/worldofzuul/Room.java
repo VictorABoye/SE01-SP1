@@ -1,10 +1,7 @@
 package worldofzuul;
 
 import UI.PlayerControl;
-import dk.sdu.mmmi.t3.g1.Inventory;
-import dk.sdu.mmmi.t3.g1.Item;
-import dk.sdu.mmmi.t3.g1.Quests;
-import dk.sdu.mmmi.t3.g1.Teleport;
+import dk.sdu.mmmi.t3.g1.*;
 
 import java.util.ArrayList;
 import java.util.Set;
@@ -18,6 +15,7 @@ public class Room {
     private String infoBox;
     private Quests quest;
     private ArrayList<Teleport> teleports;
+    private Barrier wall;
 
     public Room (Quests quest)
     {
@@ -116,6 +114,18 @@ public class Room {
 
     public Teleport getTP(int index) {
         return teleports.get(index);
+    }
+
+    public void addWall(Barrier wall){
+        this.wall = wall;
+    }
+
+    public boolean hasWalls(){
+        return wall != null;
+    }
+
+    public Barrier getWall(){
+        return wall;
     }
 }
 

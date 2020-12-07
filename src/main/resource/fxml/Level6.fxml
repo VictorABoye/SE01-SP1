@@ -12,7 +12,7 @@
       </ImageView>
       <ImageView fx:id="tpSouth" fitHeight="150.0" fitWidth="200.0" layoutX="575.0" layoutY="580.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/door.png" />
+            <Image url="@../images/utility/door.png" />
          </image>
       </ImageView>
       <ImageView fx:id="player" fitHeight="100.0" fitWidth="100.0" layoutX="600.0" layoutY="319.0" pickOnBounds="true" preserveRatio="true">
