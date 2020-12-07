@@ -1,19 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
 
 <AnchorPane fx:id="window" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Level4Controller">
    <children>
-      <ImageView fx:id="tpSouth" fitHeight="150.0" fitWidth="200.0" layoutX="575.0" layoutY="580.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="720.0" fitWidth="1280.0" layoutX="77.0" layoutY="105.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/Levels/Park.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="tpSouth" fitHeight="38.0" fitWidth="234.0" layoutX="547.0" layoutY="682.0" pickOnBounds="true" visible="false">
          <image>
             <Image url="@../images/door.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="player" fitHeight="100.0" fitWidth="100.0" layoutX="600.0" layoutY="319.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="player" fitHeight="100.0" fitWidth="100.0" layoutX="590.0" layoutY="459.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/player/player_default.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="263.0" layoutY="246.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/Signs/PARKING.png" />
          </image>
       </ImageView>
    </children>

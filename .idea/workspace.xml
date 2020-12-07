@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
-  </component>
   <component name="BranchesTreeState">
     <expand>
       <path>
@@ -18,345 +15,121 @@
         <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
       </path>
-    </expand>
-    <select>
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:origin/Teleporter" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:Launcher" type="e8cecc67:BranchNodeDescriptor" />
       </path>
-    </select>
+    </expand>
+    <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="444a5e80-eae0-4f65-b523-5bfeef48f701" name="Default Changelist" comment="Enabled using Escape to go back to menu">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/SE01-SP1.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/json_simple_1_1_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/libLinux.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/libWindows.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="4ed4ae49-7cd4-404b-9ae0-9209ffd50f9f" name="Default Changelist" comment="Added last levels">
+      <change afterPath="$PROJECT_DIR$/src/main/resource/images/Levels/Park.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resource/images/Levels/Road.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resource/images/Levels/Store.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resource/images/Levels/recycling.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/worldofzuul/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/worldofzuul/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resource/fxml/Level2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resource/fxml/Level2.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resource/fxml/Level3.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resource/fxml/Level3.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resource/fxml/Level4.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resource/fxml/Level4.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resource/fxml/Level5.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resource/fxml/Level5.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resource/fxml/Level6.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resource/fxml/Level6.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resource/fxml/Level7.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resource/fxml/Level7.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resource/images/Levels/Parking.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resource/images/Levels/Parking.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="FxmlFile" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Teleporter" />
+        <entry key="$PROJECT_DIR$" value="Player_revamp" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="1jp8P9nA7zzPU8e2e9VnIslWbsM" />
+  <component name="ProjectId" id="1lKNSyKxN8cZEkmsygUiD1RWxIQ" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resource/libraries/libLinux" />
-    <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resource/libraries/json-simple-1.1.1.jar" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
-    <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/src/main/java/dk/sdu/mmmi/t3/g1/Quests.java" />
-  </component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\ZenOf\Documents\SDU\SE01-SP1" />
-    </key>
   </component>
   <component name="RunManager">
-    <configuration name="StartUI" type="Application" factoryName="Application" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="14" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+    <configuration name="StartUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="UI.StartUI" />
       <module name="SE01-SP1" />
-      <option name="VM_PARAMETERS" value="--module-path C:\Users\ZenOf\Documents\SDU\lib --add-modules javafx.controls,javafx.fxml --add-exports javafx.graphics/com.sun.javafx.sg.prism=ALL-UNNAMED" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\Oliver\Desktop\javafxsdk15\javafx-sdk-15.0.1\lib&quot; --add-modules javafx.controls,javafx.fxml " />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="UI.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.StartUI" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="444a5e80-eae0-4f65-b523-5bfeef48f701" name="Default Changelist" comment="" />
-      <created>1604489646731</created>
+      <changelist id="4ed4ae49-7cd4-404b-9ae0-9209ffd50f9f" name="Default Changelist" comment="" />
+      <created>1607341828376</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1604489646731</updated>
-      <workItem from="1604489648114" duration="10809000" />
-      <workItem from="1604574512984" duration="1144000" />
-      <workItem from="1604575683338" duration="12971000" />
-      <workItem from="1604744012818" duration="2546000" />
-      <workItem from="1604750780113" duration="250000" />
-      <workItem from="1604912783203" duration="14866000" />
-      <workItem from="1604929053662" duration="4593000" />
-      <workItem from="1604936253410" duration="5326000" />
-      <workItem from="1605184997765" duration="5242000" />
-      <workItem from="1606298110909" duration="828000" />
-      <workItem from="1606298962476" duration="7998000" />
-      <workItem from="1606332081652" duration="245000" />
-      <workItem from="1606750054359" duration="4397000" />
-      <workItem from="1606862331634" duration="1715000" />
-      <workItem from="1607103351567" duration="134000" />
-      <workItem from="1607103491298" duration="1008000" />
-      <workItem from="1607104520392" duration="16000" />
-      <workItem from="1607104541470" duration="137000" />
-      <workItem from="1607104693278" duration="674000" />
-      <workItem from="1607106935550" duration="67000" />
-      <workItem from="1607342508687" duration="1019000" />
+      <updated>1607341828376</updated>
     </task>
-    <task id="LOCAL-00001" summary="Added quests functionality">
-      <created>1604492709334</created>
+    <task id="LOCAL-00001" summary="Added last levels">
+      <created>1607343864699</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1604492709334</updated>
+      <updated>1607343864699</updated>
     </task>
-    <task id="LOCAL-00002" summary="Fixes to user interaction with quests">
-      <created>1604493300449</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1604493300449</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Fixed comma....">
-      <created>1604493472521</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1604493472521</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Checking bag size before sorting">
-      <created>1604493815994</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1604493815994</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Added quest progression">
-      <created>1604498568148</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1604498568148</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Added showChoices method and description attr. to Quests">
-      <created>1604575526933</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1604575526933</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Added showChoices method and description attr. to Quests.java">
-      <created>1604577189773</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1604577189773</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Removing items from player inventory after sorting them">
-      <created>1604578893569</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1604578893569</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Updated gitignore">
-      <created>1604579031177</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1604579031177</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Added consequence attribute.">
-      <created>1604580076774</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1604580076774</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Quest overhaul">
-      <created>1604585853291</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1604585853291</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Assigned empty arraylist to consequence array for initiation">
-      <created>1604744478959</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1604744478959</updated>
-    </task>
-    <task id="LOCAL-00013" summary="Added Quests to Rooms">
-      <created>1604914795752</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1604914795752</updated>
-    </task>
-    <task id="LOCAL-00014" summary="Force player to complete in order to move around">
-      <created>1604915417035</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1604915417035</updated>
-    </task>
-    <task id="LOCAL-00015" summary="Added json file for storing strings for game">
-      <created>1604920323409</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1604920323409</updated>
-    </task>
-    <task id="LOCAL-00016" summary="Added JSON library to git">
-      <created>1604920681976</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1604920681976</updated>
-    </task>
-    <task id="LOCAL-00017" summary="Added comments to loadString method">
-      <created>1604920860290</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1604920860290</updated>
-    </task>
-    <task id="LOCAL-00018" summary="Fix for Quests.json">
-      <created>1604922516093</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1604922516093</updated>
-    </task>
-    <task id="LOCAL-00019" summary="Added parser for long text">
-      <created>1604924319688</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1604924319688</updated>
-    </task>
-    <task id="LOCAL-00020" summary="Updated Quests.java to explain choosing an option to the user">
-      <created>1604925116351</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1604925116351</updated>
-    </task>
-    <task id="LOCAL-00021" summary="Fixed consequence getter">
-      <created>1604928007342</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1604928007342</updated>
-    </task>
-    <task id="LOCAL-00022" summary="Updated updating of currentQuest to correspond with currentRoom">
-      <created>1604931322078</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1604931322078</updated>
-    </task>
-    <task id="LOCAL-00023" summary="Added roadQuests to Quests.json">
-      <created>1604931859073</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1604931859073</updated>
-    </task>
-    <task id="LOCAL-00024" summary="Added strings for recycling and roadQuest">
-      <created>1604932804638</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1604932804638</updated>
-    </task>
-    <task id="LOCAL-00025" summary="Fixed typos">
-      <created>1604932980291</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1604932980291</updated>
-    </task>
-    <task id="LOCAL-00026" summary="Last commit for first iteration. Updates to improve playabilty for new players">
-      <created>1605185048054</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1605185048054</updated>
-    </task>
-    <task id="LOCAL-00027" summary="Arrow keys test">
-      <created>1606300323295</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1606300323295</updated>
-    </task>
-    <task id="LOCAL-00028" summary="Added controls to About page">
-      <created>1606303560925</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1606303560925</updated>
-    </task>
-    <task id="LOCAL-00029" summary="Enabled using Escape to go back to menu">
-      <created>1606308297660</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1606308297660</updated>
-    </task>
-    <option name="localTasksCounter" value="30" />
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="origin/Teleporter" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
+            <State />
           </value>
         </entry>
       </map>
@@ -364,200 +137,49 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added quest progression" />
-    <MESSAGE value="Added showChoices method and description attr. to Quests" />
-    <MESSAGE value="Added showChoices method and description attr. to Quests.java" />
-    <MESSAGE value="Removing items from player inventory after sorting them" />
-    <MESSAGE value="Updated gitignore" />
-    <MESSAGE value="Added consequence attribute." />
-    <MESSAGE value="Quest overhaul" />
-    <MESSAGE value="Assigned empty arraylist to consequence array for initiation" />
-    <MESSAGE value="Added Quests to Rooms" />
-    <MESSAGE value="Force player to complete in order to move around" />
-    <MESSAGE value="Added json file for storing strings for game" />
-    <MESSAGE value="Added JSON library to git" />
-    <MESSAGE value="Added comments to loadString method" />
-    <MESSAGE value="Fix for Quests.json" />
-    <MESSAGE value="Added parser for long text" />
-    <MESSAGE value="Updated Quests.java to explain choosing an option to the user" />
-    <MESSAGE value="Fixed consequence getter" />
-    <MESSAGE value="Updated updating of currentQuest to correspond with currentRoom" />
-    <MESSAGE value="Added roadQuests to Quests.json" />
-    <MESSAGE value="Added strings for recycling and roadQuest" />
-    <MESSAGE value="Fixed typos" />
-    <MESSAGE value="Last commit for first iteration. Updates to improve playabilty for new players" />
-    <MESSAGE value="Arrow keys test" />
-    <MESSAGE value="Added controls to About page" />
-    <MESSAGE value="Enabled using Escape to go back to menu" />
-    <option name="LAST_COMMIT_MESSAGE" value="Enabled using Escape to go back to menu" />
+    <MESSAGE value="Added last levels" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added last levels" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="439" y="113" key="#Project_Structure" timestamp="1604926959118">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state x="414" y="175" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1607342518672">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="439" y="113" key="#Project_Structure/0.0.1920.1080/1982.-640.1018.1920@0.0.1920.1080" timestamp="1604926959118" />
-    <state x="413" y="124" width="1094" height="956" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606301257518">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state x="414" y="175" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1607342518672" />
+    <state x="753" y="252" key="FileChooserDialogImpl" timestamp="1607342844426">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="413" y="124" width="1094" height="956" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1080/1982.-640.1018.1920@0.0.1920.1080" timestamp="1606301257518" />
-    <state x="688" y="341" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1606300948958">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state x="753" y="252" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1607342844426" />
+    <state width="1877" height="2" key="GridCell.Tab.0.bottom" timestamp="1607348296032">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="688" y="341" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1080/1982.-640.1018.1920@0.0.1920.1080" timestamp="1606300948958" />
-    <state x="656" y="114" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1604492425947">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state width="1877" height="2" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1607348296032" />
+    <state width="1877" height="2" key="GridCell.Tab.0.center" timestamp="1607348296032">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="656" y="114" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1080/1982.-640.1018.1920@0.0.1920.1080" timestamp="1604492425947" />
-    <state x="853" y="292" key="#xdebugger.XInspectDialog" timestamp="1604915194293">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state width="1877" height="2" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1607348296032" />
+    <state width="1877" height="2" key="GridCell.Tab.0.left" timestamp="1607348296032">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="853" y="292" key="#xdebugger.XInspectDialog/0.0.1920.1080/1982.-640.1018.1920@0.0.1920.1080" timestamp="1604915194293" />
-    <state x="92" y="92" width="1736" height="896" key="DiffContextDialog" timestamp="1604921558290">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state width="1877" height="2" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1607348296032" />
+    <state width="1877" height="2" key="GridCell.Tab.0.right" timestamp="1607348296032">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="92" y="92" width="1736" height="896" key="DiffContextDialog/0.0.1920.1080/1982.-640.1018.1920@0.0.1920.1080" timestamp="1604921558290" />
-    <state x="739" y="294" key="FileChooserDialogImpl" timestamp="1607104591303">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state width="1877" height="2" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1607348296032" />
+    <state x="440" y="94" key="SettingsEditor" timestamp="1607342847348">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="739" y="294" key="FileChooserDialogImpl/0.0.1920.1080/1982.-640.1018.1920@0.0.1920.1080" timestamp="1606298598423" />
-    <state x="739" y="294" key="FileChooserDialogImpl/0.0.1920.1080/1982.-735.1018.1920@0.0.1920.1080" timestamp="1607104591303" />
-    <state width="1874" height="231" key="GridCell.Tab.0.bottom" timestamp="1607107002744">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state x="440" y="94" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1607342847348" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1607343990949">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="937" height="231" key="GridCell.Tab.0.bottom/0.0.1920.1080/1982.-640.1018.1920@0.0.1920.1080" timestamp="1606332326524" />
-    <state width="972" height="509" key="GridCell.Tab.0.bottom/0.0.1920.1080/1982.-640.1018.1920@1982.-640.1018.1920" timestamp="1605210189090" />
-    <state width="1874" height="231" key="GridCell.Tab.0.bottom/0.0.1920.1080/1982.-735.1018.1920@0.0.1920.1080" timestamp="1607107002744" />
-    <state width="1284" height="524" key="GridCell.Tab.0.bottom/62.0.1858.1080/1982.-735.1018.1920@62.0.1858.1080" timestamp="1606864050217" />
-    <state width="1874" height="231" key="GridCell.Tab.0.center" timestamp="1607107002743">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1607343990949" />
+    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607344571589">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="937" height="231" key="GridCell.Tab.0.center/0.0.1920.1080/1982.-640.1018.1920@0.0.1920.1080" timestamp="1606332326524" />
-    <state width="972" height="509" key="GridCell.Tab.0.center/0.0.1920.1080/1982.-640.1018.1920@1982.-640.1018.1920" timestamp="1605210189090" />
-    <state width="1874" height="231" key="GridCell.Tab.0.center/0.0.1920.1080/1982.-735.1018.1920@0.0.1920.1080" timestamp="1607107002743" />
-    <state width="1284" height="524" key="GridCell.Tab.0.center/62.0.1858.1080/1982.-735.1018.1920@62.0.1858.1080" timestamp="1606864050217" />
-    <state width="1874" height="231" key="GridCell.Tab.0.left" timestamp="1607107002743">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1607344571589" />
+    <state x="739" y="233" key="git4idea.branch.GitSmartOperationDialog" timestamp="1607342704580">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="937" height="231" key="GridCell.Tab.0.left/0.0.1920.1080/1982.-640.1018.1920@0.0.1920.1080" timestamp="1606332326524" />
-    <state width="972" height="509" key="GridCell.Tab.0.left/0.0.1920.1080/1982.-640.1018.1920@1982.-640.1018.1920" timestamp="1605210189089" />
-    <state width="1874" height="231" key="GridCell.Tab.0.left/0.0.1920.1080/1982.-735.1018.1920@0.0.1920.1080" timestamp="1607107002743" />
-    <state width="1284" height="524" key="GridCell.Tab.0.left/62.0.1858.1080/1982.-735.1018.1920@62.0.1858.1080" timestamp="1606864050217" />
-    <state width="1874" height="231" key="GridCell.Tab.0.right" timestamp="1607107002743">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state width="937" height="231" key="GridCell.Tab.0.right/0.0.1920.1080/1982.-640.1018.1920@0.0.1920.1080" timestamp="1606332326524" />
-    <state width="972" height="509" key="GridCell.Tab.0.right/0.0.1920.1080/1982.-640.1018.1920@1982.-640.1018.1920" timestamp="1605210189090" />
-    <state width="1874" height="231" key="GridCell.Tab.0.right/0.0.1920.1080/1982.-735.1018.1920@0.0.1920.1080" timestamp="1607107002743" />
-    <state width="1284" height="524" key="GridCell.Tab.0.right/62.0.1858.1080/1982.-735.1018.1920@62.0.1858.1080" timestamp="1606864050217" />
-    <state width="1284" height="524" key="GridCell.Tab.1.bottom" timestamp="1606864050217">
-      <screen x="62" y="0" width="1858" height="1080" />
-    </state>
-    <state width="1874" height="207" key="GridCell.Tab.1.bottom/0.0.1920.1080/1982.-640.1018.1920@0.0.1920.1080" timestamp="1606308913934" />
-    <state width="1284" height="524" key="GridCell.Tab.1.bottom/62.0.1858.1080/1982.-735.1018.1920@62.0.1858.1080" timestamp="1606864050217" />
-    <state width="1284" height="524" key="GridCell.Tab.1.center" timestamp="1606864050217">
-      <screen x="62" y="0" width="1858" height="1080" />
-    </state>
-    <state width="1874" height="207" key="GridCell.Tab.1.center/0.0.1920.1080/1982.-640.1018.1920@0.0.1920.1080" timestamp="1606308913934" />
-    <state width="1284" height="524" key="GridCell.Tab.1.center/62.0.1858.1080/1982.-735.1018.1920@62.0.1858.1080" timestamp="1606864050217" />
-    <state width="1284" height="524" key="GridCell.Tab.1.left" timestamp="1606864050217">
-      <screen x="62" y="0" width="1858" height="1080" />
-    </state>
-    <state width="1874" height="207" key="GridCell.Tab.1.left/0.0.1920.1080/1982.-640.1018.1920@0.0.1920.1080" timestamp="1606308913934" />
-    <state width="1284" height="524" key="GridCell.Tab.1.left/62.0.1858.1080/1982.-735.1018.1920@62.0.1858.1080" timestamp="1606864050217" />
-    <state width="1284" height="524" key="GridCell.Tab.1.right" timestamp="1606864050217">
-      <screen x="62" y="0" width="1858" height="1080" />
-    </state>
-    <state width="1874" height="207" key="GridCell.Tab.1.right/0.0.1920.1080/1982.-640.1018.1920@0.0.1920.1080" timestamp="1606308913934" />
-    <state width="1284" height="524" key="GridCell.Tab.1.right/62.0.1858.1080/1982.-735.1018.1920@62.0.1858.1080" timestamp="1606864050217" />
-    <state width="1874" height="363" key="GridCell.Tab.2.bottom" timestamp="1604582475083">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1874" height="363" key="GridCell.Tab.2.bottom/0.0.1920.1080/1982.-640.1018.1920@0.0.1920.1080" timestamp="1604582475083" />
-    <state width="1874" height="363" key="GridCell.Tab.2.center" timestamp="1604582475083">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1874" height="363" key="GridCell.Tab.2.center/0.0.1920.1080/1982.-640.1018.1920@0.0.1920.1080" timestamp="1604582475083" />
-    <state width="1874" height="363" key="GridCell.Tab.2.left" timestamp="1604582475083">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1874" height="363" key="GridCell.Tab.2.left/0.0.1920.1080/1982.-640.1018.1920@0.0.1920.1080" timestamp="1604582475083" />
-    <state width="1874" height="363" key="GridCell.Tab.2.right" timestamp="1604582475083">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1874" height="363" key="GridCell.Tab.2.right/0.0.1920.1080/1982.-640.1018.1920@0.0.1920.1080" timestamp="1604582475083" />
-    <state x="88" y="53" width="1833" height="985" key="MergeDialog" timestamp="1606862360932">
-      <screen x="62" y="0" width="1858" height="1080" />
-    </state>
-    <state x="27" y="53" width="1833" height="985" key="MergeDialog/0.0.1920.1080/1982.-640.1018.1920@0.0.1920.1080" timestamp="1604932890993" />
-    <state x="88" y="53" key="MergeDialog/62.0.1858.1080/1982.-735.1018.1920@62.0.1858.1080" timestamp="1606862360932" />
-    <state x="343" y="300" width="979" height="480" key="MultipleFileMergeDialog" timestamp="1604932892005">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="343" y="300" width="979" height="480" key="MultipleFileMergeDialog/0.0.1920.1080/1982.-640.1018.1920@0.0.1920.1080" timestamp="1604932892005" />
-    <state x="461" y="185" key="SettingsEditor" timestamp="1607104605124">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="461" y="185" key="SettingsEditor/0.0.1920.1080/1982.-640.1018.1920@0.0.1920.1080" timestamp="1606300102864" />
-    <state x="461" y="185" key="SettingsEditor/0.0.1920.1080/1982.-735.1018.1920@0.0.1920.1080" timestamp="1607104605124" />
-    <state x="551" y="272" key="Vcs.Push.Dialog.v2" timestamp="1606308298853">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="551" y="272" key="Vcs.Push.Dialog.v2/0.0.1920.1080/1982.-640.1018.1920@0.0.1920.1080" timestamp="1606308298853" />
-    <state x="671" y="273" key="VcsDiffUtil.ChangesDialog" timestamp="1604921521327">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="671" y="273" key="VcsDiffUtil.ChangesDialog/0.0.1920.1080/1982.-640.1018.1920@0.0.1920.1080" timestamp="1604921521327" />
-    <state x="92" y="92" width="1736" height="896" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1604746079258">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="92" y="92" width="1736" height="896" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1080/1982.-640.1018.1920@0.0.1920.1080" timestamp="1604746079258" />
-    <state x="776" y="453" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607342515175">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="776" y="453" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1080/1982.-640.1018.1920@0.0.1920.1080" timestamp="1605185002925" />
-    <state x="776" y="453" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1080/1982.-735.1018.1920@0.0.1920.1080" timestamp="1607342515175" />
-    <state x="813" y="453" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/62.0.1858.1080/1982.-735.1018.1920@62.0.1858.1080" timestamp="1606750828018" />
-    <state x="504" y="275" width="911" height="631" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1604582380770">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="504" y="275" width="911" height="631" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1920.1080/1982.-640.1018.1920@0.0.1920.1080" timestamp="1604582380770" />
-    <state x="661" y="469" width="919" height="698" maximized="true" key="dock-window-1" timestamp="1604941202961">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="661" y="469" width="919" height="698" maximized="true" key="dock-window-1/0.0.1920.1080/1982.-640.1018.1920@0.0.1920.1080" timestamp="1604941202961" />
-    <state x="776" y="252" key="git4idea.branch.GitSmartOperationDialog" timestamp="1606864034958">
-      <screen x="62" y="0" width="1858" height="1080" />
-    </state>
-    <state x="738" y="252" key="git4idea.branch.GitSmartOperationDialog/0.0.1920.1080/1982.-640.1018.1920@0.0.1920.1080" timestamp="1606298160641" />
-    <state x="776" y="252" key="git4idea.branch.GitSmartOperationDialog/62.0.1858.1080/1982.-735.1018.1920@62.0.1858.1080" timestamp="1606864034958" />
-    <state x="616" y="250" key="run.anything.popup" timestamp="1606300715245">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="616" y="250" key="run.anything.popup/0.0.1920.1080/1982.-640.1018.1920@0.0.1920.1080" timestamp="1606300715245" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <breakpoint enabled="true" type="java-exception">
-          <properties class="java.lang.NullPointerException" package="java.lang" />
-          <option name="timeStamp" value="1" />
-        </breakpoint>
-        <breakpoint enabled="true" type="java-exception">
-          <properties class="java.util.ConcurrentModificationException" package="java.util" />
-          <option name="timeStamp" value="2" />
-        </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/UI/InventoryController.java</url>
-          <line>47</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-    <watches-manager>
-      <configuration name="Application">
-        <watch expression="worldPlayer.getInventory()" language="JAVA" />
-        <watch expression="imageString" />
-      </configuration>
-    </watches-manager>
+    <state x="739" y="233" key="git4idea.branch.GitSmartOperationDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1607342704580" />
   </component>
 </project>

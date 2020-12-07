@@ -91,13 +91,13 @@ public class Game{
             //Create Items
 
             //Create Teleporters
-            Teleport beachTPEast = new Teleport((ImageView) window3.lookup("#tpWest"),FXML2);
+            Teleport beachTPWest = new Teleport((ImageView) window3.lookup("#tpWest"),FXML2);
 
             //Create Room
             Room beach = new Room(new Quests(new ArrayList<>(), new HashMap<>(), "L3"));
 
             //Add Items and Teleporters to Room
-            beach.addTeleporterToRoom(beachTPEast);
+            beach.addTeleporterToRoom(beachTPWest);
 
             //===Park lvl===============================================================================================
 

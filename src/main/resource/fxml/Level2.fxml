@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
 
 <AnchorPane fx:id="window" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Level2Controller">
    <children>
@@ -16,25 +15,38 @@
             <Image url="@../images/player/player_default.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="tpSouth" fitHeight="150.0" fitWidth="200.0" layoutX="565.0" layoutY="570.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="tpSouth" fitHeight="27.0" fitWidth="200.0" layoutX="565.0" layoutY="693.0" pickOnBounds="true" visible="false">
          <image>
             <Image url="@../images/door.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="tpNorth" fitHeight="200.0" fitWidth="200.0" layoutX="540.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="tpNorth" fitHeight="37.0" fitWidth="200.0" layoutX="540.0" pickOnBounds="true" visible="false">
          <image>
             <Image url="@../images/door.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="tpEast" fitHeight="150.0" fitWidth="200.0" layoutX="1130.0" layoutY="300.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="tpEast" fitHeight="163.0" fitWidth="37.0" layoutX="1243.0" layoutY="309.0" pickOnBounds="true" visible="false">
          <image>
             <Image url="@../images/door.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="tpWest" fitHeight="150.0" fitWidth="200.0" layoutY="300.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="tpWest" fitHeight="155.0" fitWidth="37.0" layoutY="300.0" pickOnBounds="true" visible="false">
          <image>
             <Image url="@../images/door.png" />
          </image>
       </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="342.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/Signs/BEACH.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutY="173.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/Signs/ROAD.png" />
+         </image></ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="1109.0" layoutY="183.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/Signs/PARK.png" />
+         </image></ImageView>
    </children>
 </AnchorPane>
