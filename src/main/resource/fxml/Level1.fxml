@@ -1,18 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="Window" maxHeight="1080.0" maxWidth="1280.0" onKeyPressed="#move" onKeyReleased="#move" onMouseClicked="#move" onMouseDragged="#move" onMouseMoved="#move" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Level1Controller">
+<AnchorPane fx:id="window" maxHeight="1080.0" maxWidth="1280.0" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Level1Controller">
    <children>
-      <Text layoutX="215.0" layoutY="399.0" strokeType="OUTSIDE" strokeWidth="0.0" text="This is the first Level">
-         <font>
-            <Font size="96.0" />
-         </font>
-      </Text>
-      <Button fx:id="backButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#goToMenu" text="Back to menu" />
-      <Rectangle fx:id="Player" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="200.0" layoutX="6.0" layoutY="473.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
+      <ImageView fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true">
+         <image>
+            <Image url="@../images/Levels/Køkken.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="itemCan1" fitHeight="50.0" fitWidth="50.0" layoutX="291.0" layoutY="109.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/can.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="itemCan2" fitHeight="50.0" fitWidth="50.0" layoutX="291.0" layoutY="200.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/can.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="player" fitHeight="150.0" fitWidth="150.0" layoutX="100.0" layoutY="450.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/player/player_default.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="tpNorth" fitHeight="200.0" fitWidth="200.0" layoutX="540.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/door.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="tp1" fitHeight="200.0" fitWidth="200.0" layoutX="1080.0" layoutY="520.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/door.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

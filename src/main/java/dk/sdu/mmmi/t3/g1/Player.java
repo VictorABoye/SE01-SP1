@@ -1,16 +1,49 @@
 package dk.sdu.mmmi.t3.g1;
 
-public class Player {
 
-    private int klimaIndsats;
-    private Inventory inventory;
+import javafx.scene.image.ImageView;
 
-    public Player(){
-        this.klimaIndsats = 50;
-        inventory = new Inventory();
+public class Player extends Entity implements Movement{
+
+    private double speed = 25;
+
+    public Player(ImageView image){
+        super(image);
+        type = "player";
+        dead = false;
     }
 
-    public Item getItem(String itemName){
+
+
+    @Override
+    public void moveUp(){
+        image.setLayoutY(y-speed);
+    }
+
+    @Override
+    public void moveDown(){
+        image.setLayoutY(y+speed);
+    }
+
+    @Override
+    public void moveRight(){
+        image.setLayoutX(x-speed);
+    }
+
+    @Override
+    public void moveLeft(){
+        image.setLayoutX(x+speed);
+    }
+
+
+
+    /*
+     *
+     * Legacy Code
+     *
+     */
+      /*
+        public Item getItem(String itemName){
         return inventory.getItem(itemName);
     }
 
@@ -48,31 +81,13 @@ public class Player {
         }
     }
 
-    public void incKlimaindsats(int x){
-        int pre = klimaIndsats;
-        klimaIndsats += x;
-        if (klimaIndsats <= 0) {
-            System.out.println("You lost...");
-            // End game();
-        }
-        else if (pre > klimaIndsats) {
-            System.out.println("You can do better");
-        }
-        else if (pre < klimaIndsats) {
-            System.out.println("You are doing well");
-        }
-        else if (klimaIndsats >= 100){
-            System.out.print("You win!!!");
-        }
-        checkKlimaindsats();
+
+    public int getPlayerInventorySize() {
+        return inventory.getSize();
     }
 
-    public int getKlimaindsats() {
-        return klimaIndsats;
-    }
-
-    public void checkKlimaindsats(){
-        System.out.println("Your current score is: " + getKlimaindsats());
+    public boolean hasItem(String items) {
+        return inventory.hasItem(items);
     }
 
     public boolean sort(String item, String type){
@@ -121,12 +136,5 @@ public class Player {
         }
         return false;
     }
-
-    public int getPlayerInventorySize() {
-        return inventory.getSize();
-    }
-
-    public boolean hasItem(String items) {
-        return inventory.hasItem(items);
-    }
+     */
 }

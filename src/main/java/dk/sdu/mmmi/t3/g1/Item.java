@@ -1,19 +1,18 @@
 package dk.sdu.mmmi.t3.g1;
 
-public abstract class Item extends Inventory implements isExpired{
-    private String name;
-    private String type;
+import javafx.scene.image.ImageView;
+import javafx.scene.shape.Rectangle;
 
-    public Item(String name, String type){
+public abstract class Item extends Entity {
+    private String name;
+
+    public Item(ImageView image, String name){
+        super(image);
+        type = "item";
         this.name = name;
-        this.type = type;
     }
 
     public String getName(){
         return name;
-    }
-
-    public String getType(){
-        return type;
     }
 }

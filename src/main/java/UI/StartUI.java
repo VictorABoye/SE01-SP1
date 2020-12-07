@@ -4,13 +4,18 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import worldofzuul.Game;
 
 public class StartUI extends Application {
 
     final String launchFile = "/fxml/Launcher.fxml";
 
     public static void main(String[] arg){
+        Game game = new Game();
+        game.play();
         launch(arg);
     }
 
@@ -20,6 +25,7 @@ public class StartUI extends Application {
         stage.setTitle("World of Cool");
         stage.setScene(new Scene(root));
         stage.setResizable(false);
+        stage.getIcons().add(new Image("/images/test.jpg"));
         stage.show();
     }
 }

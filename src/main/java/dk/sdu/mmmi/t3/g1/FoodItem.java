@@ -1,17 +1,20 @@
 package dk.sdu.mmmi.t3.g1;
 
+import javafx.scene.image.ImageView;
+import javafx.scene.shape.Rectangle;
+
 import java.util.ArrayList;
 import java.util.Date;
 
 public class FoodItem extends Item  {
     private Date expires;
 
-    public FoodItem(String name, String type) {
-        super(name, type);
-        expires = new Date((long)Math.random()*10000);
+    public FoodItem(ImageView image, String name) {
+        super(image, name);
+        expires = new Date((long) (Math.random() * 10000));
     }
 
-    @Override
+    //@Override
     public boolean isExpired () {
         Date now = new Date();
         if (now.compareTo(expires)>0){
@@ -20,8 +23,11 @@ public class FoodItem extends Item  {
             return false;
         }
     }
-    @Override
+
+
+    //@Override
     public void checkExpired (){
+        /*
         Date now = new Date();
         ArrayList<Item> expiredItems = new ArrayList<>();
         for (Item item: items){
@@ -38,9 +44,12 @@ public class FoodItem extends Item  {
                 System.out.println(item.getName());
             }
         }
+
+         */
     }
-    @Override
+    //@Override
     public void removeExpired (){
+        /*
         int countExpired = 0;
         for (Item item : items){
             if (item.isExpired()){
@@ -50,6 +59,8 @@ public class FoodItem extends Item  {
 
         }
         System.out.println("You have removed " + countExpired + " expired items from your inventory");
+
+         */
     }
 
 

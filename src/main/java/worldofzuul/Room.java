@@ -1,33 +1,39 @@
 package worldofzuul;
 
+import UI.PlayerControl;
 import dk.sdu.mmmi.t3.g1.Inventory;
 import dk.sdu.mmmi.t3.g1.Item;
 import dk.sdu.mmmi.t3.g1.Quests;
+import dk.sdu.mmmi.t3.g1.Teleport;
 
+import java.util.ArrayList;
 import java.util.Set;
 import java.util.HashMap;
-import java.util.Iterator;
 
 
 public class Room {
-    private String description;
     private HashMap<String, Room> exits;
     private Inventory inventory;
     private boolean isVisited;
     private String infoBox;
     private Quests quest;
+    private ArrayList<Teleport> teleports;
 
-    public Room(String description, String infoBox, Quests quest)
+    public Room (Quests quest)
     {
-        this.description = description;
         exits = new HashMap<String, Room>();
         inventory = new Inventory();
         isVisited = false;
         this.quest = quest;
         this.infoBox = this.quest.getDescription();
+        teleports = new ArrayList<>();
     }
 
-    public boolean getVisited(){
+    public Inventory getInventory(){
+        return inventory;
+    }
+
+    public boolean isVisited(){
         return isVisited;
     }
 
@@ -66,18 +72,7 @@ public class Room {
         }
     }
 
-    public String getShortDescription()
-    {
-        return description;
-    }
-
-    public String getLongDescription()
-    {
-        return "You are " + description + ".";
-    }
-
-    public String getExitString()
-    {
+    public String getExitString() {
         String returnString = "You can go:";
         Set<String> keys = exits.keySet();
         for(String exit : keys) {
@@ -109,6 +104,18 @@ public class Room {
 
     public Quests getQuest() {
         return quest;
+    }
+
+    public void addTeleporterToRoom(Teleport tp) {
+        teleports.add(tp);
+    }
+
+    public int getAmountOfTeleports() {
+        return teleports.size();
+    }
+
+    public Teleport getTP(int index) {
+        return teleports.get(index);
     }
 }
 

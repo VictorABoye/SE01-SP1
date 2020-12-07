@@ -1,10 +1,296 @@
 package worldofzuul;
 
+import UI.Level1Controller;
+import UI.Level2Controller;
+import UI.Level3Controller;
+import UI.PlayerControl;
+import dk.sdu.mmmi.t3.g1.*;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.image.ImageView;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+
+public class Game{
+
+    private static WorldPlayer player;
+    private static Room currentRoom;
+
+    public Game(){
+        player = new WorldPlayer();
+        createWorld();
+    }
+
+    public static Room getCurrentRoom() {
+        return currentRoom;
+    }
+
+    public static void setCurrentRoom(Room room) {
+        currentRoom = room;
+    }
+
+    private void createWorld() {
+        //Create all the Rooms
+        Room home, parking, beach, park, road, shop, recycling;
+
+        try {
+        //Home
+            //FXML File
+            String FXML1 = "/fxml/Level1.fxml";
+
+            //Loader
+            Parent window1 = FXMLLoader.load(getClass().getResource(FXML1));
+
+            //Create Items
+            Item can1 = new NonFoodItem((ImageView) window1.lookup("#itemCan1"),"can","metal");
+            can1.getImageView().setVisible(true);
+            Item can2 = new NonFoodItem((ImageView) window1.lookup("#itemCan2"),"can","metal");
+            can2.getImageView().setVisible(true);
+
+            //Create Teleports
+            Teleport tp1 = new Teleport((ImageView) window1.lookup("#tp1"),"/fxml/Level1.fxml");
+            Teleport tpNorth = new Teleport((ImageView) window1.lookup("#tpNorth"),"/fxml/Level2.fxml");
+
+            //Create Room
+            home = new Room(new Quests(new ArrayList<>(), new HashMap<>(), "L1"));
+
+            //Add Items and Teleporters to Room
+            home.addItemToRoom(can1);
+            home.addItemToRoom(can2);
+            home.addTeleporterToRoom(tpNorth);
+            home.addTeleporterToRoom(tp1);
+
+        //Parking
+            //FXML file
+            String FXML2 = "/fxml/Level2.fxml";
+
+            //Loader
+            Parent window2 = FXMLLoader.load(getClass().getResource(FXML2));
+
+            //Create Items
+
+            //Create Teleporters
+            Teleport tpSouth = new Teleport((ImageView) window2.lookup("#tpSouth"),"/fxml/Level3.fxml");
+
+            //Create Room
+            parking = new Room(new Quests(new ArrayList<>(), new HashMap<>(), "L2"));
+
+            //Add Items and Teleporters to Room
+            parking.addTeleporterToRoom(tpSouth);
+
+        //Beach
+            //FXML file
+            String FXML3 = "/fxml/Level3.fxml";
+
+            //Loader
+            Parent window3 = FXMLLoader.load(getClass().getResource(FXML3));
+
+            //Create Items
+
+            //Create Teleporters
+            Teleport tpEast = new Teleport((ImageView) window3.lookup("#tpEast"),"/fxml/Level1.fxml");
+
+            //Create Room
+            beach = new Room(new Quests(new ArrayList<>(), new HashMap<>(), "L3"));
+
+            //Add Items and Teleporters to Room
+            beach.addTeleporterToRoom(tpEast);
+
+
+
+        //Park
+            //FXML file
+            //Loader
+            //Create Items
+            //Create Teleporters
+            //Create Room
+            //Add Items and Teleporters to Room
+        //Road
+            //FXML file
+            //Loader
+            //Create Items
+            //Create Teleporters
+            //Create Room
+            //Add Items and Teleporters to Room
+        //Shop
+            //FXML file
+            //Loader
+            //Create Items
+            //Create Teleporters
+            //Create Room
+            //Add Items and Teleporters to Room
+        //Recycling plant
+            //FXML file
+            //Loader
+            //Create Items
+            //Create Teleporters
+            //Create Room
+            //Add Items and Teleporters to Room
+
+            //Link room
+            home.getTP(0).linkTeleport(parking);
+            home.getTP(1).linkTeleport(home);
+            parking.getTP(0).linkTeleport(beach);
+            beach.getTP(0).linkTeleport(home);
+
+            //Starting Room
+            currentRoom = home;
+
+
+        } catch (IOException e){
+            System.out.println(e.getMessage());
+        }
+
+
+        //Link all rooms
+
+    }
+
+    public void play() {
+        System.out.println("Play the game");
+    }
+
+    public static WorldPlayer getWorldPlayer()
+    {
+        return player;
+    }
+
+    public static boolean playerCollidesItem(Player player){
+        //Room currentRoom = event.getSource();
+        //Item currentItem = currentRoom.getItem(item);
+        //Player player = currentRoom.getPlayer();
+        Item currentItem = getClosestItemToPlayer(player);
+        if (currentItem != null) {
+            //Player player = new Player(((ImageView)((Scene)event.getSource()).lookup("#player")),"player","@../images/obama.png");
+            double ix1 = currentItem.getX();
+            double iy1 = currentItem.getY();
+            double ix2 = currentItem.getW() + ix1;
+            double iy2 = currentItem.getH() + iy1;
+            double px1 = player.getX();
+            double py1 = player.getY();
+            double px2 = player.getW() + px1;
+            double py2 = player.getH() + py1;
+            if (px2 >= ix1 && py1 <= iy2 && !(px1 >= ix2) && !(py2 <= iy1)) {
+                currentItem.getImageView().setVisible(false);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static Item getClosestItemToPlayer(Player player){
+        if (currentRoom.getRoomInventorySize() == 0) return null;
+        Item currentItem;
+        double shortestDist = 999999;
+        int itemIndex = 0;
+
+            for (int i = 0; i < currentRoom.getRoomInventorySize(); i++) {
+                currentItem = currentRoom.getItem(i);
+                //Player on screen
+                double px1 = player.getX();
+                double px2 = player.getW() + px1;
+                double py1 = player.getY();
+                double py2 = player.getH() + py1;
+                double pmx = px2 / 2.0;
+                double pmy = py2 / 2.0;
+                //System.out.println("Player X: " + pmx + " Y: " + pmy);
+                //Item on screen
+                double ix1 = currentItem.getX();
+                double ix2 = currentItem.getW() + ix1;
+                double iy1 = currentItem.getY();
+                double iy2 = currentItem.getH() + iy1;
+                double imx = ix2 / 2.0;
+                double imy = iy2 / 2.0;
+                //System.out.println("Item X: " + imx + " Y: " + imy);
+                //Distance between player and item
+                double mpx = Math.abs(pmx - imx);
+                double mpy = Math.abs(pmy - imy);
+                double dist = Math.sqrt((mpx+mpy)*(mpx+mpy));
+
+                if (dist < shortestDist){
+                    shortestDist = dist;
+                    itemIndex = i;
+                }
+                //System.out.println(shortestDist);
+            }
+        return currentRoom.getItem(itemIndex);
+    }
+
+    public static boolean playerCollidesTeleport(Player player){
+        Teleport currentTP = getClosestTeleporterToPlayer(player);
+        if (currentTP != null) {
+            //Player player = new Player(((ImageView)((Scene)event.getSource()).lookup("#player")),"player","@../images/obama.png");
+            double ix1 = currentTP.getX();
+            double iy1 = currentTP.getY();
+            double ix2 = currentTP.getW() + ix1;
+            double iy2 = currentTP.getH() + iy1;
+            double px1 = player.getX();
+            double py1 = player.getY();
+            double px2 = player.getW() + px1;
+            double py2 = player.getH() + py1;
+            if (px2 >= ix1 && py1 <= iy2 && !(px1 >= ix2) && !(py2 <= iy1)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static Teleport getClosestTeleporterToPlayer(Player player){
+        if (currentRoom.getAmountOfTeleports() <= 0) return null;
+        Teleport currentTP;
+        double shortestDist = 999999;
+        int itemIndex = 0;
+
+        for (int i = 0; i < currentRoom.getAmountOfTeleports(); i++) {
+            currentTP = currentRoom.getTP(i);
+            //Player on screen
+            double px1 = player.getX();
+            double px2 = player.getW() + px1;
+            double py1 = player.getY();
+            double py2 = player.getH() + py1;
+            double pmx = px2 / 2.0;
+            double pmy = py2 / 2.0;
+            //System.out.println("Player X: " + pmx + " Y: " + pmy);
+            //Item on screen
+            double ix1 = currentTP.getX();
+            double ix2 = currentTP.getW() + ix1;
+            double iy1 = currentTP.getY();
+            double iy2 = currentTP.getH() + iy1;
+            double imx = ix2 / 2.0;
+            double imy = iy2 / 2.0;
+            //System.out.println("Item X: " + imx + " Y: " + imy);
+            //Distance between player and item
+            double mpx = Math.abs(pmx - imx);
+            double mpy = Math.abs(pmy - imy);
+            double dist = Math.sqrt((mpx+mpy)*(mpx+mpy));
+
+            if (dist < shortestDist){
+                shortestDist = dist;
+                itemIndex = i;
+            }
+            //System.out.println(shortestDist);
+        }
+        return currentRoom.getTP(itemIndex);
+    }
+}
+
+
+
+
+/*
+ *
+ * Legacy Game Class
+ *
+ */
+/*
 import dk.sdu.mmmi.t3.g1.Item;
 import dk.sdu.mmmi.t3.g1.NonFoodItem;
 import dk.sdu.mmmi.t3.g1.Player;
 import dk.sdu.mmmi.t3.g1.Quests;
 import dk.sdu.mmmi.t3.g1.Data;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -26,13 +312,13 @@ public class Game
 
     public Game() throws IOException, ParseException {
         parser = new Parser();
-        player = new Player();
+        //player = new Player();
         createRooms();
     }
 
     private void createRooms() throws IOException, ParseException {
         Room house, park, shop, road, parking, beach, recycling;
-        NonFoodItem can, cup, straw, water_bottle, paper_bag, glass_bottle, battery;
+        //NonFoodItem can, cup, straw, water_bottle, paper_bag, glass_bottle, battery;
         Quests breakfast, transport, roadQuest, groceries, recyclingQuest, factory, quiz, parkQuest;
         Data quests = new Data();
         questStrings.add(quests.questString("breakfast"));
@@ -91,7 +377,7 @@ public class Game
         quiz.addChoice(parser.parseString((String)questStrings.get(7).get(6)), 5, parser.parseString((String)questStrings.get(7).get(15)) );
         quiz.addChoice(parser.parseString((String)questStrings.get(7).get(7)), 5, parser.parseString((String)questStrings.get(7).get(16)) );
         quiz.addChoice(parser.parseString((String)questStrings.get(7).get(8)), 5, parser.parseString((String)questStrings.get(7).get(17)) );
-        */
+
 
         //Passing on to next quest
         breakfast.setNextQuest(transport);
@@ -109,6 +395,7 @@ public class Game
         beach = new Room("at the beach","info", factory);
         recycling = new Room("at the recycling plant","info", recyclingQuest);
 
+
         can = new NonFoodItem("can", "metal");
         cup = new NonFoodItem("cup", "plastic");
         straw = new NonFoodItem("straw", "plastic");
@@ -117,32 +404,41 @@ public class Game
         glass_bottle = new NonFoodItem("glassbottle","glass");
         battery = new NonFoodItem("battery","battery");
 
+
+
         house.setExit("north", parking);
+
         house.addItemToRoom(battery);
         house.addItemToRoom(battery);
         house.addItemToRoom(can);
+
+
         house.setVisited();
 
         park.setExit("south", parking);
+
         park.addItemToRoom(paper_bag);
         park.addItemToRoom(water_bottle);
         park.addItemToRoom(cup);
         park.addItemToRoom(glass_bottle);
+
+
 
         shop.setExit("south", road);
 
         road.setExit("north", shop);
         road.setExit("east", parking);
         road.setExit("west", recycling);
-        road.addItemToRoom(can);
+        //road.addItemToRoom(can);
 
         parking.setExit("west", road);
         parking.setExit("south", house);
         parking.setExit("north", park);
         parking.setExit("east", beach);
-        parking.addItemToRoom(paper_bag);
+        //parking.addItemToRoom(paper_bag);
 
         beach.setExit("west", parking);
+
         beach.addItemToRoom(can);
         beach.addItemToRoom(cup);
         beach.addItemToRoom(water_bottle);
@@ -150,17 +446,19 @@ public class Game
         beach.addItemToRoom(paper_bag);
         beach.addItemToRoom(straw);
 
+
+
         recycling.setExit("east", road);
         // For at teste sorting tingeling
 
-        /*
+
         player.pickUp(can);
         player.pickUp(can);
         player.pickUp(can);
         player.pickUp(cup);
         player.pickUp(cup);
         player.pickUp(paper_bag);
-         */
+
 
 
         currentRoom = house; //Starting
@@ -220,6 +518,7 @@ public class Game
             //Pick up method from player instance
             itemRoomToPlayer(command);
         }
+
         else if (commandWord == CommandWord.SORT){
             if(!currentRoom.getShortDescription().equals("at the recycling plant")){
                 System.out.println("You are not at the recycling plant, so you can't sort items.");
@@ -232,6 +531,8 @@ public class Game
                 }
             }
         }
+
+
         else if (commandWord == CommandWord.INVENTORY){
             player.showInventory();
         }
@@ -279,7 +580,7 @@ public class Game
                 }
             }
 
-             */
+
             
         }
         else if (commandWord == CommandWord.SCORE){
@@ -484,3 +785,6 @@ public class Game
         }
     }
 }
+
+ */
+
