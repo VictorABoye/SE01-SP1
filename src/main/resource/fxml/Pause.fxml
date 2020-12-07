@@ -8,5 +8,6 @@
       <Button fx:id="backToMenu" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#goToMenu" text="Back to Menu" />
       <Button fx:id="quit" layoutX="14.0" layoutY="50.0" mnemonicParsing="false" onAction="#closeGame" text="Close Game" />
       <Button fx:id="resume" layoutX="14.0" layoutY="86.0" mnemonicParsing="false" onAction="#closePause" text="Continue Game" />
+      <Button fx:id="aboutButton" layoutX="14.0" layoutY="121.0" mnemonicParsing="false" onAction="#aboutPage" text="About" />
    </children>
 </AnchorPane>

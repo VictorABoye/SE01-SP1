@@ -53,7 +53,11 @@ public class LaunchController implements FXMLLoading {
             Parent aboutWindow = FXMLLoader.load(getClass().getResource(aboutFile));
             Stage stage = new Stage();
             stage.setTitle("About the Game");
-            stage.setScene(new Scene(aboutWindow));
+            Scene scene = new Scene(aboutWindow);
+            scene.setOnKeyPressed(event -> {
+                if (event.getCode() == KeyCode.ESCAPE) stage.close();
+            });
+            stage.setScene(scene);
             stage.show();
         } catch (IOException e){
             System.out.println("Cannot find fxml file");

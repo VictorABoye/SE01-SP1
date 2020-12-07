@@ -21,7 +21,7 @@
             <Font size="34.0" />
          </font>
       </Text>
-      <Text layoutX="30.0" layoutY="154.0" text="W = Move up&#10;S = Move down&#10;D = Move left&#10;A = Move right&#10;E = Pick up &#10;I = Inventory&#10;ESC = Back to menu" wrappingWidth="200.0">
+      <Text layoutX="30.0" layoutY="154.0" text="W = Move up&#10;S = Move down&#10;D = Move left&#10;A = Move right&#10;E = Pick up &#10;I = Inventory&#10;R = Sorting&#10;ESC = Back to menu" wrappingWidth="200.0">
          <font>
             <Font size="20.0" />
          </font>

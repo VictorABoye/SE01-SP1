@@ -104,10 +104,11 @@ public abstract class PlayerControl {
                 popup.setTitle("Player Inventory");
                 Scene scene = new Scene(inventoryWindow);
                 popup.setScene(scene);
+                popup.setAlwaysOnTop(true);
                 popup.getIcons().add(new Image("/images/test.jpg"));
                 popup.show();
                 scene.setOnKeyPressed(event1 -> {
-                    if (event1.getCode() == KeyCode.ESCAPE) popup.close();
+                    if (event1.getCode() == KeyCode.ESCAPE || event1.getCode() == KeyCode.I) popup.close();
                 });
             } catch (IOException e){
                 System.out.println("Cannot find fxml file");
@@ -121,10 +122,11 @@ public abstract class PlayerControl {
                 popup.setTitle("Items sorting");
                 Scene scene = new Scene(inventoryWindow);
                 popup.setScene(scene);
+                popup.setAlwaysOnTop(true);
                 popup.getIcons().add(new Image("/images/test.jpg"));
                 popup.show();
                 scene.setOnKeyPressed(event1 -> {
-                    if (event1.getCode() == KeyCode.ESCAPE) popup.close();
+                    if (event1.getCode() == KeyCode.ESCAPE || event1.getCode() == KeyCode.R) popup.close();
                 });
             } catch (IOException e){
                 System.out.println("Cannot find fxml file");
@@ -143,7 +145,11 @@ public abstract class PlayerControl {
                 Parent pauseWindow = FXMLLoader.load(PlayerControl.class.getResource(pauseFile));
                 Stage pauseStage = new Stage();
                 pauseStage.setTitle("Game Paused");
-                pauseStage.setScene(new Scene(pauseWindow));
+                Scene scene = new Scene(pauseWindow);
+                scene.setOnKeyPressed(event1 -> {
+                    if (event1.getCode() == KeyCode.ESCAPE) pauseStage.close();
+                });
+                pauseStage.setScene(scene);
                 pauseStage.getIcons().add(new Image("/images/test.jpg"));
                 pauseStage.show();
             } catch (IOException e){
@@ -180,7 +186,7 @@ public abstract class PlayerControl {
             Stage stage = new Stage();
             Scene scene = new Scene(popUp);
             stage.setScene(scene);
-            stage.setAlwaysOnTop(false);
+            stage.setAlwaysOnTop(true);
             stage.initStyle(StageStyle.UNDECORATED);
             stage.show();
         } catch (IOException e){
