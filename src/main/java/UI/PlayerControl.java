@@ -24,6 +24,10 @@ public abstract class PlayerControl {
     final static private String inventoryFile = "/fxml/Inventory.fxml";
     final static private String pauseFile = "/fxml/Pause.fxml";
 
+
+    //===Used by "setOnKeyPressed"======================================================================================
+
+    //Control based on player input
     public static void playerMovement(KeyEvent event, Stage stage){
         WorldPlayer worldPlayer = Game.getWorldPlayer();
         KeyCode code = event.getCode();
@@ -36,14 +40,6 @@ public abstract class PlayerControl {
         //Add player animation
         //Fix all this
 
-        if (Game.playerCollidesTeleport(player)){
-            Teleport currentTP = Game.getClosestTeleporterToPlayer(player);
-            if (currentTP != null) {
-                currentTP.teleportToRoom(stage);
-                return;
-            }
-            System.out.println("No TP");
-        }
         if (code == KeyCode.W){
             if(player.getY() > 0){
                 player.moveUp();
@@ -82,8 +78,6 @@ public abstract class PlayerControl {
         }
 
         if(code == KeyCode.E){
-            // Add functionality to pick up items
-            //System.out.println(playerCollidesItem(event));
             if (Game.playerCollidesItem(player))
             {
                 Item currentItem = Game.getClosestItemToPlayer(player);
@@ -95,7 +89,6 @@ public abstract class PlayerControl {
                     System.out.println(Game.getWorldPlayer().getInventory().getSize());
                 }
             }
-            //System.out.println("Pick up");
         }
         if (code == KeyCode.I)
         {
@@ -107,8 +100,6 @@ public abstract class PlayerControl {
                 popup.setScene(scene);
                 popup.getIcons().add(new Image("/images/test.jpg"));
                 popup.show();
-                //System.out.println(keyEvent.getCode());
-                //if (keyEvent.getCode() == KeyCode.ESCAPE) stage.close();
                 scene.setOnKeyPressed(event1 -> {
                     if (event1.getCode() == KeyCode.ESCAPE) popup.close();
                 });
@@ -129,25 +120,33 @@ public abstract class PlayerControl {
                 System.out.println("Cannot find fxml file");
             }
         }
-
-        if (code == KeyCode.K) Game.getWorldPlayer().addToClimateScore(0.5);
-        if (code == KeyCode.L) Game.getWorldPlayer().addToClimateScore(-0.5);
-
+        if (Game.playerCollidesTeleport(player)){
+            Teleport currentTP = Game.getClosestTeleporterToPlayer(player);
+            if (currentTP != null) {
+                currentTP.teleportToRoom(stage);
+                return;
+            }
+            System.out.println("No TP");
+        }
         double climateScore = Game.getWorldPlayer().getClimateScore();
         scoreBar.setWidth(climateScore/100.0*1200);
         scoreBar.setFill(getColor(climateScore));
 
-        //Dunno how these if statements function
+
+        //For testing
+        if (code == KeyCode.K) Game.getWorldPlayer().addToClimateScore(0.5);
+        if (code == KeyCode.L) Game.getWorldPlayer().addToClimateScore(-0.5);
+
         if (code == KeyCode.SPACE)
             System.out.println("space");
         if (code == KeyCode.SHIFT)
             System.out.println("Shift");
         if (code == KeyCode.CONTROL)
             System.out.println("Ctrl");
-        //else System.out.println(code.toString());
-        //System.out.println("X: " + player.getX() + "; Y: " + player.getY());
     }
 
+
+    //===Used by the controllers "Initialize"===========================================================================
 
     //Creates the score bar and its background, and sets their placement
     public static Rectangle[] createScoreBar(){

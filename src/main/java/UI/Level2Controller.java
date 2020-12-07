@@ -15,7 +15,7 @@ public class Level2Controller extends PlayerControl{
     public AnchorPane window;
 
     @FXML
-    public ImageView tpSouth, player;
+    public ImageView tpNorth, tpSouth, tpEast, tpWest, player;
 
     private ArrayList<ImageView> itemsInRoom = new ArrayList<>();
 
