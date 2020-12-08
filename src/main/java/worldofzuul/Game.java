@@ -125,8 +125,8 @@ public class Game{
             Parent window1 = FXMLLoader.load(getClass().getResource(FXML1));
 
             //Create Items
-            Item can1 = new NonFoodItem((ImageView) window1.lookup("#itemCan1"),"can","metal");
-            Item can2 = new NonFoodItem((ImageView) window1.lookup("#itemCan2"),"can","metal");
+            Item can1 = new Item((ImageView) window1.lookup("#itemCan1"),"can","metal");
+            Item can2 = new Item((ImageView) window1.lookup("#itemCan2"),"can","metal");
 
             //Create Teleports
             Teleport homeTPNorth = new Teleport((ImageView) window1.lookup("#tpNorth"),FXML2);
@@ -145,6 +145,8 @@ public class Game{
             Parent window2 = FXMLLoader.load(getClass().getResource(FXML2));
 
             //Create Items
+            Item bottle1 = new Item((ImageView) window2.lookup("#glassBottle1"), "bottle", "glass");
+            Item bottle2 = new Item((ImageView) window2.lookup("#glassBottle2"), "bottle", "glass");
 
             //Create Teleporters
             Teleport parkingTPNorth = new Teleport((ImageView) window2.lookup("#tpNorth"),FXML4);
@@ -160,6 +162,9 @@ public class Game{
             parking.addTeleporterToRoom(parkingTPSouth);
             parking.addTeleporterToRoom(parkingTPEast);
             parking.addTeleporterToRoom(parkingTPWest);
+            parking.addItemToRoom(bottle1); //marc er sej :)
+            parking.addItemToRoom(bottle2); //marc er sej igen :/
+
 
             //===Beach lvl==============================================================================================
 
@@ -167,6 +172,8 @@ public class Game{
             Parent window3 = FXMLLoader.load(getClass().getResource(FXML3));
 
             //Create Items
+            Item paperbag1 = new Item((ImageView) window3.lookup("#paperbag1"), "paperbag", "paper");
+            Item paperbag2 = new Item((ImageView) window3.lookup("#paperbag2"), "paperbag", "paper");
 
             //Create Teleporters
             Teleport beachTPWest = new Teleport((ImageView) window3.lookup("#tpWest"),FXML2);
@@ -180,6 +187,8 @@ public class Game{
             //Add Items and Teleporters to Room
             beach.addTeleporterToRoom(beachTPWest);
             beach.addWall(beachBarrier);
+            beach.addItemToRoom(paperbag1);
+            beach.addItemToRoom(paperbag2);
 
             //===Park lvl===============================================================================================
 
@@ -187,6 +196,8 @@ public class Game{
             Parent window4 = FXMLLoader.load(getClass().getResource(FXML4));
 
             //Create Items
+            Item metalcan1 = new Item((ImageView) window4.lookup("#metalcan1"), "metalcan", "metal");
+            Item metalcan2 = new Item((ImageView) window4.lookup("#metalcan2"), "metalcan", "metal");
 
             //Create Teleporters
             Teleport parkTPSouth = new Teleport((ImageView) window4.lookup("#tpSouth"),FXML2);
@@ -200,6 +211,8 @@ public class Game{
             //Add Items and Teleporters to Room
             park.addTeleporterToRoom(parkTPSouth);
             park.addWall(parkBarrier);
+            park.addItemToRoom(metalcan1);
+            park.addItemToRoom(metalcan2);
 
             //===Road lvl===============================================================================================
 
@@ -207,6 +220,9 @@ public class Game{
             Parent window5 = FXMLLoader.load(getClass().getResource(FXML5));
 
             //Create Items
+            Item plastBottle = new Item((ImageView) window5.lookup("#plastBottle"), "plastBottle", "plast");
+            Item battery = new Item((ImageView) window5.lookup("#battery"), "battery", "battery");
+
             //Create Teleporters
             Teleport roadTPNorth = new Teleport((ImageView) window5.lookup("#tpNorth"),FXML6);
             Teleport roadTPEast = new Teleport((ImageView) window5.lookup("#tpEast"),FXML2);
@@ -219,6 +235,8 @@ public class Game{
             road.addTeleporterToRoom(roadTPNorth);
             road.addTeleporterToRoom(roadTPEast);
             road.addTeleporterToRoom(roadTPWest);
+            road.addItemToRoom(battery);
+            road.addItemToRoom(plastBottle);
 
             //===Shop lvl===============================================================================================
 
@@ -249,7 +267,7 @@ public class Game{
             Barrier recyclingBarrier = new Barrier((ImageView) window7.lookup("#wall"));
 
             //Create Room
-            Room recycling = new Room(recyclingQuest);
+            Room recycling = new Room(recyclingQuest, "recycling");
 
             //Add Items and Teleporters to Room
             recycling.addTeleporterToRoom(recyclingTPEast);

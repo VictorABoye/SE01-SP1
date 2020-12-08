@@ -29,7 +29,6 @@ public class Level1Controller extends PlayerControl{
 
     public void populateArraylist(){
         //Add All Items to the Arraylist;
-
         itemsInRoom.add(itemCan1);
         itemsInRoom.add(itemCan2);
     }

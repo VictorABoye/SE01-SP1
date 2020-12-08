@@ -12,7 +12,7 @@ public class Level4Controller extends PlayerControl{
     public AnchorPane window;
 
     @FXML
-    public ImageView tpSouth, player, wall;
+    public ImageView tpSouth, player, wall,metalcan1,metalcan2;
 
     private ArrayList<ImageView> itemsInRoom = new ArrayList<>();
 
@@ -21,6 +21,8 @@ public class Level4Controller extends PlayerControl{
 
         //itemsInRoom.add(itemCan1);
         //itemsInRoom.add(itemCan2);
+        itemsInRoom.add(metalcan1);
+        itemsInRoom.add(metalcan2);
     }
 
     @FXML

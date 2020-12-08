@@ -16,7 +16,19 @@ public class Room {
     private Quests quest;
     private ArrayList<Teleport> teleports;
     private Barrier wall;
+    private String name;
 
+    public Room (Quests quest, String name)
+    {
+        exits = new HashMap<String, Room>();
+        inventory = new Inventory();
+        isVisited = false;
+        this.quest = quest;
+        this.infoBox = this.quest.getDescription();
+        teleports = new ArrayList<>();
+        this.name = name;
+
+    }
     public Room (Quests quest)
     {
         exits = new HashMap<String, Room>();
@@ -25,6 +37,8 @@ public class Room {
         this.quest = quest;
         this.infoBox = this.quest.getDescription();
         teleports = new ArrayList<>();
+        name = "default";
+
     }
 
     public Inventory getInventory(){
@@ -126,6 +140,10 @@ public class Room {
 
     public Barrier getWall(){
         return wall;
+    }
+
+    public String getName() {
+        return name;
     }
 }
 

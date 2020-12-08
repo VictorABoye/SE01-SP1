@@ -1,22 +1,14 @@
 package UI;
 
-import dk.sdu.mmmi.t3.g1.Entity;
-import dk.sdu.mmmi.t3.g1.NonFoodItem;
-import dk.sdu.mmmi.t3.g1.Player;
-
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
-import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import org.json.simple.parser.ParseException;
 import worldofzuul.Game;

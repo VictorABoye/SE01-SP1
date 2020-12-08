@@ -25,6 +25,11 @@
             <Image url="@../images/utility/door.png" />
          </image>
       </ImageView>
+      <ImageView fx:id="glassBottle2" fitHeight="150.0" fitWidth="200.0" layoutX="920.0" layoutY="150.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/Items/glass_bottle.png" />
+         </image>
+      </ImageView>
       <ImageView fx:id="tpEast" fitHeight="163.0" fitWidth="37.0" layoutX="1243.0" layoutY="309.0" pickOnBounds="true" visible="false">
          <image>
             <Image url="@../images/utility/door.png" />
@@ -44,6 +49,11 @@
          <image>
             <Image url="@../images/Signs/ROAD.png" />
          </image></ImageView>
+      <ImageView fx:id="glassBottle1" fitHeight="150.0" fitWidth="200.0" layoutX="207.0" layoutY="272.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/Items/glass_bottle.png" />
+         </image>
+      </ImageView>
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="425.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/Signs/PARK.png" />

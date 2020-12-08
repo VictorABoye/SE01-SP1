@@ -119,7 +119,8 @@ public abstract class PlayerControl {
                 System.out.println("Cannot find fxml file");
             }
         }
-        if (code == KeyCode.R)
+        if (code == KeyCode.R && Game.getCurrentRoom().getName().equals("recycling"))
+
         {
             try {
                 Parent inventoryWindow = FXMLLoader.load(PlayerControl.class.getResource(sortingFile));
