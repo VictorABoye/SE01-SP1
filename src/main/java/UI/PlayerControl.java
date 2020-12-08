@@ -2,8 +2,11 @@ package UI;
 
 import dk.sdu.mmmi.t3.g1.*;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.SnapshotResult;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
@@ -148,6 +151,22 @@ public abstract class PlayerControl {
                 Scene scene = new Scene(pauseWindow);
                 scene.setOnKeyPressed(event1 -> {
                     if (event1.getCode() == KeyCode.ESCAPE) pauseStage.close();
+                });
+                Button button = ((Button) pauseWindow.lookup("#backToMenu"));
+                button.setOnAction(actionEvent -> {
+                    stage.close();
+                    Stage aStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+                    aStage.close();
+                    try {
+                        Parent launcher = FXMLLoader.load(PlayerControl.class.getResource(launchFile));
+                        Stage newStage = new Stage();
+                        newStage.setScene(new Scene(launcher));
+                        newStage.setTitle("World of Cool");
+                        newStage.setResizable(false);
+                        newStage.show();
+                    } catch (IOException e){
+                        System.out.println("Cannot find fxml file");
+                    }
                 });
                 pauseStage.setScene(scene);
                 pauseStage.getIcons().add(new Image("/images/test.jpg"));

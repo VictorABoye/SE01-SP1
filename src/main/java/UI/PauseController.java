@@ -9,40 +9,27 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.KeyCode;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
 public class PauseController implements FXMLLoading{
 
-    final String launchFile = "/fxml/Launcher.fxml";
-    final String aboutFile = "/fxml/About.fxml";
+    final static String launchFile = "/fxml/Launcher.fxml";
+    final static String aboutFile = "/fxml/About.fxml";
 
     @FXML
     public Button backToMenu, quit, resume, aboutButton;
 
-    public void goToMenu(ActionEvent event) {
-        Stage aStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        aStage.close();
-        try {
-            Parent launcher = FXMLLoader.load(getClass().getResource(launchFile));
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(launcher));
-            stage.setTitle("World of Cool");
-            stage.setResizable(false);
-            stage.show();
-        } catch (IOException e){
-            System.out.println("Cannot find fxml file");
-        }
-    }
-
-
     @Override
+    @FXML
     public void closeGame(ActionEvent event) {
         Platform.exit();
         System.exit(1337);
     }
 
+    @FXML
     public void closePause(ActionEvent event) {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.close();
