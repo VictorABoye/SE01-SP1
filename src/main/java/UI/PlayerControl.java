@@ -17,6 +17,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import org.json.simple.parser.ParseException;
 import worldofzuul.Game;
 
 import java.io.IOException;
@@ -158,13 +159,16 @@ public abstract class PlayerControl {
                     Stage aStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
                     aStage.close();
                     try {
+                        Game newGame = new Game();
+                        newGame.replay();
+                        newGame.play();
                         Parent launcher = FXMLLoader.load(PlayerControl.class.getResource(launchFile));
                         Stage newStage = new Stage();
                         newStage.setScene(new Scene(launcher));
                         newStage.setTitle("World of Cool");
                         newStage.setResizable(false);
                         newStage.show();
-                    } catch (IOException e){
+                    } catch (IOException | ParseException e){
                         System.out.println("Cannot find fxml file");
                     }
                 });

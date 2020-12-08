@@ -34,6 +34,14 @@ public class Game{
         createWorld();
     }
 
+    public void replay() throws IOException, ParseException {
+        player = new WorldPlayer();
+        finished = false;
+        rooms = new ArrayList<>();
+        parser = new Parser();
+        createWorld();
+    }
+
     //===Initial methods================================================================================================
 
     private void createWorld() throws IOException, ParseException {
