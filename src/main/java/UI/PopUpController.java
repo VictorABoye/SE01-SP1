@@ -52,9 +52,33 @@ public class PopUpController{
 
 
     public void getChoice(ActionEvent event){
+        //Probably a better way to find consequnce for the button pressed..
+        int size = Game.getCurrentRoom().getQuest().showChoices().size();
+        System.out.println(((Button) event.getSource()).getId());
+        if(((Button) event.getSource()).getId().equals("choice1") && size == 2){
+            size--;
+        }
+        if(((Button) event.getSource()).getId().equals("choice1") && size == 4){
+            size-= 3;
+        }
+        if(((Button) event.getSource()).getId().equals("choice2") && size == 4){
+            size-= 2;
+        }
+        if(((Button) event.getSource()).getId().equals("choice3") && size == 4){
+            size--;
+        }
         Game.getWorldPlayer().addToClimateScore(Game.getCurrentRoom().getQuest().getChoiceWeight(((Button) event.getSource()).getText()));
+        Game.getCurrentRoom().getQuest().setCompleted();
+        questInfo.setText(Game.getCurrentRoom().getQuest().getConsequence(size));
+        choice1.setOnAction(this::closePopUp);
+        choice1.setText("Close window");
+        choice2.setVisible(false);
+        choice3.setVisible(false);
+        choice4.setVisible(false);
+    }
+
+    public void closePopUp(ActionEvent event){
         Stage cStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         cStage.close();
-        Game.getCurrentRoom().getQuest().setCompleted();
     }
 }
