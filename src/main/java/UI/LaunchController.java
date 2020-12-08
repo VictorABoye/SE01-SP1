@@ -44,11 +44,27 @@ public class LaunchController implements FXMLLoading {
 
     @FXML
     public void aboutPage(ActionEvent actionEvent) {
+        openAbout();
+    }
+
+    @Override
+    public void closeGame(ActionEvent event) {
+        Platform.exit();
+        System.exit(1337);
+    }
+
+    public void initialize(){
+        openAbout();
+
+    }
+    public void openAbout(){
         try {
             Parent aboutWindow = FXMLLoader.load(getClass().getResource(aboutFile));
             Stage stage = new Stage();
             stage.setTitle("About the Game");
             Scene scene = new Scene(aboutWindow);
+            stage.setAlwaysOnTop(true);
+            stage.requestFocus();
             scene.setOnKeyPressed(event -> {
                 if (event.getCode() == KeyCode.ESCAPE) stage.close();
             });
@@ -57,11 +73,5 @@ public class LaunchController implements FXMLLoading {
         } catch (IOException e){
             System.out.println("Cannot find fxml file");
         }
-    }
-
-    @Override
-    public void closeGame(ActionEvent event) {
-        Platform.exit();
-        System.exit(1337);
     }
 }
