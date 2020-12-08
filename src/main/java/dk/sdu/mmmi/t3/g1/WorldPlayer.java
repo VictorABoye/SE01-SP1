@@ -4,6 +4,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import worldofzuul.Game;
 
 import java.io.IOException;
@@ -42,6 +43,8 @@ public class WorldPlayer {
                 Stage stage = new Stage();
                 Scene scene = new Scene(root);
                 stage.setScene(scene);
+                stage.setAlwaysOnTop(true);
+                stage.initStyle(StageStyle.UNDECORATED);
                 stage.show();
 
             }catch ( IOException e){
