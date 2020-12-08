@@ -30,6 +30,7 @@ public abstract class PlayerControl {
     final static private String pauseFile = "/fxml/Pause.fxml";
     final static private String questFile = "/fxml/PopUp.fxml";
     final static private String sortingFile = "/fxml/Sorting.fxml";
+    final static private String mapFile = "/fxml/Map.fxml";
 
 
 
@@ -133,6 +134,24 @@ public abstract class PlayerControl {
                     if (event1.getCode() == KeyCode.ESCAPE || event1.getCode() == KeyCode.R) popup.close();
                 });
             } catch (IOException e){
+                System.out.println("Cannot find fxml file");
+            }
+        }
+        if (code == KeyCode.M)
+        {
+            try {
+                Parent mapWindow  = FXMLLoader.load(PlayerControl.class.getResource(mapFile));
+                Stage map  =new Stage();
+                map.setTitle("Map");
+                Scene scene = new Scene(mapWindow);
+                map.setScene(scene);
+                map.setAlwaysOnTop(true);
+                map.getIcons().add(new Image("/images/test.jpg"));
+                map.show();
+                scene.setOnKeyPressed(event1 -> {
+                    if (event1.getCode() == KeyCode.ESCAPE || event1.getCode() == KeyCode.M) map.close();
+                });
+            }catch (IOException e){
                 System.out.println("Cannot find fxml file");
             }
         }
