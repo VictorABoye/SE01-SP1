@@ -16,9 +16,7 @@ public class StartUI extends Application {
 
     final String launchFile = "/fxml/Launcher.fxml";
 
-    public static void main(String[] arg) throws IOException, ParseException {
-        Game game = new Game();
-        game.play();
+    public static void main(String[] arg) {
         launch(arg);
     }
 

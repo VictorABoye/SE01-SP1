@@ -159,16 +159,13 @@ public abstract class PlayerControl {
                     Stage aStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
                     aStage.close();
                     try {
-                        Game newGame = new Game();
-                        newGame.replay();
-                        newGame.play();
                         Parent launcher = FXMLLoader.load(PlayerControl.class.getResource(launchFile));
                         Stage newStage = new Stage();
                         newStage.setScene(new Scene(launcher));
                         newStage.setTitle("World of Cool");
                         newStage.setResizable(false);
                         newStage.show();
-                    } catch (IOException | ParseException e){
+                    } catch (IOException e){
                         System.out.println("Cannot find fxml file");
                     }
                 });

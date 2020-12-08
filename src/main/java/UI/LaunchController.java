@@ -18,6 +18,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
+import org.json.simple.parser.ParseException;
 import worldofzuul.Game;
 
 import java.io.IOException;
@@ -33,6 +34,8 @@ public class LaunchController implements FXMLLoading {
     @FXML
     public void startGame(ActionEvent actionEvent) {
         try {
+            Game game = new Game();
+            game.play();
             Parent firstLevel = FXMLLoader.load(getClass().getResource(firstLevelFile));
             Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             Scene scene = new Scene(firstLevel);
@@ -41,7 +44,7 @@ public class LaunchController implements FXMLLoading {
             });
             stage.setScene(scene);
             stage.show();
-        } catch (IOException e){
+        } catch (IOException | ParseException e){
             System.out.println(e.getMessage());
         }
 
