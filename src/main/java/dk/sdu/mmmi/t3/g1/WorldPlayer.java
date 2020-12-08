@@ -1,6 +1,12 @@
 package dk.sdu.mmmi.t3.g1;
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 import worldofzuul.Game;
+
+import java.io.IOException;
 
 public class WorldPlayer {
 
@@ -29,6 +35,18 @@ public class WorldPlayer {
         if (climateScore == 0){
             Game.setFinished();
             System.out.println("You lose!!!"); //End the game
+        }
+        if(Game.isFinished()) {
+            try {
+                Parent root = FXMLLoader.load(getClass().getResource("/fxml/End.fxml"));
+                Stage stage = new Stage();
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+
+            }catch ( IOException e){
+                System.out.println(e.getMessage());
+            }
         }
     }
 

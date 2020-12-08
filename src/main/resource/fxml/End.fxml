@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.EndController">
+   <children>
+      <Text fx:id="endText" layoutX="100.0" layoutY="107.0" text="hej">
+         <font>
+            <Font size="43.0" />
+         </font></Text>
+      <Button fx:id="closeGameButton" layoutX="166.0" layoutY="233.0" mnemonicParsing="false" onAction="#closeGame" prefHeight="113.0" prefWidth="236.0" text="Close game">
+         <font>
+            <Font name="Times New Roman" size="31.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
