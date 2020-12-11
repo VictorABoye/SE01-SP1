@@ -13,7 +13,7 @@
             <Font size="78.0" />
          </font>
       </Text>
-      <HBox alignment="CENTER" layoutY="300.0" prefHeight="100.0" prefWidth="600.0">
+      <HBox alignment="CENTER" layoutX="14.0" layoutY="300.0" prefHeight="100.0" prefWidth="600.0">
          <children>
             <Button fx:id="sortButtonPlast" mnemonicParsing="false" onAction="#sortItems" prefHeight="101.0" prefWidth="102.0" text="Plast" wrapText="true">
                <font>

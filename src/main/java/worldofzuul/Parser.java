@@ -19,7 +19,7 @@ public class Parser
         while(tokenizer.hasMoreTokens()){
             temp.add(tokenizer.nextToken());
         }
-        String str = "";
+        String str = new String();
         for(String st: temp){
             str += st + "\n";
         }
