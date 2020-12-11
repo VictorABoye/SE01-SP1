@@ -10,7 +10,7 @@ public class Level6Controller extends PlayerControl{
 
     @FXML
     public AnchorPane window;
-    public ImageView tpSouth, player;
+    public ImageView tpSouth, player, wall;
 
     private final ArrayList<ImageView> itemsInRoom = new ArrayList<>();
 
