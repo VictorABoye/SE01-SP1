@@ -67,8 +67,8 @@ public class PopUpController{
         if(((Button) event.getSource()).getId().equals("choice3") && size == 4){
             size--;
         }
-        Game.getWorldPlayer().addToClimateScore(Game.getCurrentRoom().getQuest().getChoiceWeight(((Button) event.getSource()).getText()));
         Game.getCurrentRoom().getQuest().setCompleted();
+        Game.getWorldPlayer().addToClimateScore(Game.getCurrentRoom().getQuest().getChoiceWeight(((Button) event.getSource()).getText()));
         questInfo.setText(Game.getCurrentRoom().getQuest().getConsequence(size));
         choice1.setOnAction(this::closePopUp);
         choice1.setText("Close window");

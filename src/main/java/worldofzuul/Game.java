@@ -293,6 +293,15 @@ public class Game{
 
             recycling.getTP(0).linkTeleport(road);
 
+            //Adding rooms to arraylist
+            rooms.add(home);
+            rooms.add(beach);
+            rooms.add(park);
+            rooms.add(parking);
+            rooms.add(road);
+            rooms.add(shop);
+            rooms.add(recycling);
+
             //Starting Room
             currentRoom = home;
 
@@ -448,6 +457,25 @@ public class Game{
     public static ArrayList<Room> getRooms() {
         return rooms;
     }
+
+    public static boolean itemsInRooms(){
+        for(Room room: rooms) {
+            if (room.getRoomInventorySize() > 0) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static boolean allQuestsCompleted(){
+        for(Room room: rooms){
+            if(!room.getQuest().getCompleted()){
+                return false;
+            }
+        }
+            return true;
+    }
+
 }
 
 

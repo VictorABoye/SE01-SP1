@@ -29,14 +29,20 @@ public class WorldPlayer {
         if (climateScore > 100) climateScore = 100;
         if (climateScore < 0) climateScore = 0;
 
-        if (climateScore == 100){
+        if (climateScore == 100 && Game.allQuestsCompleted()){
             Game.setFinished();
             System.out.println("You win!!!"); //End the game
         }
-        if (climateScore == 0){
+        if (climateScore == 0 && Game.allQuestsCompleted()){
             Game.setFinished();
             System.out.println("You lose!!!"); //End the game
         }
+
+        if(Game.allQuestsCompleted() && !Game.itemsInRooms() && allSorted()){
+            Game.setFinished();
+            System.out.println("You didn't win or lose...");
+        }
+
         if(Game.isFinished()) {
             try {
                 Parent root = FXMLLoader.load(getClass().getResource("/fxml/End.fxml"));
@@ -71,5 +77,14 @@ public class WorldPlayer {
     public void addItem(Item item)
     {
         inventory.addItem(item);
+    }
+
+    private boolean allSorted(){
+        for(Item item: inventory.items){
+            if(!item.isSorted()){
+                return false;
+            }
+        }
+        return true;
     }
 }
