@@ -6,7 +6,7 @@
 
 <AnchorPane fx:id="window" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.SortingController">
    <children>
-      <Text fx:id="text" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sorting">
+      <Text fx:id="text" layoutX="175.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sorting">
          <font>
             <Font size="78.0" />
          </font>
