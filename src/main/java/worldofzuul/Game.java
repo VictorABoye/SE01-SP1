@@ -215,14 +215,19 @@ public class Game{
             Parent window6 = FXMLLoader.load(getClass().getResource(FXML6));
 
             //Create Items
+
             //Create Teleporters
             Teleport shopTPSouth = new Teleport((ImageView) window6.lookup("#tpSouth"),FXML5);
+
+            //Create Barrier
+            Barrier shopBarrier = new Barrier((ImageView) window6.lookup("#wall"));
 
             //Create Room
             Room shop = new Room(groceries);
 
             //Add Items and Teleporters to Room
             shop.addTeleporterToRoom(shopTPSouth);
+            shop.addWall(shopBarrier);
 
             //===Recycling Plant lvl====================================================================================
 
