@@ -5,7 +5,7 @@ import javafx.scene.image.ImageView;
 
 public class Player extends Entity implements Movement{
 
-    private double speed = 25;
+    private final double speed = 25;
 
     public Player(ImageView image){
         super(image);

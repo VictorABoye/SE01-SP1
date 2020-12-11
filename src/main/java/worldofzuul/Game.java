@@ -16,8 +16,8 @@ public class Game{
     private static Room currentRoom;
     private static boolean finished;
     private static ArrayList<Room> rooms;
-    private Parser parser;
-    private ArrayList<ArrayList> questStrings = new ArrayList<>();
+    private final Parser parser;
+    private final ArrayList<ArrayList> questStrings = new ArrayList<>();
 
     public Game() throws IOException, ParseException {
         player = new WorldPlayer();
@@ -40,7 +40,7 @@ public class Game{
         String FXML7 = "/fxml/Level7.fxml";
 
 
-        Quests breakfast, transport, roadQuest, groceries, recyclingQuest, factory, quiz, parkQuest;
+        Quests breakfast, transport, roadQuest, groceries, recyclingQuest, factory, parkQuest;
         Data quests = new Data();
         questStrings.add(quests.questString("breakfast"));
         questStrings.add(quests.questString("transport"));
@@ -49,7 +49,6 @@ public class Game{
         questStrings.add(quests.questString("recyclingQuest"));
         questStrings.add(quests.questString("factory"));
         questStrings.add(quests.questString("parkQuest"));
-        //questStrings.add(quests.questString("quiz"));
 
         breakfast = new Quests(new ArrayList<>(), new HashMap<>(), parser.parseString((String)questStrings.get(0).get(0)));
         transport = new Quests(new ArrayList<>(), new HashMap<>(), parser.parseString((String)questStrings.get(1).get(0)));
@@ -58,7 +57,7 @@ public class Game{
         recyclingQuest = new Quests(new ArrayList<>(), new HashMap<>(), parser.parseString((String)questStrings.get(4).get(0)));
         factory = new Quests(new ArrayList<>(), new HashMap<>(), parser.parseString((String)questStrings.get(5).get(0)));
         parkQuest = new Quests(new ArrayList<>(), new HashMap<>(), parser.parseString((String)questStrings.get(6).get(0)));
-        //quiz = new Quests(new ArrayList<>(), new HashMap<>(), parser.parseString((String)questStrings.get(7).get(0)));
+
         //Breakfast quest
         breakfast.addChoice(parser.parseString((String) questStrings.get(0).get(1)),5,parser.parseString((String) questStrings.get(0).get(3)));
         breakfast.addChoice(parser.parseString((String) questStrings.get(0).get(2)),-5,parser.parseString((String) questStrings.get(0).get(4)));
@@ -88,27 +87,6 @@ public class Game{
         parkQuest.addChoice(parser.parseString((String)questStrings.get(6).get(1)), 5, parser.parseString((String)questStrings.get(6).get(3)) );
         parkQuest.addChoice(parser.parseString((String)questStrings.get(6).get(2)), -5, parser.parseString((String)questStrings.get(6).get(4)) );
 
-        // Creating the final quests, "quiz". True/False and should be seperated into multiple quests?
-        /*
-        quiz.addChoice(parser.parseString((String)questStrings.get(7).get(1)), 5, parser.parseString((String)questStrings.get(7).get(9)) );
-        quiz.addChoice(parser.parseString((String)questStrings.get(7).get(2)), 5, parser.parseString((String)questStrings.get(7).get(10)) );
-        quiz.addChoice(parser.parseString((String)questStrings.get(7).get(2)), 5, parser.parseString((String)questStrings.get(7).get(11)) );
-        quiz.addChoice(parser.parseString((String)questStrings.get(7).get(3)), 5, parser.parseString((String)questStrings.get(7).get(12)) );
-        quiz.addChoice(parser.parseString((String)questStrings.get(7).get(4)), 5, parser.parseString((String)questStrings.get(7).get(13)) );
-        quiz.addChoice(parser.parseString((String)questStrings.get(7).get(5)), 5, parser.parseString((String)questStrings.get(7).get(14)) );
-        quiz.addChoice(parser.parseString((String)questStrings.get(7).get(6)), 5, parser.parseString((String)questStrings.get(7).get(15)) );
-        quiz.addChoice(parser.parseString((String)questStrings.get(7).get(7)), 5, parser.parseString((String)questStrings.get(7).get(16)) );
-        quiz.addChoice(parser.parseString((String)questStrings.get(7).get(8)), 5, parser.parseString((String)questStrings.get(7).get(17)) );
-
-
-         */
-
-        //Passing on to next quest
-        breakfast.setNextQuest(transport);
-        transport.setNextQuest(roadQuest);
-        roadQuest.setNextQuest(groceries);
-        groceries.setNextQuest(recyclingQuest);
-        recyclingQuest.setNextQuest(factory);
 
 
         try {

@@ -21,10 +21,10 @@ public class SortingController {
     public AnchorPane window;
     public Button sortButtonMetal, sortButtonPlastic, sortButtonBattery, sortButtonGlass, sortButtonPaper;
 
-    private int padding = 10;
-    private int size = 50;
+    private final int padding = 10;
+    private final int size = 50;
 
-    private ArrayList<ImageView> selected = new ArrayList<>();
+    private final ArrayList<ImageView> selected = new ArrayList<>();
 
     @FXML
     public void initialize(){

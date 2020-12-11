@@ -92,7 +92,6 @@ public abstract class PlayerControl {
                 ImageView imageView = (ImageView) window.lookup("#" + currentItem.getImageView().getId());
                 imageView.setVisible(false);
                 Game.getCurrentRoom().removeItemFromRoom(currentItem);
-                System.out.println(Game.getWorldPlayer().getInventory().getSize());
             }
         }
         if (code == KeyCode.I)
@@ -197,13 +196,9 @@ public abstract class PlayerControl {
                 currentTP.teleportToRoom(stage);
                 return;
             }
-            System.out.println("No TP");
         }
         updateScoreBar(scoreBar);
 
-        //For testing
-        //if (code == KeyCode.K) Game.getWorldPlayer().addToClimateScore(0.5);
-        //if (code == KeyCode.L) Game.getWorldPlayer().addToClimateScore(-0.5);
     }
 
     //Sets popup for currentroom

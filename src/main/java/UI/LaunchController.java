@@ -31,9 +31,7 @@ public class LaunchController {
             Parent firstLevel = FXMLLoader.load(getClass().getResource(firstLevelFile));
             Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             Scene scene = new Scene(firstLevel);
-            scene.setOnKeyPressed(event -> {
-                Level1Controller.playerMovement(event,stage);
-            });
+            scene.setOnKeyPressed(event -> Level1Controller.playerMovement(event,stage));
             stage.setScene(scene);
             stage.show();
         } catch (IOException | ParseException e){

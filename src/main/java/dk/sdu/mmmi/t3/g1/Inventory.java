@@ -1,8 +1,6 @@
 package dk.sdu.mmmi.t3.g1;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 public class Inventory {
     protected ArrayList<Item> items;

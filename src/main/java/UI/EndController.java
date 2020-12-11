@@ -5,7 +5,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
-import javafx.scene.text.TextFlow;
 import worldofzuul.Game;
 
 public class EndController {
@@ -16,7 +15,7 @@ public class EndController {
 
     public String checkEndScore(){
         double endScore = Game.getWorldPlayer().getClimateScore();
-        String endString  = "default";
+        String endString;
         if (endScore >= 80){
             endString = "Congratulations, you win!\n" +
                     "You've picked the right options and in doing so, you are helping the world stop climate change.\n" +

@@ -3,9 +3,6 @@ package UI;
 import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
-import worldofzuul.Game;
 
 import java.util.ArrayList;
 
@@ -15,7 +12,7 @@ public class Level3Controller extends PlayerControl{
     public AnchorPane window;
     public ImageView tpWest, player, paperbag1, paperbag2;
 
-    private ArrayList<ImageView> itemsInRoom = new ArrayList<>();
+    private final ArrayList<ImageView> itemsInRoom = new ArrayList<>();
 
     public void populateArraylist(){
 

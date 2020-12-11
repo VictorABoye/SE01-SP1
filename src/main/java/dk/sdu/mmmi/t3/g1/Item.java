@@ -1,11 +1,10 @@
 package dk.sdu.mmmi.t3.g1;
 
 import javafx.scene.image.ImageView;
-import javafx.scene.shape.Rectangle;
 
 public class Item extends Entity {
-    private String name;
-    private String material;
+    private final String name;
+    private final String material;
     private boolean sorted;
 
     public Item(ImageView image, String name, String material){
@@ -19,6 +18,7 @@ public class Item extends Entity {
     public String getName(){
         return name;
     }
+
     public String getMaterial(){
         return material;
     }

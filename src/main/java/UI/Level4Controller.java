@@ -12,7 +12,7 @@ public class Level4Controller extends PlayerControl{
     public AnchorPane window;
     public ImageView tpSouth, player, wall,metalcan1,metalcan2;
 
-    private ArrayList<ImageView> itemsInRoom = new ArrayList<>();
+    private final ArrayList<ImageView> itemsInRoom = new ArrayList<>();
 
     public void populateArraylist(){
         //Add All Items to the Arraylist;

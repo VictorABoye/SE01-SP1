@@ -1,18 +1,14 @@
 package UI;
 
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
 import worldofzuul.Game;
-
-import java.net.URL;
 import java.util.ArrayList;
-import java.util.ResourceBundle;
-import worldofzuul.Game;
+
 
 public class PopUpController{
 
@@ -21,7 +17,7 @@ public class PopUpController{
     public Button choice1, choice2, choice3, choice4;
     public Text trash_reminder;
 
-    private int padding = 10;
+    private final int padding = 10;
 
     @FXML
     public void initialize() {

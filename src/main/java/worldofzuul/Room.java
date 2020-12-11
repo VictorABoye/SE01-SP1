@@ -6,11 +6,11 @@ import java.util.ArrayList;
 
 
 public class Room {
-    private Inventory inventory;
-    private Quests quest;
-    private ArrayList<Teleport> teleports;
+    private final Inventory inventory;
+    private final Quests quest;
+    private final ArrayList<Teleport> teleports;
     private Barrier wall;
-    private String name;
+    private final String name;
 
     public Room (Quests quest, String name)
     {

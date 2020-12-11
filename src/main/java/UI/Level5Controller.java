@@ -12,7 +12,7 @@ public class Level5Controller extends  PlayerControl{
     public AnchorPane window;
     public ImageView tpNorth, tpEast, tpWest, player,battery, plastBottle;
 
-    private ArrayList<ImageView> itemsInRoom = new ArrayList<>();
+    private final ArrayList<ImageView> itemsInRoom = new ArrayList<>();
 
     public void populateArraylist(){
         //Add All Items to the Arraylist;

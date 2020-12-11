@@ -5,10 +5,9 @@ import java.util.HashMap;
 
 public class Quests {
     protected ArrayList<String> choices;
-    private ArrayList<String> consequence = new ArrayList<>();
-    private HashMap<String, Integer> choiceWeight;
-    private Quests nextQuest;
-    private String description;
+    private final ArrayList<String> consequence = new ArrayList<>();
+    private final HashMap<String, Integer> choiceWeight;
+    private final String description;
     private boolean isCompleted;
 
     public Quests(ArrayList<String> choices, HashMap<String, Integer> correctChoices, String description){
@@ -39,14 +38,8 @@ public class Quests {
 
     public ArrayList<String> showChoices(){
         ArrayList<String> arr = new ArrayList<>();
-        for(String choice: choices){
-            arr.add(choice);
-        }
+        arr.addAll(choices);
         return arr;
-    }
-
-    public void setNextQuest(Quests nextQuest) {
-        this.nextQuest = nextQuest;
     }
 
     public String getDescription() {

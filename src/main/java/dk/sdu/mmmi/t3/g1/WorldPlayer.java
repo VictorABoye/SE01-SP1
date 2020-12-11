@@ -12,7 +12,7 @@ import java.io.IOException;
 public class WorldPlayer {
 
     private double climateScore;
-    private Inventory inventory;
+    private final Inventory inventory;
 
     public WorldPlayer()
     {
