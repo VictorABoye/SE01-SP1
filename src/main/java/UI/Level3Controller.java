@@ -13,8 +13,6 @@ public class Level3Controller extends PlayerControl{
 
     @FXML
     public AnchorPane window;
-
-    @FXML
     public ImageView tpWest, player, paperbag1, paperbag2;
 
     private ArrayList<ImageView> itemsInRoom = new ArrayList<>();

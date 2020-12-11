@@ -13,8 +13,6 @@ public class InventoryController {
 
     @FXML
     public AnchorPane window;
-
-    @FXML
     public Text text;
 
     final private int padding = 10;

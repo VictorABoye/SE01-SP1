@@ -18,8 +18,6 @@ public class PopUpController{
 
     @FXML
     public Text questInfo;
-
-    @FXML
     public Button choice1, choice2, choice3, choice4;
     public Text trash_reminder;
 

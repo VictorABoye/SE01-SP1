@@ -12,8 +12,6 @@ public class EndController {
 
     @FXML
     public Text endText;
-
-    @FXML
     public Button closeGameButton;
 
     public String checkEndScore(){
@@ -45,11 +43,9 @@ public class EndController {
         endText.setText(checkEndScore());
     }
 
-
     public void closeGame(ActionEvent actionEvent) {
         Platform.exit();
         System.exit(3);
-
     }
 
 }
