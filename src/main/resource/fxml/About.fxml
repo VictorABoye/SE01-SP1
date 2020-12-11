@@ -6,9 +6,9 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.AboutController">
    <children>
-      <Text layoutX="14.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="About the Game">
+      <Text layoutX="38.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="About the Game">
          <font>
-            <Font size="18.0" />
+            <Font size="24.0" />
          </font>
       </Text>
       <Text layoutX="696.0" layoutY="581.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Review: Its ok" wrappingWidth="89.138671875">
@@ -16,12 +16,12 @@
             <Font size="14.0" />
          </font>
       </Text>
-      <Text layoutX="30.0" layoutY="109.0" strokeWidth="4.0" text="Controls" underline="true" wrappingWidth="131.009765625">
+      <Text layoutX="38.0" layoutY="281.0" strokeWidth="4.0" text="Controls" underline="true" wrappingWidth="131.009765625">
          <font>
             <Font size="34.0" />
          </font>
       </Text>
-      <Text layoutX="30.0" layoutY="154.0" text="W = Move up&#10;S = Move down&#10;D = Move left&#10;A = Move right&#10;E = Pick up &#10;I = Inventory&#10;R = Sorting&#10;M = Map&#10;ESC = Back to menu" wrappingWidth="200.0">
+      <Text layoutX="38.0" layoutY="322.0" text="W = Move up&#10;S = Move down&#10;D = Move left&#10;A = Move right&#10;E = Pick up &#10;I = Inventory&#10;R = Sorting&#10;M = Map&#10;ESC = Back to menu" wrappingWidth="200.0">
          <font>
             <Font size="20.0" />
          </font>
@@ -31,5 +31,6 @@
             <Font size="25.0" />
          </font>
       </Button>
+      <Text layoutX="38.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to the World of Cool!&#10;       &#10;World of Cool is an informative game, which has a purpose to inform YOU about the rising consequences coming from climate change. We believe that by the end of your journey, you will know more about the climate and how to act accordingly in regards to the nature.&#10;       &#10;You will be taken on a journey where the choices you take matters. You'll be giving a climate score starting at 50. Make a wrong choice and it will be decreased, make the right one and it will be increased. Every choice you make is vital!&#10;       &#10;Reach a climate score of 0 and you will lose, reach 100 and you will win. Good Luck!&#10;Press ESC if you want to pause the game or see the available commands. Remember to pick up all the trash in each room and every room!&#10;" wrappingWidth="639.13671875" />
    </children>
 </AnchorPane>
