@@ -19,10 +19,13 @@ public class EndController {
     public String checkEndScore(){
         double endScore = Game.getWorldPlayer().getClimateScore();
         String endString  = "default";
-        if (endScore == 100){
-            endString = "Gz bro, very nice!";
-        }else{
-            endString = "Rip dig alligevel :( ";
+        if (endScore >= 80){
+            endString = "Gz bro, very nice!\nDin score var " + endScore;
+        }else if(endScore < 80 && endScore > 50) {
+            endString = "ok";
+        }
+        else{
+            endString = "Rip dig alligevel :(\nDin score var " + endScore;
 
         }
         return endString;
