@@ -11,30 +11,34 @@
             <Font size="78.0" />
          </font>
       </Text>
-      <Button fx:id="sortButtonPaper" layoutX="516.0" layoutY="311.0" mnemonicParsing="false" onAction="#sortItems" prefHeight="78.0" prefWidth="70.0" text="Paper" wrapText="true">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Button>
-      <Button fx:id="sortButtonPlast" layoutX="14.0" layoutY="321.0" mnemonicParsing="false" onAction="#sortItems" prefHeight="78.0" prefWidth="78.0" text="Plast" wrapText="true">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Button>
-      <Button fx:id="sortButtonBattery" layoutX="124.0" layoutY="323.0" mnemonicParsing="false" onAction="#sortItems" prefHeight="78.0" prefWidth="91.0" text="Battery" wrapText="true">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Button>
-      <Button fx:id="sortButtonGlass" layoutX="280.0" layoutY="322.0" mnemonicParsing="false" onAction="#sortItems" prefHeight="78.0" prefWidth="78.0" text="Glass" wrapText="true">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Button>
-      <Button fx:id="sortButtonMetal" layoutX="421.0" layoutY="322.0" mnemonicParsing="false" onAction="#sortItems" prefHeight="78.0" prefWidth="78.0" text="Metal" wrapText="true">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Button>
+      <HBox alignment="CENTER" layoutY="300.0" prefHeight="100.0" prefWidth="600.0">
+         <children>
+            <Button fx:id="sortButtonPlast" mnemonicParsing="false" onAction="#sortItems" prefHeight="101.0" prefWidth="102.0" text="Plast" wrapText="true">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="sortButtonBattery" mnemonicParsing="false" onAction="#sortItems" prefHeight="102.0" prefWidth="106.0" text="Battery" wrapText="true">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="sortButtonGlass" mnemonicParsing="false" onAction="#sortItems" prefHeight="103.0" prefWidth="103.0" text="Glass" wrapText="true">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="sortButtonMetal" mnemonicParsing="false" onAction="#sortItems" prefHeight="101.0" prefWidth="94.0" text="Metal" wrapText="true">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="sortButtonPaper" mnemonicParsing="false" onAction="#sortItems" prefHeight="100.0" prefWidth="102.0" text="Paper" wrapText="true">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
    </children>
 </AnchorPane>
