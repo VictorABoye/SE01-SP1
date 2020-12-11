@@ -11,5 +11,6 @@
       <Button fx:id="choice2" layoutX="200.0" layoutY="310.0" mnemonicParsing="false" onAction="#getChoice" text="Button" />
       <Button fx:id="choice3" layoutX="340.0" layoutY="310.0" mnemonicParsing="false" onAction="#getChoice" text="Button" />
       <Button fx:id="choice4" layoutX="480.0" layoutY="310.0" mnemonicParsing="false" onAction="#getChoice" text="Button" />
+      <Text fx:id="trash_reminder" layoutX="60.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Remember to pick up all the trash before you leave!" visible="false" />
    </children>
 </AnchorPane>
