@@ -17,12 +17,8 @@ import java.util.ArrayList;
 
 public class Level1Controller extends PlayerControl{
 
-
-
     @FXML
     public AnchorPane window;
-
-    @FXML
     public ImageView itemCan1, itemCan2, player, tpNorth, tp1;
 
     private ArrayList<ImageView> itemsInRoom = new ArrayList<>();

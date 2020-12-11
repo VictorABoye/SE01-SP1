@@ -18,9 +18,8 @@ public class PopUpController{
 
     @FXML
     public Text questInfo;
-
-    @FXML
     public Button choice1, choice2, choice3, choice4;
+    public Text trash_reminder;
 
     private int padding = 10;
 
@@ -75,6 +74,7 @@ public class PopUpController{
         choice2.setVisible(false);
         choice3.setVisible(false);
         choice4.setVisible(false);
+        trash_reminder.setVisible(Game.getCurrentRoom().getRoomInventorySize() > 0);
     }
 
     public void closePopUp(ActionEvent event){

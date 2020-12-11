@@ -19,8 +19,6 @@ public class SortingController {
 
     @FXML
     public AnchorPane window;
-
-    @FXML
     public Button sortButtonMetal, sortButtonPlastic, sortButtonBattery, sortButtonGlass, sortButtonPaper;
 
     private int padding = 10;

@@ -37,7 +37,7 @@
   },
   "parkQuest": {
     "description": "In the park you see some trash laying around. You know it's gonna take a while to pick it all up. What do you do?",
-    "choices": ["Pick it all up even though it might take 30 minutes? ", "Leave and save some time"],
+    "choices": ["Pick it all up even though it might take 30 min? ", "Leave and save some time"],
     "consequences": ["Great choice! You did the world a service and you now lead the path to a cleaner and brighter tomorrow. \n You will be rewarded 5 climate points for your effort ",
     "Bad choice. If everybody did as you, the ecosystems of the world would be in shambles"]
  }
