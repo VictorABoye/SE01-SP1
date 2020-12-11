@@ -18,20 +18,6 @@ public class Quests {
         isCompleted = false;
     }
 
-    public int checkChoice(int x){
-        try {
-            if (choiceWeight.containsKey(choices.get(x - 1))) {
-                System.out.println("You chose " + choices.get(x - 1));
-                System.out.println(getConsequence(x));
-                return choiceWeight.get(choices.get(x - 1));
-            }
-            return 0;
-        } catch (IndexOutOfBoundsException e) {
-            System.out.println("You don't have that many choices");
-            return 0;
-        }
-    }
-
     public boolean getCompleted(){
         return isCompleted;
     }
@@ -46,21 +32,9 @@ public class Quests {
         this.consequence.add(consequence);
     }
 
-    // Checks if the quest has a choice Weight, in case it does it will return true otherwise false. (Can be used before function getChoiceWeight to be sure the quest has ChoiceWeight)
-    public boolean hasChoiceWeight() {
-        return !choiceWeight.isEmpty();
-    }
-
     //Returns Choice Weight based on the choice entered.
     public int getChoiceWeight(String choice){
         return choiceWeight.get(choice);
-    }
-
-    //Return True if the answer has Weight of 1 (the best answer)
-    public boolean isBestAnswer(String answer){
-        if (choiceWeight.get(answer) == 5)
-            return true;
-        return false;
     }
 
     public ArrayList<String> showChoices(){
@@ -71,10 +45,6 @@ public class Quests {
         return arr;
     }
 
-    public Quests getNextQuest() {
-        return nextQuest;
-    }
-
     public void setNextQuest(Quests nextQuest) {
         this.nextQuest = nextQuest;
     }
@@ -83,15 +53,7 @@ public class Quests {
         return description;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     public String getConsequence(int i) {
         return consequence.get(i-1);
-    }
-
-    public void setConsequence(String consequence) {
-        this.consequence.add(consequence);
     }
 }

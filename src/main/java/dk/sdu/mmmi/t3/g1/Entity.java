@@ -6,7 +6,6 @@ import javafx.scene.image.ImageView;
 public abstract class Entity {
     protected String type;
     protected ImageView image;
-    protected boolean dead;
 
     protected double x,y,h,w;
 
@@ -23,16 +22,8 @@ public abstract class Entity {
         return h;
     }
 
-    public void setH(double h) {
-        this.h = h;
-    }
-
     public double getW() {
         return w;
-    }
-
-    public void setW(double w) {
-        this.w = w;
     }
 
     public double getX() {
@@ -61,13 +52,5 @@ public abstract class Entity {
 
     public String getType() {
         return type;
-    }
-
-    public boolean isDead() {
-        return dead;
-    }
-
-    public void kill(){
-        this.dead = true;
     }
 }
