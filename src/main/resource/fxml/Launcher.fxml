@@ -30,7 +30,7 @@
       </Button>
       <ImageView fitHeight="515.0" fitWidth="464.0" layoutX="408.0" layoutY="171.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/test.jpg" />
+            <Image url="@../images/utility/gameLogo.png" />
          </image>
       </ImageView>
    </children>

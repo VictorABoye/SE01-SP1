@@ -9,7 +9,7 @@
    <children>
       <ImageView fitHeight="405.0" fitWidth="785.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/map.png" />
+            <Image url="@../images/utility/map.png" />
          </image>
       </ImageView>
       <Label layoutX="371.0" layoutY="14.0" prefHeight="43.0" prefWidth="282.0" text="Map">

@@ -29,6 +29,7 @@ public abstract class PlayerControl {
     final static private String questFile = "/fxml/PopUp.fxml";
     final static private String sortingFile = "/fxml/Sorting.fxml";
     final static private String mapFile = "/fxml/Map.fxml";
+    final static private String gameIcon = "/images/utility/gameLogoIcon.png";
 
 
 
@@ -103,7 +104,7 @@ public abstract class PlayerControl {
                 Scene scene = new Scene(inventoryWindow);
                 popup.setScene(scene);
                 popup.setAlwaysOnTop(true);
-                popup.getIcons().add(new Image("/images/test.jpg"));
+                popup.getIcons().add(new Image(gameIcon));
                 popup.show();
                 scene.setOnKeyPressed(event1 -> {
                     if (event1.getCode() == KeyCode.ESCAPE || event1.getCode() == KeyCode.I) popup.close();
@@ -121,7 +122,7 @@ public abstract class PlayerControl {
                 Scene scene = new Scene(inventoryWindow);
                 popup.setScene(scene);
                 popup.setAlwaysOnTop(true);
-                popup.getIcons().add(new Image("/images/test.jpg"));
+                popup.getIcons().add(new Image(gameIcon));
                 popup.show();
                 scene.setOnKeyPressed(event1 -> {
                     if (event1.getCode() == KeyCode.ESCAPE || event1.getCode() == KeyCode.R) popup.close();
@@ -139,7 +140,7 @@ public abstract class PlayerControl {
                 Scene scene = new Scene(mapWindow);
                 map.setScene(scene);
                 map.setAlwaysOnTop(true);
-                map.getIcons().add(new Image("/images/test.jpg"));
+                map.getIcons().add(new Image(gameIcon));
                 map.show();
                 scene.setOnKeyPressed(event1 -> {
                     if (event1.getCode() == KeyCode.ESCAPE || event1.getCode() == KeyCode.M) map.close();
@@ -174,7 +175,7 @@ public abstract class PlayerControl {
                     }
                 });
                 pauseStage.setScene(scene);
-                pauseStage.getIcons().add(new Image("/images/test.jpg"));
+                pauseStage.getIcons().add(new Image(gameIcon));
                 pauseStage.show();
             } catch (IOException e){
                 System.out.println("Cannot find fxml file");

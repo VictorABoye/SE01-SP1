@@ -26,7 +26,7 @@ public class StartUI extends Application {
         stage.setTitle("World of Cool");
         stage.setScene(new Scene(root));
         stage.setResizable(false);
-        stage.getIcons().add(new Image("/images/test.jpg"));
+        stage.getIcons().add(new Image("/images/utility/gameLogoIcon.png"));
         stage.show();
     }
 }
