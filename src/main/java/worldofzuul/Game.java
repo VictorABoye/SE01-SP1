@@ -1,16 +1,10 @@
 package worldofzuul;
 
-import UI.Level1Controller;
-import UI.Level2Controller;
-import UI.Level3Controller;
-import UI.PlayerControl;
 import dk.sdu.mmmi.t3.g1.*;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import org.json.simple.parser.ParseException;
-import worldofzuul.Parser;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -339,12 +333,8 @@ public class Game{
     }
 
     public static boolean playerCollidesItem(Player player){
-        //Room currentRoom = event.getSource();
-        //Item currentItem = currentRoom.getItem(item);
-        //Player player = currentRoom.getPlayer();
         Item currentItem = getClosestItemToPlayer(player);
         if (currentItem != null) {
-            //Player player = new Player(((ImageView)((Scene)event.getSource()).lookup("#player")),"player","@../images/obama.png");
             double ix1 = currentItem.getX();
             double iy1 = currentItem.getY();
             double ix2 = currentItem.getW() + ix1;
@@ -376,7 +366,6 @@ public class Game{
                 double py2 = player.getH() + py1;
                 double pmx = px2 / 2.0;
                 double pmy = py2 / 2.0;
-                //System.out.println("Player X: " + pmx + " Y: " + pmy);
                 //Item on screen
                 double ix1 = currentItem.getX();
                 double ix2 = currentItem.getW() + ix1;
@@ -384,7 +373,6 @@ public class Game{
                 double iy2 = currentItem.getH() + iy1;
                 double imx = ix2 / 2.0;
                 double imy = iy2 / 2.0;
-                //System.out.println("Item X: " + imx + " Y: " + imy);
                 //Distance between player and item
                 double mpx = Math.abs(pmx - imx);
                 double mpy = Math.abs(pmy - imy);
@@ -402,7 +390,6 @@ public class Game{
     public static boolean playerCollidesTeleport(Player player){
         Teleport currentTP = getClosestTeleporterToPlayer(player);
         if (currentTP != null) {
-            //Player player = new Player(((ImageView)((Scene)event.getSource()).lookup("#player")),"player","@../images/obama.png");
             double ix1 = currentTP.getX();
             double iy1 = currentTP.getY();
             double ix2 = currentTP.getW() + ix1;
@@ -431,7 +418,6 @@ public class Game{
             double py2 = player.getH() + py1;
             double pmx = px2 / 2.0;
             double pmy = py2 / 2.0;
-            //System.out.println("Player X: " + pmx + " Y: " + pmy);
             //Item on screen
             double ix1 = currentTP.getX();
             double ix2 = currentTP.getW() + ix1;
@@ -439,7 +425,6 @@ public class Game{
             double iy2 = currentTP.getH() + iy1;
             double imx = ix2 / 2.0;
             double imy = iy2 / 2.0;
-            //System.out.println("Item X: " + imx + " Y: " + imy);
             //Distance between player and item
             double mpx = Math.abs(pmx - imx);
             double mpy = Math.abs(pmy - imy);
@@ -449,13 +434,8 @@ public class Game{
                 shortestDist = dist;
                 itemIndex = i;
             }
-            //System.out.println(shortestDist);
         }
         return currentRoom.getTP(itemIndex);
-    }
-
-    public static ArrayList<Room> getRooms() {
-        return rooms;
     }
 
     public static boolean itemsInRooms(){
@@ -473,7 +453,7 @@ public class Game{
                 return false;
             }
         }
-            return true;
+        return true;
     }
 
 }

@@ -21,7 +21,7 @@ public class SortingController {
     public AnchorPane window;
 
     @FXML
-    public Button sortButtonMetal, sortButtonPlast, sortButtonBattery, sortButtonGlass, sortButtonPaper;
+    public Button sortButtonMetal, sortButtonPlastic, sortButtonBattery, sortButtonGlass, sortButtonPaper;
 
     private int padding = 10;
     private int size = 50;
@@ -80,7 +80,7 @@ public class SortingController {
                         }
 
                     }
-                    if(actionEvent.getTarget().equals(sortButtonPlast)){
+                    if(actionEvent.getTarget().equals(sortButtonPlastic)){
                         if (currentItem.getMaterial().equals("plast")){
                             Game.getWorldPlayer().addToClimateScore(5);
                         }else {
@@ -102,9 +102,15 @@ public class SortingController {
         Inventory playerInventory = Game.getWorldPlayer().getInventory();
         if (playerInventory.getSize() > 0)
         {
-            int viggo = 0;
+            int xLayoutIndex = 0;
+            int yLayoutIndex = 0;
+            int rowLimit = 6;
             for (int i = 0; i < playerInventory.getSize(); i++)
             {
+                if (i % rowLimit == 0) {
+                    yLayoutIndex++;
+                    xLayoutIndex = 0;
+                }
                 if (!playerInventory.getItem(i).isSorted()) {
 
                     String url = playerInventory.getItem(i).getImageView().getImage().getUrl();
@@ -112,11 +118,11 @@ public class SortingController {
                     itemView.setId(playerInventory.getItem(i).getImageView().getId());
                     itemView.setFitHeight(size);
                     itemView.setFitWidth(size);
-                    itemView.setLayoutY(text.getLayoutY() + padding);
-                    itemView.setLayoutX((size * viggo + padding * viggo) + padding);
+                    itemView.setLayoutY((size * yLayoutIndex) + text.getLayoutY() + padding);
+                    itemView.setLayoutX((size * xLayoutIndex + padding * xLayoutIndex) + padding);
                     itemView.setOnMouseClicked(this::select);
                     window.getChildren().add(itemView);
-                    viggo++;
+                    xLayoutIndex++;
                 }else{
                     String url = playerInventory.getItem(i).getImageView().getImage().getUrl();
                     ImageView itemView = new ImageView(new Image(url));

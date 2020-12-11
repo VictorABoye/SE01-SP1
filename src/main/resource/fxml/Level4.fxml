@@ -1,13 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane fx:id="window" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Level4Controller">
    <children>
       <ImageView fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/Levels/Park.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="metalcan1" fitHeight="150.0" fitWidth="200.0" layoutX="1082.0" layoutY="434.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/Items/metal_can.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="metalcan2" fitHeight="150.0" fitWidth="200.0" layoutX="148.0" layoutY="420.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/Items/metal_can.png" />
          </image>
       </ImageView>
       <ImageView fx:id="tpSouth" fitHeight="38.0" fitWidth="234.0" layoutX="547.0" layoutY="682.0" pickOnBounds="true" visible="false">
@@ -28,16 +39,6 @@
       <ImageView fx:id="wall" fitHeight="100.0" fitWidth="1280.0" layoutY="355.0" pickOnBounds="true" visible="false">
          <image>
             <Image url="@../images/utility/wall.jpg" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="metalcan2" fitHeight="150.0" fitWidth="200.0" layoutX="148.0" layoutY="420.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/Items/metal_can.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="metalcan1" fitHeight="150.0" fitWidth="200.0" layoutX="1082.0" layoutY="434.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/Items/metal_can.png" />
          </image>
       </ImageView>
    </children>

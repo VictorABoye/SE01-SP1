@@ -14,7 +14,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class PauseController implements FXMLLoading{
+public class PauseController {
 
     final static String launchFile = "/fxml/Launcher.fxml";
     final static String aboutFile = "/fxml/About.fxml";
@@ -22,7 +22,6 @@ public class PauseController implements FXMLLoading{
     @FXML
     public Button backToMenu, quit, resume, aboutButton;
 
-    @Override
     @FXML
     public void closeGame(ActionEvent event) {
         Platform.exit();

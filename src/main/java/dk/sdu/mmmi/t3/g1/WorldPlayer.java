@@ -29,13 +29,8 @@ public class WorldPlayer {
         if (climateScore > 100) climateScore = 100;
         if (climateScore < 0) climateScore = 0;
 
-        if (climateScore == 100 && Game.allQuestsCompleted()){
+        if (climateScore == 100 || climateScore == 0){
             Game.setFinished();
-            System.out.println("You win!!!"); //End the game
-        }
-        if (climateScore == 0 && Game.allQuestsCompleted()){
-            Game.setFinished();
-            System.out.println("You lose!!!"); //End the game
         }
 
         if(Game.allQuestsCompleted() && !Game.itemsInRooms() && allSorted()){
@@ -57,16 +52,6 @@ public class WorldPlayer {
                 System.out.println(e.getMessage());
             }
         }
-    }
-
-    public Item getItemByName(String name)
-    {
-        return inventory.getItem(name);
-    }
-
-    public Item getItemByIndex(int index)
-    {
-        return inventory.getItem(index);
     }
 
     public Inventory getInventory()

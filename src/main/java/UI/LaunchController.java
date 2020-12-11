@@ -15,7 +15,7 @@ import worldofzuul.Game;
 
 import java.io.IOException;
 
-public class LaunchController implements FXMLLoading {
+public class LaunchController {
 
     final String firstLevelFile = "/fxml/Level1.fxml";
     final String aboutFile = "/fxml/About.fxml";
@@ -47,7 +47,7 @@ public class LaunchController implements FXMLLoading {
         openAbout();
     }
 
-    @Override
+    @FXML
     public void closeGame(ActionEvent event) {
         Platform.exit();
         System.exit(1337);
@@ -57,6 +57,7 @@ public class LaunchController implements FXMLLoading {
         openAbout();
 
     }
+    @FXML
     public void openAbout(){
         try {
             Parent aboutWindow = FXMLLoader.load(getClass().getResource(aboutFile));

@@ -1,13 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane fx:id="window" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Level3Controller">
    <children>
       <ImageView fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/Levels/Beach.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="paperbag1" fitHeight="150.0" fitWidth="200.0" layoutX="190.0" layoutY="556.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/Items/Paperbag.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="paperbag2" fitHeight="150.0" fitWidth="200.0" layoutX="669.0" layoutY="481.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/Items/Paperbag.png" />
          </image>
       </ImageView>
       <ImageView fx:id="tpWest" fitHeight="210.0" fitWidth="30.0" layoutX="6.0" layoutY="510.0" pickOnBounds="true" visible="false">
@@ -28,16 +39,6 @@
       <ImageView fx:id="wall" fitHeight="150.0" fitWidth="1280.0" layoutY="261.0" pickOnBounds="true" visible="false">
          <image>
             <Image url="@../images/utility/wall.jpg" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="paperbag1" fitHeight="150.0" fitWidth="200.0" layoutX="190.0" layoutY="556.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/Items/Paperbag.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="paperbag2" fitHeight="150.0" fitWidth="200.0" layoutX="669.0" layoutY="481.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/Items/Paperbag.png" />
          </image>
       </ImageView>
    </children>

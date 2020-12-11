@@ -45,12 +45,12 @@ public abstract class PlayerControl {
         player.getImageView().setRotationAxis(Rotate.Y_AXIS);
         Rectangle scoreBar = (Rectangle) window.lookup("#scoreBar");
         Rectangle scoreBackGround = (Rectangle) window.lookup("#scoreBackGround");
+        int inventoryCap = 18;
 
-        //Add player animation
-        //Fix all this
-
+        //Opens the room quest first time you enter the room
         if(!Game.getCurrentRoom().getQuest().getCompleted()) popUpWindow();
 
+        //Handles player input
         if (code == KeyCode.W){
             if(player.getY() > 0){
                 player.moveUp();
@@ -71,7 +71,6 @@ public abstract class PlayerControl {
             player.getImageView().setRotate(180);
             if (player.getX() > 0)
             {
-                //player.getImageView().setImage(left);
                 player.moveRight();
             }
             else {
@@ -87,18 +86,14 @@ public abstract class PlayerControl {
                 player.setY(window.getWidth());
             }
         }
-
-        if(code == KeyCode.E){
-            if (Game.playerCollidesItem(player))
-            {
-                Item currentItem = Game.getClosestItemToPlayer(player);
-                if (currentItem != null) {
-                    worldPlayer.addItem(currentItem);
-                    ImageView imageView = (ImageView) window.lookup("#" + currentItem.getImageView().getId());
-                    imageView.setVisible(false);
-                    Game.getCurrentRoom().removeItemFromRoom(currentItem);
-                    System.out.println(Game.getWorldPlayer().getInventory().getSize());
-                }
+        if(code == KeyCode.E && Game.playerCollidesItem(player) && Game.getWorldPlayer().getInventory().getSize() < inventoryCap){
+            Item currentItem = Game.getClosestItemToPlayer(player);
+            if (currentItem != null) {
+                worldPlayer.addItem(currentItem);
+                ImageView imageView = (ImageView) window.lookup("#" + currentItem.getImageView().getId());
+                imageView.setVisible(false);
+                Game.getCurrentRoom().removeItemFromRoom(currentItem);
+                System.out.println(Game.getWorldPlayer().getInventory().getSize());
             }
         }
         if (code == KeyCode.I)
@@ -120,7 +115,6 @@ public abstract class PlayerControl {
             }
         }
         if (code == KeyCode.R && Game.getCurrentRoom().getName().equals("recycling"))
-
         {
             try {
                 Parent inventoryWindow = FXMLLoader.load(PlayerControl.class.getResource(sortingFile));
@@ -156,14 +150,6 @@ public abstract class PlayerControl {
                 System.out.println("Cannot find fxml file");
             }
         }
-
-        if (Game.getCurrentRoom().hasWalls()){
-            Barrier wall = Game.getCurrentRoom().getWall();
-            if (player.getImageView().getLayoutY() <= wall.getImageView().getLayoutY() + wall.getImageView().getFitHeight()){
-                player.getImageView().setLayoutY(wall.getH() + wall.getY());
-            }
-        }
-
         if(code== KeyCode.ESCAPE){
             try {
                 Parent pauseWindow = FXMLLoader.load(PlayerControl.class.getResource(pauseFile));
@@ -196,6 +182,16 @@ public abstract class PlayerControl {
                 System.out.println("Cannot find fxml file");
             }
         }
+
+        //Limits the player movement in some rooms
+        if (Game.getCurrentRoom().hasWalls()){
+            Barrier wall = Game.getCurrentRoom().getWall();
+            if (player.getImageView().getLayoutY() <= wall.getImageView().getLayoutY() + wall.getImageView().getFitHeight()){
+                player.getImageView().setLayoutY(wall.getH() + wall.getY());
+            }
+        }
+
+        //Handles transport between rooms
         if (Game.playerCollidesTeleport(player)){
             Teleport currentTP = Game.getClosestTeleporterToPlayer(player);
             if (currentTP != null) {
@@ -206,17 +202,9 @@ public abstract class PlayerControl {
         }
         updateScoreBar(scoreBar);
 
-
         //For testing
-        if (code == KeyCode.K) Game.getWorldPlayer().addToClimateScore(0.5);
-        if (code == KeyCode.L) Game.getWorldPlayer().addToClimateScore(-0.5);
-
-        if (code == KeyCode.SPACE)
-            System.out.println("space");
-        if (code == KeyCode.SHIFT)
-            System.out.println("Shift");
-        if (code == KeyCode.CONTROL)
-            System.out.println("Ctrl");
+        //if (code == KeyCode.K) Game.getWorldPlayer().addToClimateScore(0.5);
+        //if (code == KeyCode.L) Game.getWorldPlayer().addToClimateScore(-0.5);
     }
 
     //Sets popup for currentroom
